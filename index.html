@@ -567,7 +567,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
     <h2 class="h2 rv">FROM QUIZ TO <span>FIRST PR.</span></h2>
     <div class="steps rv">
       <div class="s"><div class="n">01</div><h4>Take The Quiz</h4><p>60 seconds to find your best-fit plan.</p></div>
-      <div class="s"><div class="n">02</div><h4>Book Or Buy</h4><p>Grab a program, or book a free 15-min call for coaching.</p></div>
+      <div class="s"><div class="n">02</div><h4>Book Or Buy</h4><p>Grab a program, or book a free 30-min call for coaching.</p></div>
       <div class="s"><div class="n">03</div><h4>Get Your Plan</h4><p>Custom training + nutrition within 48 hours.</p></div>
       <div class="s"><div class="n">04</div><h4>Train &amp; Progress</h4><p>Check-ins, feedback, and a coach in your corner.</p></div>
     </div>
@@ -596,7 +596,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
   <img src="logo-icon.png" alt="">
   <div class="eyebrow">Start Today</div>
   <h2 class="h2">READY TO REACH<br>YOUR <span>PEAK?</span></h2>
-  <p class="lead">Take the quiz to find your plan, or book a free 15-minute call and talk it through with a coach.</p>
+  <p class="lead">Take the quiz to find your plan, or book a free 30-minute call and talk it through with a coach.</p>
   <div class="hero-actions">
     <a href="#quiz" class="btn btn-gold">Find My Plan</a>
     <a href="#" class="btn btn-line" data-link="calendly">Book Free Call</a>
@@ -626,7 +626,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
    starting with "YOUR_" falls back to emailing you instead.
    ========================================================= */
 const LINKS = {
-  calendly:   "YOUR_CALENDLY_LINK",            // e.g. https://calendly.com/apexdivision/discovery
+  calendly:   "https://calendly.com/jaxonbalmer/30min",
   cut:        "YOUR_STRIPE_CUT_BLUEPRINT_LINK",  // $27
   physique:   "YOUR_STRIPE_APEX_PHYSIQUE_LINK",  // $37
   iron:       "YOUR_STRIPE_IRON_FOUNDATIONS_LINK", // $37
@@ -768,7 +768,7 @@ function render(){
     <ul class="why">${reasons(main).map(x=>`<li>${x}</li>`).join('')}</ul>
     <div class="res-actions">
       <a class="btn btn-gold btn-block" href="${mainHref}" ${mainHref.startsWith('http')?'target="_blank" rel="noopener"':''}>${P.cta} →</a>
-      <div class="res-fine">${P.kind==='call' ? 'Free 15-minute call · We confirm the fit before you pay anything' : 'Instant download · Free Recovery System included'}</div>
+      <div class="res-fine">${P.kind==='call' ? 'Free 30-minute call · We confirm the fit before you pay anything' : 'Instant download · Free Recovery System included'}</div>
     </div>
     <div class="alt">
       <p><b>${Al.name} · ${Al.price}${Al.per==='/mo'?'/mo':''}</b>${Al.kind==='call'?'Want more coaching?':'Prefer another option?'} ${Al.tag}</p>
