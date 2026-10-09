@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Division | Reach Your Peak</title>
+<meta name="description" content="Online coaching for fat loss, muscle, and strength. Take the 60-second quiz to find the plan that fits your goals, schedule, and budget. Coached by Jaxon Balmer and Anthony Bodet.">
+<meta property="og:title" content="Apex Division | Reach Your Peak">
+<meta property="og:description" content="Find your plan in 60 seconds. Online coaching for fat loss, muscle, and strength.">
+<meta property="og:image" content="logo-hero.png">
+<link rel="icon" href="logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#080808;--dark:#0f0f0f;--card:#141414;--card-2:#191919;--border:#232323;
+  --gold:#C9A84C;--gold-light:#E8C97A;--gold-dim:#8a6f2e;
+  --silver:#C0C0C0;--silver-dim:#6a6a6a;
+  --white:#F2F2F2;--gray:#8a8a8a;--muted:#b4b4b4;
+  --grad-gold:linear-gradient(135deg,#C9A84C,#E8C97A);
+  --grad-gs:linear-gradient(135deg,#C9A84C,#C0C0C0);
+  --pad:clamp(16px,5vw,56px);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+.blend{mix-blend-mode:lighten}
+
+/* type */
+.eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600}
+.h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,68px);line-height:.95;letter-spacing:1px;margin-bottom:18px}
+.h2 span{color:var(--gold)}
+.lead{font-size:16px;color:var(--muted);max-width:600px;line-height:1.8}
+section{padding:clamp(72px,10vw,110px) var(--pad)}
+.wrap{max-width:1180px;margin:0 auto}
+.center{text-align:center}.center .lead{margin:0 auto}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;padding:16px 34px;transition:transform .2s,opacity .2s,border-color .2s,color .2s;white-space:nowrap}
+.btn-gold{background:var(--grad-gold);color:var(--black)}
+.btn-gold:hover{opacity:.9;transform:translateY(-2px)}
+.btn-line{border:1px solid #333;color:var(--muted)}
+.btn-line:hover{border-color:var(--gold-dim);color:var(--gold)}
+.btn-block{width:100%}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:12px var(--pad);background:rgba(8,8,8,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-logo img{height:40px;width:auto}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gray);transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav .btn{padding:11px 22px;font-size:11px}
+
+/* hero */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:110px var(--pad) 0;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 38%,rgba(201,168,76,.10),transparent 65%);pointer-events:none}
+.hero-logo{width:min(560px,88vw);margin-bottom:28px;animation:glow 3.2s ease-in-out infinite alternate}
+@keyframes glow{
+  from{filter:drop-shadow(0 0 22px rgba(201,168,76,.18)) drop-shadow(0 0 60px rgba(192,192,192,.05))}
+  to{filter:drop-shadow(0 0 46px rgba(201,168,76,.42)) drop-shadow(0 0 120px rgba(201,168,76,.16))}
+}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(46px,8vw,96px);line-height:.92;letter-spacing:2px;margin-bottom:20px;position:relative}
+.hero h1 .outline{color:transparent;-webkit-text-stroke:1px var(--silver)}
+.hero p{font-size:17px;color:var(--muted);max-width:560px;margin:0 auto 34px;position:relative}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;position:relative}
+.hero-note{margin-top:16px;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gray);position:relative}
+.stat-bar{display:grid;grid-template-columns:repeat(4,1fr);width:100%;max-width:1180px;margin-top:64px;border:1px solid var(--border);border-bottom:none;position:relative}
+.stat{padding:20px 12px;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat b{display:block;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:34px;line-height:1;background:var(--grad-gs);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat span{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gray)}
+
+/* who it's for */
+.who{background:var(--dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.who-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:48px}
+.who-card{background:var(--card);padding:30px 22px;transition:background .2s}
+.who-card:hover{background:var(--card-2)}
+.who-card svg{width:30px;height:30px;stroke:var(--gold);fill:none;stroke-width:1.6;margin-bottom:16px}
+.who-card h3{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.who-card p{font-size:13px;color:var(--gray);line-height:1.7}
+
+/* QUIZ */
+.quiz-sec{position:relative}
+.quiz-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 30%,rgba(201,168,76,.06),transparent 70%);pointer-events:none}
+.quiz{max-width:760px;margin:44px auto 0;background:var(--card);border:1px solid var(--border);position:relative;overflow:hidden}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;padding:18px 26px;border-bottom:1px solid var(--border);font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gray)}
+.quiz-top b{color:var(--gold);font-weight:700}
+.quiz-back{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gray);visibility:hidden}
+.quiz-back:hover{color:var(--gold)}
+.quiz-bar{height:3px;background:#1d1d1d}
+.quiz-bar i{display:block;height:100%;width:0;background:var(--grad-gold);transition:width .45s ease}
+.quiz-body{padding:36px 26px 32px;min-height:440px}
+.step{display:none;animation:stepIn .4s ease}
+.step.on{display:block}
+@keyframes stepIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.q{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,5vw,42px);line-height:1;letter-spacing:1px;margin-bottom:8px}
+.q-sub{font-size:14px;color:var(--gray);margin-bottom:26px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{text-align:left;display:flex;gap:14px;align-items:center;padding:16px 18px;border:1px solid #2a2a2a;background:#111;transition:border-color .2s,background .2s,transform .15s}
+.opt:hover{border-color:var(--gold-dim);background:#161410}
+.opt:active{transform:scale(.98)}
+.opt.sel{border-color:var(--gold);background:#1a1710}
+.opt .ic{flex:none;width:40px;height:40px;border:1px solid #2e2e2e;display:grid;place-items:center;font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--gold)}
+.opt.sel .ic{background:var(--grad-gold);color:var(--black);border-color:transparent}
+.opt strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.opt small{display:block;font-size:12.5px;color:var(--gray);line-height:1.45}
+.name-row{display:flex;gap:10px;margin-top:6px}
+.name-row input{flex:1;background:#0c0c0c;border:1px solid #2a2a2a;color:var(--white);font:inherit;font-size:16px;padding:15px 16px;outline:none;transition:border-color .2s}
+.name-row input:focus{border-color:var(--gold)}
+.skip{display:inline-block;margin-top:14px;font-size:13px;color:var(--gray);text-decoration:underline;text-underline-offset:3px}
+.skip:hover{color:var(--gold)}
+
+/* loading */
+.calc{text-align:center;padding:70px 0}
+.calc img{width:90px;margin:0 auto 22px;animation:pulse 1s ease-in-out infinite alternate}
+@keyframes pulse{from{opacity:.4;transform:scale(.95)}to{opacity:1;transform:scale(1.04)}}
+.calc p{font-family:'Barlow Condensed',sans-serif;letter-spacing:4px;text-transform:uppercase;font-size:13px;color:var(--gold)}
+
+/* result */
+.res-kicker{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.res-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,7vw,58px);line-height:.95;margin-bottom:6px}
+.res-price{font-family:'Bebas Neue',sans-serif;font-size:44px;line-height:1;background:var(--grad-gs);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
+.res-price small{font-size:20px;-webkit-text-fill-color:var(--gray)}
+.res-tag{font-size:14px;color:var(--muted);font-style:italic;margin:6px 0 22px}
+.match{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.match-bar{flex:1;height:6px;background:#1d1d1d;overflow:hidden}
+.match-bar i{display:block;height:100%;width:0;background:var(--grad-gold);transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.match span{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);min-width:92px;text-align:right}
+.why{list-style:none;margin-bottom:26px;border-top:1px solid var(--border)}
+.why li{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--muted)}
+.why li::before{content:'✦';color:var(--gold);font-size:10px;margin-top:5px}
+.res-actions{display:grid;gap:10px}
+.res-fine{font-size:12px;color:var(--gray);text-align:center;margin-top:4px}
+.alt{margin-top:26px;padding:18px;border:1px dashed #333;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.alt p{font-size:13px;color:var(--gray)}
+.alt b{display:block;font-family:'Barlow Condensed',sans-serif;font-size:16px;letter-spacing:1px;text-transform:uppercase;color:var(--white);font-weight:700}
+.alt a{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold-dim)}
+.retake{display:block;margin:22px auto 0;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gray)}
+.retake:hover{color:var(--gold)}
+
+/* packages */
+.sub-head{display:flex;align-items:center;gap:14px;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin:64px 0 22px;font-weight:600}
+.sub-head::after{content:'';flex:1;height:1px;background:var(--border)}
+.grid{display:grid;gap:1px;background:var(--border);border:1px solid var(--border)}
+.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}
+.pcard{background:var(--card);padding:30px 24px;display:flex;flex-direction:column;transition:background .2s}
+.pcard:hover{background:var(--card-2)}
+.badge{align-self:flex-start;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:700;background:var(--grad-gold);color:var(--black);padding:3px 10px;margin-bottom:16px}
+.pcard h4{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px;line-height:1;margin-bottom:6px}
+.pcard .price{font-family:'Barlow Condensed',sans-serif;font-size:14px;color:var(--gold);letter-spacing:1px;margin-bottom:12px}
+.pcard p{font-size:13px;color:var(--gray);line-height:1.7;margin-bottom:22px;flex:1}
+.plink{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);align-self:flex-start;border-bottom:1px solid var(--gold-dim);padding-bottom:2px}
+.pcard.cover{padding:0}
+.pcard.cover img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top}
+.pcard.cover .in{padding:22px 24px 28px}
+
+.tier{background:var(--card);padding:40px 30px;position:relative;display:flex;flex-direction:column}
+.tier.feat{background:#121110;box-shadow:inset 0 3px 0 var(--gold)}
+.feat-label{position:absolute;top:0;right:24px;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:700;background:var(--grad-gold);color:var(--black);padding:5px 12px}
+.tier .t-num{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gray)}
+.tier h3{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:1px}
+.tier .t-price{font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;background:var(--grad-gs);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;align-self:flex-start}
+.tier .t-price small{font-size:22px;-webkit-text-fill-color:var(--gray)}
+.tier .t-for{font-size:13px;color:var(--gray);padding:10px 0 20px;border-bottom:1px solid var(--border);margin-bottom:6px}
+.tier ul{list-style:none;margin-bottom:28px;flex:1}
+.tier li{font-size:13px;color:var(--muted);padding:9px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;line-height:1.5}
+.tier li:last-child{border-bottom:none}
+.tier li::before{content:'✦';color:var(--gold-dim);font-size:9px;margin-top:4px}
+
+.tier.coll{display:grid;grid-template-columns:1fr 1.2fr;gap:32px;align-items:start}
+.transform{margin-top:64px;display:grid;grid-template-columns:1.1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.transform > div{background:var(--card);padding:44px 36px}
+.transform h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,6vw,72px);line-height:.92;margin:6px 0 16px}
+.transform h3 span{color:var(--gold)}
+.transform p{color:var(--gray);font-size:15px;margin-bottom:22px}
+.big-price{font-family:'Bebas Neue',sans-serif;font-size:72px;line-height:1;background:var(--grad-gs);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
+.transform ul{list-style:none}
+.transform li{font-size:14px;color:var(--muted);padding:12px 0;border-bottom:1px solid var(--border);display:flex;gap:12px}
+.transform li::before{content:'✦';color:var(--gold-dim);font-size:9px;margin-top:5px}
+
+.addons{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.addon{background:var(--card);padding:22px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.addon b{font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:.5px;text-transform:uppercase;font-weight:700;display:block}
+.addon small{font-size:12px;color:var(--gray)}
+.addon .ap{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold)}
+
+/* coaches */
+.coaches{background:var(--dark);border-top:1px solid var(--border)}
+.team{position:relative;margin:44px 0 0;overflow:hidden;border:1px solid var(--border)}
+.team img{width:100%;aspect-ratio:2/1;object-fit:cover;object-position:50% 30%}
+.team::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--dark) 0%,transparent 22%,transparent 78%,var(--dark) 100%),linear-gradient(to top,var(--dark) 0%,transparent 35%);pointer-events:none}
+.team figcaption{position:absolute;left:0;right:0;bottom:22px;z-index:1;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--muted)}
+.bios{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-top:none}
+.bio{background:var(--card);padding:36px 32px}
+.bio .role{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700}
+.bio h3{font-family:'Bebas Neue',sans-serif;font-size:44px;line-height:1;margin:4px 0 14px}
+.bio p{font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:12px}
+.bio ul{list-style:none;margin-top:16px}
+.bio li{font-size:13px;color:var(--muted);padding:8px 0;border-top:1px solid var(--border);display:flex;gap:10px}
+.bio li::before{content:'—';color:var(--gold-dim)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:52px;position:relative}
+.steps::before{content:'';position:absolute;top:29px;left:12%;right:12%;height:1px;background:var(--border)}
+.s{text-align:center}
+.s .n{width:58px;height:58px;margin:0 auto 18px;border:1px solid var(--gold-dim);background:var(--card);display:grid;place-items:center;font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--gold);position:relative}
+.s h4{font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.s p{font-size:13px;color:var(--gray)}
+
+/* faq */
+.faq{max-width:780px;margin:40px auto 0}
+.fq{border-bottom:1px solid var(--border)}
+.fq button{width:100%;text-align:left;display:flex;justify-content:space-between;gap:16px;padding:20px 0;font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;letter-spacing:.5px}
+.fq button:hover{color:var(--gold)}
+.fq button span{color:var(--gold);font-size:22px;line-height:1;transition:transform .3s}
+.fq.open button span{transform:rotate(45deg)}
+.fq .a{max-height:0;overflow:hidden;transition:max-height .35s ease;font-size:14px;color:var(--gray);line-height:1.8}
+.fq.open .a{max-height:320px;padding-bottom:20px}
+
+/* cta */
+.cta{text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--border)}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(201,168,76,.08),transparent 70%)}
+.cta img{width:96px;margin:0 auto 24px;animation:glow 3.2s ease-in-out infinite alternate;position:relative}
+.cta .h2{font-size:clamp(48px,8vw,96px);position:relative}
+.cta .lead{position:relative;margin:0 auto 32px}
+.cta .hero-actions{position:relative}
+
+/* footer */
+footer{background:var(--dark);border-top:1px solid var(--border);padding:48px var(--pad) 32px}
+.f-top{max-width:1180px;margin:0 auto 32px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.f-brand img{height:44px;width:auto;margin-bottom:14px}
+.f-brand p{font-size:13px;color:var(--gray);max-width:260px}
+.f-col h5{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:700}
+.f-col a{display:block;font-size:13px;color:var(--gray);margin-bottom:9px;transition:color .2s}
+.f-col a:hover{color:var(--gold)}
+.f-bot{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--gray);letter-spacing:1px}
+.f-bot .soc{display:flex;gap:20px}
+.f-bot .soc a{font-family:'Barlow Condensed',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:11px}
+.f-bot .soc a:hover{color:var(--gold)}
+
+/* sticky mobile cta */
+.mcta{display:none}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.rv.vis{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.hero-logo,.cta img{animation:none}}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);opacity:0;background:#1a1710;border:1px solid var(--gold-dim);color:var(--white);padding:14px 20px;font-size:14px;z-index:300;transition:all .3s;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%)}
+
+/* responsive */
+@media (max-width:1000px){
+  .who-grid{grid-template-columns:repeat(2,1fr)}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .g3,.transform,.bios,.tier.coll{grid-template-columns:1fr}
+  .addons{grid-template-columns:repeat(2,1fr)}
+  .f-top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .nav-links{display:none}
+  .nav-logo img{height:34px}
+  .nav .btn{padding:10px 14px;letter-spacing:2px}
+  .hero{padding-top:96px}
+  .stat-bar{grid-template-columns:repeat(2,1fr);margin-top:48px}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--border)}
+  .who-grid{grid-template-columns:1fr}
+  .who-card{display:grid;grid-template-columns:36px 1fr;gap:4px 14px;padding:22px 18px}
+  .who-card svg{grid-row:span 2;margin:2px 0 0}
+  .opts{grid-template-columns:1fr}
+  .quiz-body{padding:28px 18px 26px;min-height:0}
+  .quiz-top{padding:16px 18px}
+  .name-row{flex-direction:column}
+  .g4,.addons{grid-template-columns:1fr}
+  .pcard.cover img{aspect-ratio:16/10}
+  .transform > div{padding:32px 22px}
+  .tier{padding:34px 22px}
+  .team img{aspect-ratio:4/3;object-position:45% 30%}
+  .bio{padding:28px 20px}
+  .steps{grid-template-columns:1fr 1fr;gap:34px 16px}
+  .steps::before{display:none}
+  .f-top{grid-template-columns:1fr}
+  .btn{padding:16px 24px}
+  .hero-actions .btn{width:100%}
+  .mcta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:90;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(8,8,8,.95);border-top:1px solid var(--border);transform:translateY(110%);transition:transform .3s}
+  .mcta.show{transform:none}
+  .mcta .btn{width:100%}
+  footer{padding-bottom:96px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#top" class="nav-logo"><img src="logo-wide.png" alt="Apex Division"></a>
+  <ul class="nav-links">
+    <li><a href="#quiz">Find Your Plan</a></li>
+    <li><a href="#packages">Programs</a></li>
+    <li><a href="#coaching">Coaching</a></li>
+    <li><a href="#coaches">Coaches</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#quiz" class="btn btn-gold">Take The Quiz</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <img src="logo-hero.png" alt="Apex Division — Reach Your Peak With Apex Division" class="hero-logo">
+  <h1>YOUR GOAL.<br><span class="outline">YOUR PLAN.</span></h1>
+  <p>Lose fat, build muscle, get strong, or just finally start. Answer 6 quick questions and we'll match you with the plan that fits your goals, your schedule, and your budget.</p>
+  <div class="hero-actions">
+    <a href="#quiz" class="btn btn-gold">Find My Plan — 60 Sec</a>
+    <a href="#" class="btn btn-line" data-link="calendly">Book A Free Call</a>
+  </div>
+  <div class="hero-note">No pressure · No commitment · Free</div>
+  <div class="stat-bar">
+    <div class="stat"><b>Every</b><span>Fitness Level</span></div>
+    <div class="stat"><b>100%</b><span>Custom Plans</span></div>
+    <div class="stat"><b>48HR</b><span>Plan Delivery</span></div>
+    <div class="stat"><b>$0</b><span>Discovery Call</span></div>
+  </div>
+</header>
+
+<!-- WHO -->
+<section class="who">
+  <div class="wrap">
+    <div class="eyebrow rv">Who We Coach</div>
+    <h2 class="h2 rv">WHEREVER YOU'RE <span>STARTING.</span></h2>
+    <p class="lead rv">You don't need to be a bodybuilder or a powerlifter. You just need a goal. We build the plan around your life — not the other way around.</p>
+    <div class="who-grid rv">
+      <div class="who-card"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 10l7-7 7 7"/></svg><h3>First-Timers</h3><p>Never followed a real program? We'll teach you the basics and build confidence in the gym.</p></div>
+      <div class="who-card"><svg viewBox="0 0 24 24"><path d="M4 19l6-6 4 4 6-8"/><path d="M14 9h6v6"/></svg><h3>Fat Loss</h3><p>Lose weight without crash diets. Flexible nutrition and training you can actually stick to.</p></div>
+      <div class="who-card"><svg viewBox="0 0 24 24"><path d="M3 12h3M18 12h3M6 8v8M18 8v8M9 10v4M15 10v4M9 12h6"/></svg><h3>Build Muscle</h3><p>Add size and shape with smart volume, progressive overload, and eating for growth.</p></div>
+      <div class="who-card"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 16l-6.5 4.5 2-7L2 9h7z"/></svg><h3>Get Strong</h3><p>Bigger squat, bench, and deadlift with RPE-based programming from a national-level lifter.</p></div>
+      <div class="who-card"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4zM7 6H4v2a3 3 0 003 3M17 6h3v2a3 3 0 01-3 3"/></svg><h3>Competitors</h3><p>Meet prep and stage prep from coaches who compete. Peaking, posing, and the details.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz-sec" id="quiz">
+  <div class="wrap center">
+    <div class="eyebrow rv">The Apex Match</div>
+    <h2 class="h2 rv">FIND YOUR <span>PLAN.</span></h2>
+    <p class="lead rv">Six questions. Sixty seconds. We'll tell you exactly which program or coaching tier fits — and why.</p>
+  </div>
+
+  <div class="quiz rv" id="quizBox">
+    <div class="quiz-top">
+      <button class="quiz-back" id="qBack">← Back</button>
+      <div id="qCount">Question <b>1</b> of 6</div>
+    </div>
+    <div class="quiz-bar"><i id="qBar"></i></div>
+    <div class="quiz-body">
+
+      <div class="step on" data-step="goal">
+        <div class="q">What's your #1 goal?</div>
+        <div class="q-sub">Pick the one that matters most right now.</div>
+        <div class="opts">
+          <button class="opt" data-v="fat"><span class="ic">01</span><span><strong>Lose Fat</strong><small>Drop weight and feel better in my body</small></span></button>
+          <button class="opt" data-v="muscle"><span class="ic">02</span><span><strong>Build Muscle</strong><small>Get bigger, more defined, more shape</small></span></button>
+          <button class="opt" data-v="strength"><span class="ic">03</span><span><strong>Get Stronger</strong><small>Move more weight on the big lifts</small></span></button>
+          <button class="opt" data-v="start"><span class="ic">04</span><span><strong>Just Get Started</strong><small>Build healthy habits and confidence</small></span></button>
+          <button class="opt" data-v="compete"><span class="ic">05</span><span><strong>Compete</strong><small>Powerlifting meet or physique show</small></span></button>
+          <button class="opt" data-v="recomp"><span class="ic">06</span><span><strong>A Bit Of Everything</strong><small>Lose fat AND build muscle</small></span></button>
+        </div>
+      </div>
+
+      <div class="step" data-step="exp">
+        <div class="q">How long have you been training?</div>
+        <div class="q-sub">Be honest — there's no wrong answer.</div>
+        <div class="opts">
+          <button class="opt" data-v="new"><span class="ic">0</span><span><strong>Brand New</strong><small>Little or no gym experience</small></span></button>
+          <button class="opt" data-v="some"><span class="ic">1</span><span><strong>Under A Year</strong><small>I go, but I'm not sure I'm doing it right</small></span></button>
+          <button class="opt" data-v="mid"><span class="ic">2</span><span><strong>1–3 Years</strong><small>Consistent, but progress has slowed</small></span></button>
+          <button class="opt" data-v="adv"><span class="ic">3+</span><span><strong>3+ Years</strong><small>Experienced and want to level up</small></span></button>
+        </div>
+      </div>
+
+      <div class="step" data-step="days">
+        <div class="q">How many days a week can you train?</div>
+        <div class="q-sub">Realistically — on a normal busy week.</div>
+        <div class="opts">
+          <button class="opt" data-v="2"><span class="ic">2–3</span><span><strong>2–3 Days</strong><small>Busy schedule, need efficient sessions</small></span></button>
+          <button class="opt" data-v="4"><span class="ic">4</span><span><strong>4 Days</strong><small>A solid, steady routine</small></span></button>
+          <button class="opt" data-v="5"><span class="ic">5+</span><span><strong>5+ Days</strong><small>The gym is part of my lifestyle</small></span></button>
+          <button class="opt" data-v="home"><span class="ic">⌂</span><span><strong>It Varies</strong><small>Travel, shifts, or limited equipment</small></span></button>
+        </div>
+      </div>
+
+      <div class="step" data-step="support">
+        <div class="q">How much support do you want?</div>
+        <div class="q-sub">This is the biggest factor in what fits you.</div>
+        <div class="opts">
+          <button class="opt" data-v="plan"><span class="ic">A</span><span><strong>Just The Plan</strong><small>Give me a proven program — I'll run it</small></span></button>
+          <button class="opt" data-v="community"><span class="ic">B</span><span><strong>A Team</strong><small>Structure plus a group to keep me going</small></span></button>
+          <button class="opt" data-v="weekly"><span class="ic">C</span><span><strong>Weekly Coaching</strong><small>A coach who checks in and adjusts my plan</small></span></button>
+          <button class="opt" data-v="pocket"><span class="ic">D</span><span><strong>Coach In My Pocket</strong><small>Daily access, calls, form checks — all in</small></span></button>
+        </div>
+      </div>
+
+      <div class="step" data-step="budget">
+        <div class="q">What's your monthly budget?</div>
+        <div class="q-sub">We'll match you to the best value at your level.</div>
+        <div class="opts">
+          <button class="opt" data-v="50"><span class="ic">$</span><span><strong>Under $50</strong><small>Keep it lean</small></span></button>
+          <button class="opt" data-v="150"><span class="ic">$$</span><span><strong>$50 – $150</strong><small>Ready to invest a little</small></span></button>
+          <button class="opt" data-v="250"><span class="ic">$$$</span><span><strong>$150 – $250</strong><small>Serious about results</small></span></button>
+          <button class="opt" data-v="max"><span class="ic">∞</span><span><strong>Whatever It Takes</strong><small>Results matter most</small></span></button>
+        </div>
+      </div>
+
+      <div class="step" data-step="name">
+        <div class="q">Last one — what's your first name?</div>
+        <div class="q-sub">So we can build your result for you.</div>
+        <form class="name-row" id="nameForm">
+          <input type="text" id="nameIn" placeholder="First name" autocomplete="given-name" maxlength="30">
+          <button class="btn btn-gold" type="submit">See My Plan →</button>
+        </form>
+        <button class="skip" id="skipName">Skip and show my result</button>
+      </div>
+
+      <div class="step" data-step="calc">
+        <div class="calc"><img src="logo-icon.png" alt=""><p id="calcTxt">Analyzing your goals…</p></div>
+      </div>
+
+      <div class="step" data-step="result" id="result"></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages" style="background:var(--dark);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="eyebrow rv">Programs &amp; Coaching</div>
+    <h2 class="h2 rv">EVERY BUDGET. <span>EVERY GOAL.</span></h2>
+    <p class="lead rv">Start with a self-guided program, join the team, or work 1-on-1 with a coach. Not sure? <a href="#quiz" style="color:var(--gold);border-bottom:1px solid var(--gold-dim)">Take the quiz.</a></p>
+
+    <div class="sub-head rv">Digital Programs · One-Time</div>
+    <div class="grid g4 rv">
+      <div class="pcard"><span class="badge">Fat Loss</span><h4>The Cut Blueprint</h4><div class="price">$27 — One Time</div><p>8-week fat loss system. Flexible calorie strategy, simple cardio, and training that keeps your muscle while the fat comes off.</p><a href="#" class="plink" data-link="cut">Get The Program →</a></div>
+      <div class="pcard"><span class="badge">Muscle</span><h4>Apex Physique</h4><div class="price">$37 — One Time</div><p>12-week muscle-building program in three phases. Great for beginners through intermediates who want size and shape.</p><a href="#" class="plink" data-link="physique">Get The Program →</a></div>
+      <div class="pcard"><span class="badge">Strength</span><h4>Iron Foundations</h4><div class="price">$37 — One Time</div><p>10-week RPE-based strength program for squat, bench, and deadlift. Ends with a mock meet to test your new numbers.</p><a href="#" class="plink" data-link="iron">Get The Program →</a></div>
+      <div class="pcard cover"><img src="cover-recovery.jpg" alt="Apex Recovery System guide cover" loading="lazy"><div class="in"><span class="badge">Free Bonus</span><h4>Recovery System</h4><div class="price">Included With Every Program</div><p style="margin-bottom:0">Sleep, hydration, mobility, deloads, and a daily recovery score.</p></div></div>
+    </div>
+
+    <div class="sub-head rv">Group Coaching</div>
+    <div class="grid rv" style="grid-template-columns:1fr">
+      <div class="tier coll" id="collective">
+        <div>
+          <div class="t-num">Community</div>
+          <h3>Apex Collective</h3>
+          <div class="t-price">$49<small>/mo</small></div>
+          <div class="t-for" style="border:none">Cancel anytime · Capped at 30 members</div>
+          <p style="font-size:14px;color:var(--gray);font-style:italic;margin-bottom:22px">Real coaching structure and a team behind you — without the 1-on-1 price.</p>
+          <a href="#" class="btn btn-gold" data-link="collective">Join The Collective</a>
+        </div>
+        <ul style="margin:0">
+          <li>New monthly program — Fat Loss, Muscle, or Strength track</li>
+          <li>Private members-only group chat</li>
+          <li>Monthly live Zoom Q&amp;A with both coaches</li>
+          <li>Group form-check submissions every week</li>
+          <li>Nutrition guidelines and macro targets</li>
+          <li>Full digital program library included</li>
+          <li>Member discount on 1-on-1 upgrades</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sub-head rv" id="coaching">1-on-1 Coaching · Monthly</div>
+    <div class="grid g3 rv">
+      <div class="tier">
+        <div class="t-num">Tier 01</div><h3>Starter</h3>
+        <div class="t-price">$149<small>/mo</small></div>
+        <div class="t-for">For self-starters who want a real plan and accountability.</div>
+        <ul><li>Custom monthly training program</li><li>Macro targets + nutrition framework</li><li>Bi-weekly check-ins with coach feedback</li><li>Monthly program adjustments</li><li>Email support — 48hr response</li></ul>
+        <a href="#" class="btn btn-line btn-block" data-link="calendly" data-tier="Starter">Apply — Starter</a>
+      </div>
+      <div class="tier feat">
+        <span class="feat-label">Most Popular</span>
+        <div class="t-num">Tier 02</div><h3>Standard</h3>
+        <div class="t-price">$199<small>/mo</small></div>
+        <div class="t-for">The full coaching experience — a coach who adjusts every week.</div>
+        <ul><li>Weekly programming updated in real time</li><li>Weekly macro adjustments</li><li>Weekly check-in with written feedback</li><li>2 form video reviews per month</li><li>DM access — 24hr response</li><li>Monthly Zoom call</li><li>Progress tracking — strength, weight, measurements</li></ul>
+        <a href="#" class="btn btn-gold btn-block" data-link="calendly" data-tier="Standard">Apply — Standard</a>
+      </div>
+      <div class="tier">
+        <div class="t-num">Tier 03</div><h3>Elite</h3>
+        <div class="t-price">$249<small>/mo</small></div>
+        <div class="t-for">For competitors and anyone who wants their coach fully dialed in.</div>
+        <ul><li>Daily programming with real-time changes</li><li>Daily nutrition adjustments</li><li>Two Zoom calls per week</li><li>Unlimited form video reviews</li><li>Priority DM access — same-day response</li><li>Meet and show prep included</li><li>Monthly progress report</li></ul>
+        <a href="#" class="btn btn-line btn-block" data-link="calendly" data-tier="Elite">Apply — Elite</a>
+      </div>
+    </div>
+
+    <div class="transform rv" id="transformation">
+      <div>
+        <span class="badge">Premium · One-Time</span>
+        <h3>12 Week<br><span>Total</span><br>Transformation</h3>
+        <p>Go all in. Twelve weeks of Elite-level coaching focused on one result, with a kickoff assessment and final review.</p>
+        <div class="big-price">$599</div>
+        <div style="font-size:12px;color:var(--gray);margin:2px 0 24px">One payment · Everything included</div>
+        <a href="#" class="btn btn-gold" data-link="calendly" data-tier="12 Week Transformation">Apply For Transformation</a>
+      </div>
+      <div>
+        <ul>
+          <li>Full 12 weeks of Elite 1-on-1 coaching</li>
+          <li>Kickoff assessment call + final review call</li>
+          <li>Training updated every two weeks</li>
+          <li>Weekly nutrition adjustments</li>
+          <li>Before-and-after photo tracking</li>
+          <li>Unlimited form reviews</li>
+          <li>Priority coach access the whole way</li>
+          <li>Lifetime access to every Apex digital program</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sub-head rv">Add-Ons</div>
+    <div class="addons rv">
+      <div class="addon"><div><b>Extra Zoom Call</b><small>1-on-1, outside check-ins</small></div><div class="ap">$25</div></div>
+      <div class="addon"><div><b>7-Day Meal Plan</b><small>Built around your macros</small></div><div class="ap">$30</div></div>
+      <div class="addon"><div><b>Meet Prep Block</b><small>Competition peaking</small></div><div class="ap">$75</div></div>
+      <div class="addon"><div><b>Form Check</b><small>Video breakdown of any lift</small></div><div class="ap">$15</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COACHES -->
+<section class="coaches" id="coaches">
+  <div class="wrap">
+    <div class="eyebrow rv">Your Coaches</div>
+    <h2 class="h2 rv">REAL COACHES. <span>REAL RESULTS.</span></h2>
+    <p class="lead rv">Whether you want to lose weight, build muscle, get stronger, or step on stage — we've lived it. Two coaches. Every goal. No judgment on where you're starting.</p>
+    <figure class="team rv">
+      <img src="team.jpg" alt="Jaxon Balmer and Anthony Bodet, founders of Apex Division" loading="lazy">
+      <figcaption>Jaxon Balmer &nbsp;·&nbsp; Anthony Bodet</figcaption>
+    </figure>
+    <div class="bios rv">
+      <div class="bio">
+        <div class="role">Co-Founder · Physique &amp; Fat Loss</div>
+        <h3>Jaxon Balmer</h3>
+        <p>Jaxon is a personal trainer who works with everyone from total beginners to physique competitors. His focus: building muscle, losing fat, and making the process simple enough that you actually stick with it.</p>
+        <ul><li>Muscle building and body recomposition</li><li>Fat loss without crash diets</li><li>Beginner programming and gym confidence</li><li>Physique competition prep</li></ul>
+      </div>
+      <div class="bio">
+        <div class="role">Co-Founder · Strength &amp; Performance</div>
+        <h3>Anthony Bodet</h3>
+        <p>Anthony is a national-level powerlifter. He coaches strength the way he trains — by the numbers, with clean technique, and smart recovery so you keep progressing for years.</p>
+        <ul><li>Squat, bench, and deadlift technique</li><li>RPE-based strength programming</li><li>Meet prep and peaking</li><li>Training around injuries and fatigue</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="wrap center">
+    <div class="eyebrow rv">How It Works</div>
+    <h2 class="h2 rv">FROM QUIZ TO <span>FIRST PR.</span></h2>
+    <div class="steps rv">
+      <div class="s"><div class="n">01</div><h4>Take The Quiz</h4><p>60 seconds to find your best-fit plan.</p></div>
+      <div class="s"><div class="n">02</div><h4>Book Or Buy</h4><p>Grab a program, or book a free 15-min call for coaching.</p></div>
+      <div class="s"><div class="n">03</div><h4>Get Your Plan</h4><p>Custom training + nutrition within 48 hours.</p></div>
+      <div class="s"><div class="n">04</div><h4>Train &amp; Progress</h4><p>Check-ins, feedback, and a coach in your corner.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:var(--dark);border-top:1px solid var(--border)">
+  <div class="wrap center">
+    <div class="eyebrow rv">FAQ</div>
+    <h2 class="h2 rv">COMMON <span>QUESTIONS.</span></h2>
+  </div>
+  <div class="faq rv">
+    <div class="fq"><button>I'm a complete beginner. Is this for me?<span>+</span></button><div class="a">Absolutely. A big part of who we coach is people just getting started. We'll teach you the movements, set realistic goals, and build your confidence in the gym from day one.</div></div>
+    <div class="fq"><button>I just want to lose weight — not be a bodybuilder.<span>+</span></button><div class="a">Perfect. Most people want to lose fat and feel better, and that's exactly what we build for. No stage, no extreme diets — just training and eating that fits your life.</div></div>
+    <div class="fq"><button>What equipment do I need?<span>+</span></button><div class="a">A commercial gym is ideal, but we can build around a home gym or limited equipment. Tell us what you have and we'll program around it.</div></div>
+    <div class="fq"><button>Why not just use AI or YouTube?<span>+</span></button><div class="a">They can give you a workout. They can't notice you went quiet for a week and check on you, watch your squat and fix your depth, or change your plan when recovery falls behind. That accountability is what gets results.</div></div>
+    <div class="fq"><button>What if I have an injury or limitation?<span>+</span></button><div class="a">Tell us on the call and we build around it. Every coaching plan is customized to your history, mobility, and equipment.</div></div>
+    <div class="fq"><button>Can I cancel?<span>+</span></button><div class="a">Yes. Monthly coaching and the Collective can be cancelled anytime — no long-term contracts. The 12 Week Transformation is a one-time payment that runs its full length.</div></div>
+    <div class="fq"><button>How fast will I see results?<span>+</span></button><div class="a">Strength usually improves within 2–4 weeks. Visible body changes typically show around weeks 6–8 with consistent training and nutrition.</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <img src="logo-icon.png" alt="">
+  <div class="eyebrow">Start Today</div>
+  <h2 class="h2">READY TO REACH<br>YOUR <span>PEAK?</span></h2>
+  <p class="lead">Take the quiz to find your plan, or book a free 15-minute call and talk it through with a coach.</p>
+  <div class="hero-actions">
+    <a href="#quiz" class="btn btn-gold">Find My Plan</a>
+    <a href="#" class="btn btn-line" data-link="calendly">Book Free Call</a>
+  </div>
+</section>
+
+<footer>
+  <div class="f-top">
+    <div class="f-brand"><img src="logo-wide.png" alt="Apex Division"><p>Online coaching for fat loss, muscle, and strength. Every level welcome.</p></div>
+    <div class="f-col"><h5>Programs</h5><a href="#" data-link="cut">Cut Blueprint — $27</a><a href="#" data-link="physique">Apex Physique — $37</a><a href="#" data-link="iron">Iron Foundations — $37</a><a href="#" data-link="collective">Apex Collective — $49/mo</a></div>
+    <div class="f-col"><h5>Coaching</h5><a href="#coaching">Starter — $149/mo</a><a href="#coaching">Standard — $199/mo</a><a href="#coaching">Elite — $249/mo</a><a href="#transformation">Transformation — $599</a></div>
+    <div class="f-col"><h5>Company</h5><a href="#quiz">Find Your Plan</a><a href="#faq">FAQ</a><a href="#" data-link="terms">Terms of Service</a><a href="#" data-link="privacy">Privacy Policy</a><a href="#" data-link="email" id="emailLink">Email Us</a></div>
+  </div>
+  <div class="f-bot">
+    <div>© 2026 Apex Division LLC · Louisiana</div>
+    <div class="soc"><a href="#" data-link="instagram">Instagram</a><a href="#" data-link="tiktok">TikTok</a><a href="#" data-link="youtube">YouTube</a></div>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta"><a href="#quiz" class="btn btn-gold">Find My Plan — 60 Sec</a></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================================================
+   EDIT YOUR LINKS HERE — this is the only place to change them.
+   Paste each real link between the quotes. Anything still
+   starting with "YOUR_" falls back to emailing you instead.
+   ========================================================= */
+const LINKS = {
+  calendly:   "YOUR_CALENDLY_LINK",            // e.g. https://calendly.com/apexdivision/discovery
+  cut:        "YOUR_STRIPE_CUT_BLUEPRINT_LINK",  // $27
+  physique:   "YOUR_STRIPE_APEX_PHYSIQUE_LINK",  // $37
+  iron:       "YOUR_STRIPE_IRON_FOUNDATIONS_LINK", // $37
+  collective: "YOUR_STRIPE_COLLECTIVE_LINK",     // $49/mo
+  terms:      "YOUR_TERMS_LINK",
+  privacy:    "YOUR_PRIVACY_LINK",
+  instagram:  "YOUR_INSTAGRAM_LINK",
+  tiktok:     "YOUR_TIKTOK_LINK",
+  youtube:    "YOUR_YOUTUBE_LINK",
+  email:      "coaches@apexdivision.com"
+};
+/* ========================================================= */
+
+const isSet = k => LINKS[k] && !LINKS[k].startsWith('YOUR_');
+const mailto = subj => `mailto:${LINKS.email}?subject=${encodeURIComponent(subj)}`;
+const LABELS = {calendly:'Free discovery call',cut:'Cut Blueprint',physique:'Apex Physique',iron:'Iron Foundations',collective:'Apex Collective',terms:'Terms of Service',privacy:'Privacy Policy'};
+
+function hrefFor(key, extra){
+  if(key==='email') return mailto('Apex Division inquiry');
+  if(isSet(key)){
+    if(key==='calendly' && extra){
+      const u = new URL(LINKS.calendly);
+      if(extra.name) u.searchParams.set('name', extra.name);
+      if(extra.note) u.searchParams.set('a1', extra.note);
+      return u.toString();
+    }
+    return LINKS[key];
+  }
+  if(['instagram','tiktok','youtube'].includes(key)) return null;
+  return mailto(`${LABELS[key]||'Question'}${extra&&extra.tier?' — '+extra.tier:''}`);
+}
+function wire(el){
+  const key = el.dataset.link, h = hrefFor(key, el.dataset.tier?{tier:el.dataset.tier,note:'Interested in: '+el.dataset.tier}:null);
+  if(!h){ el.style.display='none'; return; }
+  el.href = h;
+  if(h.startsWith('http')){ el.target='_blank'; el.rel='noopener'; }
+}
+document.querySelectorAll('[data-link]').forEach(wire);
+
+/* ---------- QUIZ ---------- */
+const ORDER = ['goal','exp','days','support','budget','name'];
+const A = {}; let idx = 0; const hist = [];
+const steps = [...document.querySelectorAll('.step')];
+const show = name => { steps.forEach(s=>s.classList.toggle('on', s.dataset.step===name)); };
+function setTop(){
+  const qi = Math.min(idx, ORDER.length-1);
+  document.getElementById('qCount').innerHTML = idx>=ORDER.length ? '<b>Your Apex Match</b>' : `Question <b>${qi+1}</b> of ${ORDER.length}`;
+  document.getElementById('qBar').style.width = (Math.min(idx,ORDER.length)/ORDER.length*100)+'%';
+  document.getElementById('qBack').style.visibility = (idx>0 && idx<ORDER.length) ? 'visible':'hidden';
+}
+function go(i){ idx=i; show(ORDER[i]); setTop(); if(window.innerWidth<720) document.getElementById('quizBox').scrollIntoView({behavior:'smooth',block:'start'}); }
+
+document.querySelectorAll('.step .opt').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const step = b.closest('.step').dataset.step;
+    b.parentElement.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+    b.classList.add('sel'); A[step]=b.dataset.v;
+    setTimeout(()=>go(idx+1), 260);
+  });
+});
+document.getElementById('qBack').onclick=()=>{ if(idx>0) go(idx-1); };
+document.getElementById('nameForm').onsubmit=e=>{ e.preventDefault(); A.name=document.getElementById('nameIn').value.trim(); finish(); };
+document.getElementById('skipName').onclick=()=>{ A.name=''; finish(); };
+
+const PKG = {
+  cut:{name:'The Cut Blueprint',price:'$27',per:'one time',tag:'8 weeks to a leaner you — no crash diet required.',link:'cut',kind:'buy',cta:'Get The Cut Blueprint'},
+  physique:{name:'Apex Physique',price:'$37',per:'one time',tag:'12 weeks of structured muscle building, phase by phase.',link:'physique',kind:'buy',cta:'Get Apex Physique'},
+  iron:{name:'Iron Foundations',price:'$37',per:'one time',tag:'10 weeks of RPE strength work ending in a mock meet.',link:'iron',kind:'buy',cta:'Get Iron Foundations'},
+  collective:{name:'Apex Collective',price:'$49',per:'/mo',tag:'Monthly programming, a team, and live coach Q&As.',link:'collective',kind:'buy',cta:'Join The Collective'},
+  starter:{name:'Starter Coaching',price:'$149',per:'/mo',tag:'Your own custom plan with a coach checking in every two weeks.',link:'calendly',kind:'call',cta:'Book My Free Call',tier:'Starter'},
+  standard:{name:'Standard Coaching',price:'$199',per:'/mo',tag:'A coach who adjusts your plan every single week.',link:'calendly',kind:'call',cta:'Book My Free Call',tier:'Standard'},
+  elite:{name:'Elite Coaching',price:'$249',per:'/mo',tag:'Daily programming, twice-weekly calls, total access.',link:'calendly',kind:'call',cta:'Book My Free Call',tier:'Elite'},
+  transform:{name:'12 Week Transformation',price:'$599',per:'one time',tag:'Twelve weeks, all in, one result.',link:'calendly',kind:'call',cta:'Book My Free Call',tier:'12 Week Transformation'}
+};
+const progFor = g => ({fat:'cut',muscle:'physique',strength:'iron',compete:'iron',recomp:'physique',start:'physique'})[g]||'physique';
+const GOAL_TXT = {fat:'lose fat',muscle:'build muscle',strength:'get stronger',start:'get started the right way',compete:'compete',recomp:'lose fat and build muscle'};
+
+function pick(){
+  const {goal,exp,support,budget} = A;
+  let main, alt;
+  if(goal==='compete' && (budget==='250'||budget==='max')) { main = budget==='max'?'transform':'elite'; alt='standard'; }
+  else if(budget==='50'){
+    main = (support==='plan') ? progFor(goal) : 'collective';
+    alt  = main==='collective' ? progFor(goal) : 'collective';
+  } else if(budget==='150'){
+    if(support==='plan'){ main=progFor(goal); alt='collective'; }
+    else if(support==='community'){ main='collective'; alt='starter'; }
+    else { main='starter'; alt='collective'; }
+  } else if(budget==='250'){
+    if(support==='plan'){ main='starter'; alt=progFor(goal); }
+    else if(support==='community'){ main='collective'; alt='standard'; }
+    else if(support==='weekly'){ main='standard'; alt='starter'; }
+    else { main='elite'; alt='standard'; }
+  } else { // max
+    if(support==='pocket') { main='transform'; alt='elite'; }
+    else if(support==='weekly'){ main=(exp==='new'||exp==='some')?'transform':'standard'; alt= main==='transform'?'standard':'transform'; }
+    else if(support==='community'){ main='standard'; alt='collective'; }
+    else { main='standard'; alt=progFor(goal); }
+  }
+  if(main==='iron' && goal==='compete' && budget==='50') alt='collective';
+  return {main, alt};
+}
+
+function reasons(key){
+  const r=[], {goal,exp,days,support}=A;
+  r.push(`Built around your goal to ${GOAL_TXT[goal]}.`);
+  if(exp==='new'||exp==='some') r.push(key.match(/cut|physique|iron/) ? 'Clear week-by-week structure — no guesswork about what to do in the gym.' : 'A coach teaches you the movements and builds your confidence from day one.');
+  else r.push('Programming that breaks through plateaus with progressive overload and smart adjustments.');
+  if(days==='2') r.push('Efficient sessions designed for a 2–3 day schedule.');
+  else if(days==='home') r.push('Flexible scheduling and equipment swaps when life gets in the way.');
+  else r.push(`Fits your ${days==='5'?'5+':'4'}-day training week.`);
+  if(support==='community') r.push('A team and group chat to keep you consistent.');
+  else if(support==='weekly'||support==='pocket') r.push(PKG[key].kind==='call' ? 'Real check-ins and a coach who adjusts your plan as you progress.' : 'Upgrade to 1-on-1 coaching anytime with a member discount.');
+  else r.push('Includes the free Recovery System so you recover as hard as you train.');
+  return r.slice(0,4);
+}
+
+function finish(){
+  idx=ORDER.length; setTop(); show('calc');
+  const t=document.getElementById('calcTxt'), msgs=['Analyzing your goals…','Matching your schedule…','Building your plan…'];
+  let m=0; const iv=setInterval(()=>{ m++; if(m<msgs.length) t.textContent=msgs[m]; },650);
+  setTimeout(()=>{ clearInterval(iv); render(); },1950);
+}
+
+function render(){
+  const {main,alt}=pick(), P=PKG[main], Al=PKG[alt];
+  const nm = A.name ? A.name.charAt(0).toUpperCase()+A.name.slice(1) : '';
+  const note = `Quiz: goal=${GOAL_TXT[A.goal]}, experience=${A.exp}, days=${A.days}, support=${A.support}, budget=${A.budget}. Recommended: ${P.name}`;
+  const mainHref = hrefFor(P.link, P.kind==='call' ? {name:nm, note, tier:P.tier} : null);
+  const altHref = hrefFor(Al.link, Al.kind==='call' ? {name:nm, note, tier:Al.tier} : null);
+  const score = 92 + Math.floor(Math.random()*7);
+  const el=document.getElementById('result');
+  el.innerHTML = `
+    <div class="res-kicker">${nm?nm+', your':'Your'} Apex Match</div>
+    <div class="res-name">${P.name}</div>
+    <div class="res-price">${P.price}<small> ${P.per}</small></div>
+    <div class="res-tag">${P.tag}</div>
+    <div class="match"><div class="match-bar"><i id="mb"></i></div><span>${score}% Match</span></div>
+    <ul class="why">${reasons(main).map(x=>`<li>${x}</li>`).join('')}</ul>
+    <div class="res-actions">
+      <a class="btn btn-gold btn-block" href="${mainHref}" ${mainHref.startsWith('http')?'target="_blank" rel="noopener"':''}>${P.cta} →</a>
+      <div class="res-fine">${P.kind==='call' ? 'Free 15-minute call · We confirm the fit before you pay anything' : 'Instant download · Free Recovery System included'}</div>
+    </div>
+    <div class="alt">
+      <p><b>${Al.name} · ${Al.price}${Al.per==='/mo'?'/mo':''}</b>${Al.kind==='call'?'Want more coaching?':'Prefer another option?'} ${Al.tag}</p>
+      <a href="${altHref}" ${altHref.startsWith('http')?'target="_blank" rel="noopener"':''}>${Al.kind==='call'?'Book a call':'View'} →</a>
+    </div>
+    <button class="retake" id="retake">↺ Retake the quiz</button>`;
+  show('result');
+  requestAnimationFrame(()=>setTimeout(()=>{document.getElementById('mb').style.width=score+'%'},60));
+  document.getElementById('retake').onclick=()=>{ Object.keys(A).forEach(k=>delete A[k]); document.querySelectorAll('.opt.sel').forEach(o=>o.classList.remove('sel')); document.getElementById('nameIn').value=''; go(0); };
+  try{ localStorage.setItem('apexMatch', JSON.stringify({main, at:Date.now()})); }catch(e){}
+}
+setTop();
+
+/* ---------- FAQ ---------- */
+document.querySelectorAll('.fq button').forEach(b=>b.onclick=()=>b.parentElement.classList.toggle('open'));
+
+/* ---------- reveal + sticky cta ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target);} }),{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+const mcta=document.getElementById('mcta'), quizEl=document.getElementById('quiz');
+addEventListener('scroll',()=>{
+  const r=quizEl.getBoundingClientRect(), inQuiz=r.top<innerHeight&&r.bottom>0;
+  mcta.classList.toggle('show', scrollY>innerHeight*.8 && !inQuiz);
+},{passive:true});
+</script>
+</body>
+</html>
