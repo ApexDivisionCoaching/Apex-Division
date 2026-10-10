@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enroll | Apex Division Coaching</title>
+<meta name="description" content="Enroll in Apex Division 1-on-1 coaching — complete your intake, sign your coaching agreement, and get started.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#080808;--card:#121212;--card-2:#181818;--border:#262626;--border-2:#333;
+  --gold:#C9A84C;--gold-light:#E8C97A;--gold-dim:#8a6f2e;
+  --white:#f2efe8;--text:#cfcbc2;--gray:#8d8a83;--red:#e07a6a;
+  --grad-gold:linear-gradient(135deg,#C9A84C 0%,#E8C97A 55%,#C9A84C 100%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--black);color:var(--text);font-family:'Barlow',sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-light)}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+nav{position:sticky;top:0;z-index:20;background:rgba(8,8,8,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-in{max-width:880px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-in img{height:32px;width:auto;display:block}
+.nav-in .help{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray);white-space:nowrap}
+.nav-in .help:hover{color:var(--gold)}
+.prog{max-width:880px;margin:0 auto;padding:0 20px 12px}
+.prog-bar{height:3px;background:var(--border);position:relative;overflow:hidden}
+.prog-bar i{position:absolute;left:0;top:0;bottom:0;background:var(--grad-gold);transition:width .35s ease}
+.prog-meta{display:flex;justify-content:space-between;margin-top:8px;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gray)}
+.prog-meta b{color:var(--gold);font-weight:600}
+main{max-width:880px;margin:0 auto;padding:40px 20px 120px}
+.eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
+h1{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(42px,8vw,72px);line-height:.92;letter-spacing:1px;color:var(--white);margin-bottom:14px}
+h1 span{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.lead{font-size:16.5px;color:var(--text);max-width:640px;margin-bottom:28px}
+.lead b{color:var(--white);font-weight:500}
+h3.sec{font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin:30px 0 14px;padding-top:22px;border-top:1px solid var(--border)}
+h3.sec:first-child{border-top:none;padding-top:0;margin-top:0}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 18px}
+.f{margin-bottom:18px;min-width:0}
+.grid2 .f,.grid3 .f{margin-bottom:0}
+.grid2,.grid3{margin-bottom:18px}
+.f label.l,.f .l{display:block;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--white);font-weight:600;margin-bottom:7px}
+.f .l .req{color:var(--gold)}
+.f .help{font-size:13px;color:var(--gray);margin:-3px 0 8px;line-height:1.45}
+input[type=text],input[type=email],input[type=tel],input[type=date],input[type=number],select,textarea{
+  width:100%;background:var(--card);border:1px solid var(--border-2);color:var(--white);font:inherit;font-weight:400;font-size:16px;padding:13px 14px;border-radius:0;outline:none;transition:border-color .15s;-webkit-appearance:none;appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 20px) 52%,calc(100% - 15px) 52%;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
+input[type=date]{color-scheme:dark}
+textarea{min-height:92px;resize:vertical;line-height:1.5}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+input::placeholder,textarea::placeholder{color:#5f5c56}
+.f.err input,.f.err select,.f.err textarea,.f.err .pills{border-color:var(--red)}
+.f .emsg{display:none;color:var(--red);font-size:13px;margin-top:6px}
+.f.err .emsg{display:block}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1px solid var(--border-2);background:var(--card);padding:10px 16px;font-size:15px;color:var(--text);transition:all .15s;text-align:left;font-weight:400}
+.pill:hover{border-color:var(--gold-dim)}
+.pill.on{border-color:var(--gold);background:#1c1810;color:var(--white)}
+.yn{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--border)}
+.yn .q{font-size:15.5px;color:var(--white);font-weight:400}
+.yn .pills{flex-wrap:nowrap}
+.yn .pill{min-width:62px;text-align:center;padding:9px 12px}
+.yn.err .q{color:var(--red)}
+.yn-detail{grid-column:1/-1}
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:10px}
+.plan{border:1px solid var(--border-2);background:var(--card);padding:22px 22px 20px;text-align:left;position:relative;transition:border-color .15s,background .15s;display:flex;flex-direction:column}
+.plan:hover{border-color:var(--gold-dim)}
+.plan.on{border-color:var(--gold);background:#16130c}
+.plan .pn{font-family:'Barlow Condensed',sans-serif;font-size:18px;letter-spacing:1px;text-transform:uppercase;font-weight:700;color:var(--white)}
+.plan .pp{font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1;margin:8px 0 6px;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;align-self:flex-start}
+.plan .pp small{font-size:18px;-webkit-text-fill-color:var(--gray)}
+.plan .pd{font-size:14px;color:var(--gray);line-height:1.5}
+.plan .tick{position:absolute;top:16px;right:16px;width:22px;height:22px;border:1px solid var(--border-2);display:grid;place-items:center;font-size:13px;color:var(--black)}
+.plan.on .tick{background:var(--grad-gold);border-color:transparent}
+.plan .badge{position:absolute;top:-1px;left:22px;transform:translateY(-50%);background:var(--grad-gold);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:3px 9px}
+.callout{border:1px solid var(--border);border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(201,168,76,.08),rgba(201,168,76,.01));padding:18px 20px;margin:18px 0;font-size:15px}
+.callout b{color:var(--white);font-weight:600}
+.callout.warn{border-left-color:var(--red);background:linear-gradient(90deg,rgba(224,122,106,.09),rgba(224,122,106,.01))}
+.callout p+p{margin-top:8px}
+.checks{display:grid;gap:12px;margin:18px 0}
+.chk{display:grid;grid-template-columns:24px minmax(0,1fr);gap:12px;align-items:start;padding:14px 16px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:15px;line-height:1.5}
+.chk input{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:1px solid var(--border-2);background:var(--black);margin-top:1px;cursor:pointer;position:relative}
+.chk input:checked{background:var(--grad-gold);border-color:transparent}
+.chk input:checked::after{content:'✓';position:absolute;inset:0;display:grid;place-items:center;color:var(--black);font-size:14px;font-weight:700}
+.chk.err{border-color:var(--red)}
+.chk b{color:var(--white);font-weight:600}
+.sig-box{border:1px solid var(--border-2);background:var(--card);padding:20px 22px;margin-top:8px}
+.sig-preview{font-family:'Mrs Saint Delafield',cursive;font-size:46px;color:var(--gold-light);min-height:64px;line-height:1.3;border-bottom:1px solid var(--gold-dim);margin:14px 0 8px;padding:0 4px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.sig-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gray)}
+.review{border:1px solid var(--border);background:var(--card)}
+.rv-row{display:grid;grid-template-columns:180px minmax(0,1fr);gap:16px;padding:14px 20px;border-bottom:1px solid var(--border);font-size:15px}
+.rv-row:last-child{border-bottom:none}
+.rv-row span{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);padding-top:2px}
+.rv-row b{color:var(--white);font-weight:500;word-break:break-word}
+.rv-row a{font-size:13px;margin-left:8px}
+.next-steps{counter-reset:n;list-style:none;margin:16px 0 0}
+.next-steps li{counter-increment:n;position:relative;padding:0 0 14px 42px;font-size:15px}
+.next-steps li::before{content:counter(n);position:absolute;left:0;top:-2px;width:28px;height:28px;border:1px solid var(--gold-dim);display:grid;place-items:center;font-family:'Bebas Neue',sans-serif;font-size:17px;color:var(--gold)}
+.nav-btns{position:fixed;left:0;right:0;bottom:0;z-index:15;background:rgba(8,8,8,.96);backdrop-filter:blur(10px);border-top:1px solid var(--border)}
+.nav-btns .in{max-width:880px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;padding:15px 30px;transition:opacity .2s,border-color .2s,color .2s;white-space:nowrap}
+.btn-gold{background:var(--grad-gold);color:var(--black)}
+.btn-gold:hover{opacity:.9;color:var(--black)}
+.btn-gold[disabled]{opacity:.5;cursor:wait}
+.btn-line{border:1px solid var(--border-2);color:var(--text)}
+.btn-line:hover{border-color:var(--gold-dim);color:var(--gold)}
+.btn-ghost{color:var(--gray);padding:15px 4px}
+.btn-ghost:hover{color:var(--gold)}
+.save-note{font-size:12px;color:var(--gray);text-align:center;flex:1}
+.formerr{display:none;margin-top:14px;color:var(--red);font-size:14px}
+.formerr.show{display:block}
+.done{text-align:center;padding-top:30px}
+.done .ring{width:84px;height:84px;margin:0 auto 26px;border:1px solid var(--gold);display:grid;place-items:center;font-size:34px;color:var(--gold);box-shadow:0 0 40px rgba(201,168,76,.18)}
+.done .lead{margin-left:auto;margin-right:auto}
+.done .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.ref{font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;color:var(--gold-light)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.alt-call{margin-top:26px;font-size:14px;color:var(--gray)}
+.alt-call a{border-bottom:1px solid var(--gold-dim)}
+@media (max-width:700px){
+  main{padding-top:28px}
+  .grid2,.grid3,.plans{grid-template-columns:minmax(0,1fr)}
+  .rv-row{grid-template-columns:minmax(0,1fr);gap:4px}
+  .btn{padding:14px 20px;letter-spacing:2px}
+  .save-note{display:none}
+  .yn{grid-template-columns:minmax(0,1fr)}
+  .sig-preview{font-size:38px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="index.html"><img src="logo-wide.png" alt="Apex Division"></a>
+    <a class="help" href="#" id="callLink">Questions? Book a free call</a>
+  </div>
+  <div class="prog" id="prog">
+    <div class="prog-bar"><i id="progFill" style="width:0"></i></div>
+    <div class="prog-meta"><span id="progName">Plan</span><span><b id="progNum">1</b> / <span id="progTot">8</span></span></div>
+  </div>
+</nav>
+
+<main>
+  <form id="enroll" novalidate autocomplete="on">
+    <div class="hp" aria-hidden="true"><label>Leave blank<input type="text" name="_honey" id="honey" tabindex="-1" autocomplete="off"></label></div>
+    <div id="stepWrap"></div>
+    <div class="formerr" id="formErr"></div>
+  </form>
+</main>
+
+<div class="nav-btns" id="navBtns">
+  <div class="in">
+    <button type="button" class="btn btn-ghost" id="backBtn">← Back</button>
+    <div class="save-note">Progress saves on this device</div>
+    <button type="button" class="btn btn-gold" id="nextBtn">Continue →</button>
+  </div>
+</div>
+
+<noscript><p style="padding:40px 20px;text-align:center">Enrollment needs JavaScript. Please enable it, or email contact@apexdivisioncoaching.com.</p></noscript>
+
+<script>
+/* =========================================================
+   ENROLLMENT SETTINGS — the only part you should need to edit
+   ========================================================= */
+const CONFIG = {
+  // Where completed intakes are sent (works with FormSubmit or Formspree).
+  formEndpoint: "https://formsubmit.co/ajax/contact@apexdivisioncoaching.com",
+  // Stripe Payment Links. Leave "YOUR_..." until Stripe is live —
+  // until then clients get a "we'll email your payment link" confirmation.
+  stripe: {
+    starter:   "YOUR_STRIPE_STARTER_LINK",    // $149/mo subscription
+    standard:  "YOUR_STRIPE_STANDARD_LINK",   // $199/mo subscription
+    elite:     "YOUR_STRIPE_ELITE_LINK",      // $249/mo subscription
+    transform: "YOUR_STRIPE_TRANSFORM_LINK"   // $599 one-time
+  },
+  calendly: "https://calendly.com/zerx123/30min",
+  email: "contact@apexdivisioncoaching.com",
+  agreementVersion: "2026-10-10"
+};
+/* ========================================================= */
+
+const PLANS = {
+  starter:  {name:'Starter Coaching', price:'$149', per:'/mo', monthly:true, desc:'Custom monthly program, macro targets, bi-weekly check-ins with coach feedback.'},
+  standard: {name:'Standard Coaching', price:'$199', per:'/mo', monthly:true, badge:'Most Popular', desc:'Weekly programming and macro adjustments, weekly check-ins, form reviews, monthly Zoom.'},
+  elite:    {name:'Elite Coaching', price:'$249', per:'/mo', monthly:true, desc:'Daily programming, two Zoom calls a week, unlimited form reviews, meet & show prep.'},
+  transform:{name:'12 Week Transformation', price:'$599', per:' one time', monthly:false, desc:'Twelve weeks of Elite-level coaching with a kickoff assessment and final review.'}
+};
+
+const TZ = ['Central (CT)','Eastern (ET)','Mountain (MT)','Pacific (PT)','Alaska (AKT)','Hawaii (HT)','Outside the US'];
+const PARQ = [
+  ['pq1','Has a doctor ever said you have a heart condition or high blood pressure?', true],
+  ['pq2','Do you feel pain in your chest at rest, during daily activities, or during physical activity?', true],
+  ['pq3','Do you lose balance because of dizziness, or have you lost consciousness in the last 12 months?', true],
+  ['pq4','Have you ever been diagnosed with any other chronic medical condition (for example diabetes, asthma, epilepsy)?', false],
+  ['pq5','Are you currently taking prescribed medication for a chronic medical condition?', false],
+  ['pq6','Do you have, or have you had in the last 12 months, a bone, joint, or soft-tissue problem that could get worse with more activity?', false],
+  ['pq7','Has a doctor ever said you should only do medically supervised physical activity?', true],
+  ['pq8','Are you currently pregnant, or have you given birth in the last 12 months?', true],
+  ['pq9','Have you had surgery in the last 12 months?', false],
+  ['pq10','Have you ever been diagnosed with or treated for an eating disorder?', true]
+];
+
+/* ---------- step schema ---------- */
+const STEPS = [
+  {id:'plan', name:'Plan', title:'Choose Your <span>Plan</span>', lead:'Ready to skip the sales call and get started? Pick your coaching plan. The next few steps build your profile so your coach can write your program from day one. It takes about <b>8–10 minutes</b>.'},
+  {id:'about', name:'About You', title:'About <span>You</span>', lead:'The basics, so we know who we\'re coaching and how to reach you.', fields:[
+    {row:[{k:'first',label:'First name',type:'text',req:1,ac:'given-name'},{k:'last',label:'Last name',type:'text',req:1,ac:'family-name'}]},
+    {row:[{k:'email',label:'Email',type:'email',req:1,ac:'email'},{k:'phone',label:'Phone',type:'tel',req:1,ac:'tel',ph:'(504) 555-0123'}]},
+    {row:[{k:'dob',label:'Date of birth',type:'date',req:1,ac:'bday',help:'You must be 18 or older to enroll.'},{k:'location',label:'City & state',type:'text',req:1,ph:'Mandeville, LA'}]},
+    {row:[{k:'tz',label:'Time zone',type:'select',req:1,opts:TZ},{k:'contact',label:'Best way to reach you',type:'select',req:1,opts:['Text','Email','Phone call','Instagram DM']}]},
+    {row:[{k:'ig',label:'Instagram handle',type:'text',ph:'@yourhandle (optional)'},{k:'source',label:'How did you find us?',type:'select',opts:['Instagram','TikTok','YouTube','Friend / referral','Google','Other']}]}
+  ]},
+  {id:'goals', name:'Goals', title:'Your <span>Goals</span>', lead:'Be specific. The clearer the target, the better we can build toward it.', fields:[
+    {k:'goal',label:'Primary goal',type:'pills',req:1,opts:['Lose fat','Build muscle','Get stronger','Recomp (lose fat + build muscle)','Compete (physique / powerlifting)','General health & performance']},
+    {k:'goalDetail',label:'What does success look like in 12 weeks?',type:'textarea',req:1,ph:'e.g. Down 15 lbs, visible abs, bench 225 for a single, fit back into my old jeans…'},
+    {row:[{k:'deadline',label:'Event or deadline?',type:'text',ph:'Wedding, show date, vacation… (optional)'},{k:'commit',label:'Commitment level (1–10)',type:'select',req:1,opts:['10 — all in','9','8','7','6','5 or below']}]},
+    {k:'why',label:'Why now? What\'s driving this?',type:'textarea',req:1},
+    {k:'obstacle',label:'What has held you back before?',type:'textarea',ph:'Consistency, time, nutrition, motivation, injuries, not knowing what to do…'},
+    {k:'prevCoach',label:'Have you worked with a coach before?',type:'pills',req:1,opts:['Yes','No']},
+    {k:'prevCoachNote',label:'What worked or didn\'t?',type:'textarea',show:d=>d.prevCoach==='Yes'}
+  ]},
+  {id:'body', name:'Starting Point', title:'Starting <span>Point</span>', lead:'Where you are today. There are no wrong answers. This is just the baseline we build from.', fields:[
+    {row3:[{k:'sex',label:'Sex',type:'select',req:1,opts:['Male','Female','Prefer not to say']},{k:'heightFt',label:'Height (ft)',type:'select',req:1,opts:['4','5','6','7']},{k:'heightIn',label:'Height (in)',type:'select',req:1,opts:['0','1','2','3','4','5','6','7','8','9','10','11']}]},
+    {row:[{k:'weight',label:'Current weight (lbs)',type:'number',req:1,min:60,max:700},{k:'goalWeight',label:'Goal weight (lbs)',type:'number',min:60,max:700,ph:'Optional'}]},
+    {k:'exp',label:'Training experience',type:'pills',req:1,opts:['Brand new','Under 1 year','1–3 years','3+ years','Competitive athlete']},
+    {row:[{k:'curDays',label:'Days you train now',type:'select',req:1,opts:['0','1','2','3','4','5','6','7']},{k:'availDays',label:'Days you can commit',type:'select',req:1,opts:['2','3','4','5','6']}]},
+    {row:[{k:'sessLen',label:'Time per session',type:'select',req:1,opts:['30–45 min','45–60 min','60–75 min','75–90 min','90+ min']},{k:'where',label:'Where you train',type:'select',req:1,opts:['Commercial gym','Home gym (full)','Home (minimal equipment)','Mix of gym + home']}]},
+    {k:'equipment',label:'Equipment notes',type:'text',ph:'Anything you don\'t have access to, or a home setup to describe (optional)'},
+    {row3:[{k:'squat',label:'Best squat',type:'text',ph:'lbs × reps'},{k:'bench',label:'Best bench',type:'text',ph:'lbs × reps'},{k:'dead',label:'Best deadlift',type:'text',ph:'lbs × reps'}],help:'Optional. Skip any you don\'t know.'},
+    {row:[{k:'job',label:'Daily activity (job)',type:'select',req:1,opts:['Mostly sitting','On my feet some','On my feet most of the day','Heavy physical labor']},{k:'steps',label:'Average daily steps',type:'select',opts:['Not sure','Under 4,000','4,000–7,000','7,000–10,000','10,000+']}]},
+    {k:'likes',label:'Exercises you love / hate',type:'textarea',ph:'Optional'}
+  ]},
+  {id:'nutrition', name:'Nutrition & Lifestyle', title:'Nutrition & <span>Lifestyle</span>', lead:'Training is only part of it. Recovery and nutrition decide how fast you progress.', fields:[
+    {k:'diet',label:'Describe a typical day of eating',type:'textarea',req:1,ph:'Breakfast, lunch, dinner, snacks, drinks… rough is fine.'},
+    {row:[{k:'meals',label:'Meals per day',type:'select',req:1,opts:['1','2','3','4','5+']},{k:'tracked',label:'Ever tracked calories / macros?',type:'select',req:1,opts:['Never','A little','Yes, consistently']}]},
+    {k:'restrict',label:'Dietary preferences',type:'multi',opts:['None','Vegetarian','Vegan','Pescatarian','Gluten-free','Dairy-free','Halal','Kosher','Other']},
+    {k:'allergies',label:'Food allergies or foods you won\'t eat',type:'text',ph:'Optional'},
+    {row:[{k:'alcohol',label:'Alcohol',type:'select',req:1,opts:['None','1–2 drinks / week','3–6 drinks / week','7+ drinks / week']},{k:'supps',label:'Current supplements',type:'text',ph:'Protein, creatine… (optional)'}]},
+    {row:[{k:'sleep',label:'Average sleep',type:'select',req:1,opts:['Under 5 hrs','5–6 hrs','6–7 hrs','7–8 hrs','8+ hrs']},{k:'stress',label:'Stress level',type:'select',req:1,opts:['1 — very low','2','3 — moderate','4','5 — very high']}]}
+  ]},
+  {id:'health', name:'Health Screening', title:'Health <span>Screening</span>', lead:'Your safety comes first. Answer honestly. A "yes" doesn\'t disqualify you. It tells your coach how to build your program safely, and some answers mean we\'ll need your doctor\'s OK before you start.'},
+  {id:'agree', name:'Agreement', title:'Coaching <span>Agreement</span>', lead:'Here are the key terms in plain English. Please read them, then sign below.'},
+  {id:'review', name:'Review', title:'Review & <span>Confirm</span>', lead:'Double-check everything. Once you submit, your coach gets your full intake.'}
+];
+
+/* ---------- state ---------- */
+const DRAFT_KEY='apexEnrollDraft';
+let D={}, step=0, submitted=false;
+try{ const s=JSON.parse(localStorage.getItem(DRAFT_KEY)||'null'); if(s&&s.d&&Date.now()-s.t<1000*60*60*24*14){ D=s.d; step=Math.min(s.step||0, STEPS.length-1); } }catch(e){}
+const qp=new URLSearchParams(location.search).get('plan');
+if(qp&&PLANS[qp]){ D.plan=qp; }
+const save=()=>{ try{ localStorage.setItem(DRAFT_KEY, JSON.stringify({d:D,step,t:Date.now()})); }catch(e){} };
+const isSet=v=>v&&!String(v).startsWith('YOUR_');
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $=s=>document.querySelector(s);
+const wrap=$('#stepWrap');
+$('#callLink').href=CONFIG.calendly; $('#callLink').target='_blank'; $('#callLink').rel='noopener';
+
+/* ---------- field rendering ---------- */
+function fieldHTML(f){
+  if(f.row||f.row3){ const arr=f.row||f.row3; const vis=arr.filter(x=>!x.show||x.show(D)); if(!vis.length) return '';
+    return `${f.help?`<div class="f" style="margin-bottom:8px"><div class="help" style="margin:0">${f.help}</div></div>`:''}<div class="${f.row3?'grid3':'grid2'}">${vis.map(fieldHTML).join('')}</div>`; }
+  if(f.show&&!f.show(D)) return '';
+  const v=D[f.k]??'', req=f.req?' <span class="req">*</span>':'';
+  let inner='';
+  if(f.type==='select') inner=`<select id="f_${f.k}" data-k="${f.k}" ${f.ac?`autocomplete="${f.ac}"`:''}><option value="">Select…</option>${f.opts.map(o=>`<option${o===v?' selected':''}>${esc(o)}</option>`).join('')}</select>`;
+  else if(f.type==='textarea') inner=`<textarea id="f_${f.k}" data-k="${f.k}" placeholder="${esc(f.ph||'')}">${esc(v)}</textarea>`;
+  else if(f.type==='pills') inner=`<div class="pills" data-pk="${f.k}">${f.opts.map(o=>`<button type="button" class="pill${o===v?' on':''}" data-v="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
+  else if(f.type==='multi'){ const arr=Array.isArray(v)?v:[]; inner=`<div class="pills" data-mk="${f.k}">${f.opts.map(o=>`<button type="button" class="pill${arr.includes(o)?' on':''}" data-v="${esc(o)}">${esc(o)}</button>`).join('')}</div>`; }
+  else inner=`<input type="${f.type}" id="f_${f.k}" data-k="${f.k}" value="${esc(v)}" placeholder="${esc(f.ph||'')}" ${f.ac?`autocomplete="${f.ac}"`:''} ${f.min!=null?`min="${f.min}"`:''} ${f.max!=null?`max="${f.max}"`:''} ${f.type==='number'?'inputmode="decimal"':''}>`;
+  return `<div class="f" data-f="${f.k}"><label class="l" for="f_${f.k}">${f.label}${req}</label>${f.help?`<div class="help">${f.help}</div>`:''}${inner}<div class="emsg"></div></div>`;
+}
+function flatFields(st){ const out=[]; (st.fields||[]).forEach(f=>{ if(f.row||f.row3) out.push(...(f.row||f.row3)); else out.push(f); }); return out; }
+
+/* ---------- health step ---------- */
+function redFlags(){ return PARQ.filter(([k,,red])=>red&&D[k]==='Yes').length>0; }
+function anyYes(){ return PARQ.some(([k])=>D[k]==='Yes'); }
+function healthHTML(){
+  let h=`<h3 class="sec">Physical activity readiness</h3>`;
+  h+=PARQ.map(([k,q])=>`<div class="yn" data-f="${k}"><div class="q">${q}</div><div class="pills" data-pk="${k}">${['Yes','No'].map(o=>`<button type="button" class="pill${D[k]===o?' on':''}" data-v="${o}">${o}</button>`).join('')}</div></div>`).join('');
+  if(anyYes()) h+=`<div class="f" data-f="healthDetail" style="margin-top:18px"><label class="l" for="f_healthDetail">Tell us more about each "yes" <span class="req">*</span></label><div class="help">Condition, when, what your doctor said, any medications or restrictions.</div><textarea id="f_healthDetail" data-k="healthDetail">${esc(D.healthDetail||'')}</textarea><div class="emsg"></div></div>`;
+  if(redFlags()) h+=`<div class="callout warn"><p><b>Doctor's clearance required.</b> Based on your answers, you'll need written clearance from your physician before your first workout. You can still enroll today. Your coach will finish your intake and nutrition setup, and training starts once we have your clearance.</p><p><b>If your doctor doesn't clear you before training begins, you get a full refund.</b> Would you rather talk it through first? <a href="${CONFIG.calendly}" target="_blank" rel="noopener">Book a free call</a>.</p></div>
+  <label class="chk" data-f="clearance"><input type="checkbox" data-c="clearance" ${D.clearance?'checked':''}><span>I'll get written clearance from my physician and send it to Apex Division <b>before I begin training</b>.</span></label>`;
+  h+=`<h3 class="sec">Injuries & limitations</h3>`;
+  h+=fieldHTML({k:'injuries',label:'Current or past injuries, pain, or movement limitations',type:'textarea',ph:'e.g. Left shoulder impingement 2024, lower back tightness when deadlifting… or "None"',req:1});
+  h+=fieldHTML({k:'meds',label:'Medications or supplements that affect exercise, heart rate, or appetite',type:'text',ph:'Optional'});
+  h+=`<h3 class="sec">Emergency contact</h3><div class="grid3">`+[{k:'ecName',label:'Name',type:'text',req:1},{k:'ecRel',label:'Relationship',type:'text',req:1},{k:'ecPhone',label:'Phone',type:'tel',req:1}].map(fieldHTML).join('')+`</div>`;
+  return h;
+}
+
+/* ---------- agreement step ---------- */
+function refundLine(p){
+  return PLANS[p]&&PLANS[p].monthly
+    ? `<b>Your first month is non-refundable.</b> Any later monthly payment can be submitted for a refund within 7 days of the charge.`
+    : `<b>Fully refundable until your onboarding begins.</b> Non-refundable once your custom plan has been delivered.`;
+}
+function agreeHTML(){
+  const P=PLANS[D.plan]||PLANS.standard, m=P.monthly;
+  const items=[
+    ['aTerms',`I have read and agree to the <a href="terms.html" target="_blank" rel="noopener">Terms of Service</a> and the <a href="agreement.html" target="_blank" rel="noopener">Coaching Agreement, Informed Consent &amp; Release</a>.`],
+    ['aRefund',`I understand the refund policy for ${esc(P.name)}: ${refundLine(D.plan)} If my doctor doesn't clear me before training begins, I receive a full refund.`],
+    m?['aRenew',`I authorize Apex Division to charge my payment method <b>${P.price} every month</b> until I cancel, and I understand I must cancel at least 48 hours before my next billing date to avoid the next charge.`]
+     :['aRenew',`I authorize a one-time charge of <b>${P.price}</b> for the 12 Week Transformation.`],
+    ['aHealth',`My health screening answers are <b>true and complete</b>. I'll tell my coach right away about any new injury, symptom, medication, or condition.`],
+    ['aRisk',`I'm 18 or older. I understand Apex Division coaches are not medical providers, that exercise and diet changes carry risk of injury, and that I <b>voluntarily assume those risks</b>. Results are not guaranteed.`],
+    ['aEsign',`I agree to sign electronically. My typed name below is my legal signature, and I agree to receive this agreement and related notices electronically.`]
+  ];
+  return `<div class="callout"><p><b>The short version</b></p>
+    <p>• We're coaches, not doctors. Check with your physician before starting. Stop and get help if anything feels wrong.<br>
+    • You're responsible for your form, your load, and listening to your body. Your coach guides you, but you're the one under the bar.<br>
+    • Your photos, measurements, and health info stay private and are used only to coach you. They're never posted without your separate written OK.<br>
+    • Programs and materials are for your personal use only. No sharing.<br>
+    • ${refundLine(D.plan)}</p></div>
+  <div class="checks">${items.map(([k,t])=>`<label class="chk" data-f="${k}"><input type="checkbox" data-c="${k}" ${D[k]?'checked':''}><span>${t}</span></label>`).join('')}</div>
+  <h3 class="sec">Signature</h3>
+  <div class="sig-box">
+    <div class="f" data-f="sig" style="margin:0"><label class="l" for="f_sig">Type your full legal name to sign <span class="req">*</span></label><input type="text" id="f_sig" data-k="sig" value="${esc(D.sig||'')}" autocomplete="name" placeholder="${esc(((D.first||'')+' '+(D.last||'')).trim()||'Full name')}"><div class="emsg"></div></div>
+    <div class="sig-preview" id="sigPrev">${esc(D.sig||'')}</div>
+    <div class="sig-meta"><span>Client signature</span><span>${new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</span></div>
+  </div>`;
+}
+
+/* ---------- review step ---------- */
+function reviewHTML(){
+  const P=PLANS[D.plan]; const flags=[];
+  if(redFlags()) flags.push('Doctor\'s clearance needed before training');
+  else if(anyYes()) flags.push('Health notes for your coach');
+  const rows=[
+    ['Plan',`${P.name} · ${P.price}${P.per}`,0],
+    ['Name',`${D.first} ${D.last}`,1],['Email',D.email,1],['Phone',D.phone,1],
+    ['Goal',`${D.goal}: ${D.goalDetail}`,2],
+    ['Starting point',`${D.heightFt}'${D.heightIn}" · ${D.weight} lbs · ${D.exp} · ${D.availDays} days/week`,3],
+    ['Health',flags.length?flags.join(' · '):'No flags',5],
+    ['Emergency contact',`${D.ecName} (${D.ecRel}) · ${D.ecPhone}`,5],
+    ['Signed',`${D.sig} · ${new Date().toLocaleDateString('en-US')}`,6]
+  ];
+  const pay=isSet(CONFIG.stripe[D.plan]);
+  return `<div class="review">${rows.map(([l,v,s])=>`<div class="rv-row"><span>${l}</span><b>${esc(v)}<a href="#" data-goto="${s}">Edit</a></b></div>`).join('')}</div>
+  <h3 class="sec">What happens next</h3>
+  <ol class="next-steps">
+    ${pay?`<li>You'll go to our secure checkout (Stripe) to pay <b>${P.price}${P.per}</b>.</li>`:`<li>Your coach reviews your intake and emails your <b>secure payment link</b> within 24 hours.</li>`}
+    <li>We email your welcome pack, your Form Library access code, and your onboarding check-in.</li>
+    <li>Your coach builds your custom program and nutrition targets, usually within 3–5 days.${redFlags()?' Training starts once we receive your doctor\'s clearance.':''}</li>
+  </ol>`;
+}
+
+/* ---------- render ---------- */
+function render(){
+  const st=STEPS[step];
+  let body=`<div class="eyebrow">Step ${step+1} of ${STEPS.length} · Enrollment</div><h1>${st.title}</h1><p class="lead">${st.lead}</p>`;
+  if(st.id==='plan'){
+    body+=`<div class="plans" data-f="plan">${Object.entries(PLANS).map(([k,p])=>`<button type="button" class="plan${D.plan===k?' on':''}" data-plan="${k}">${p.badge?`<span class="badge">${p.badge}</span>`:''}<span class="tick">✓</span><span class="pn">${p.name}</span><span class="pp">${p.price}<small>${p.per}</small></span><span class="pd">${p.desc}</span></button>`).join('')}</div>
+    <div class="f" data-f="plan"><div class="emsg">Choose a plan to continue.</div></div>
+    <p class="alt-call">Not sure which one fits? <a href="${CONFIG.calendly}" target="_blank" rel="noopener">Book a free 30-minute call</a> and we'll help you choose. Looking for a self-guided program instead? <a href="index.html#programs">See programs</a>.</p>`;
+  } else if(st.id==='health') body+=healthHTML();
+  else if(st.id==='agree') body+=agreeHTML();
+  else if(st.id==='review') body+=reviewHTML();
+  else body+=st.fields.map(fieldHTML).join('');
+  wrap.innerHTML=body;
+  $('#formErr').className='formerr';
+  $('#progFill').style.width=((step+1)/STEPS.length*100)+'%';
+  $('#progName').textContent=st.name; $('#progNum').textContent=step+1; $('#progTot').textContent=STEPS.length;
+  $('#backBtn').style.visibility=step===0?'hidden':'visible';
+  const last=step===STEPS.length-1;
+  $('#nextBtn').textContent= last ? (isSet(CONFIG.stripe[D.plan])?'Submit & Pay →':'Submit Enrollment →') : 'Continue →';
+  bind();
+}
+function bind(){
+  wrap.querySelectorAll('[data-k]').forEach(el=>{
+    const ev=el.tagName==='SELECT'?'change':'input';
+    el.addEventListener(ev,()=>{ D[el.dataset.k]=el.value.trim()?el.value:''; clearErr(el.dataset.k); if(el.dataset.k==='sig'){ const p=$('#sigPrev'); if(p) p.textContent=el.value; } save(); });
+  });
+  wrap.querySelectorAll('[data-pk]').forEach(g=>g.querySelectorAll('.pill').forEach(b=>b.onclick=()=>{
+    const k=g.dataset.pk; D[k]=b.dataset.v; clearErr(k); save();
+    const needsRerender = k==='prevCoach' || k.startsWith('pq');
+    if(needsRerender){ const y=scrollY; render(); scrollTo(0,y); } else { g.querySelectorAll('.pill').forEach(x=>x.classList.toggle('on',x===b)); }
+  }));
+  wrap.querySelectorAll('[data-mk]').forEach(g=>g.querySelectorAll('.pill').forEach(b=>b.onclick=()=>{
+    const k=g.dataset.mk; let arr=Array.isArray(D[k])?D[k].slice():[]; const v=b.dataset.v;
+    if(v==='None') arr=arr.includes('None')?[]:['None']; else { arr=arr.filter(x=>x!=='None'); arr=arr.includes(v)?arr.filter(x=>x!==v):arr.concat(v); }
+    D[k]=arr; save(); g.querySelectorAll('.pill').forEach(x=>x.classList.toggle('on',arr.includes(x.dataset.v)));
+  }));
+  wrap.querySelectorAll('[data-c]').forEach(c=>c.onchange=()=>{ D[c.dataset.c]=c.checked; c.closest('.chk').classList.remove('err'); save(); });
+  wrap.querySelectorAll('[data-plan]').forEach(b=>b.onclick=()=>{ D.plan=b.dataset.plan; save(); wrap.querySelectorAll('[data-plan]').forEach(x=>x.classList.toggle('on',x===b)); clearErr('plan'); });
+  wrap.querySelectorAll('[data-goto]').forEach(a=>a.onclick=e=>{ e.preventDefault(); step=+a.dataset.goto; save(); render(); scrollTo(0,0); });
+}
+function clearErr(k){ wrap.querySelectorAll(`[data-f="${k}"]`).forEach(x=>x.classList.remove('err')); }
+function setErr(k,msg){ const el=wrap.querySelector(`[data-f="${k}"]`); if(!el) return; el.classList.add('err'); const m=el.querySelector('.emsg'); if(m&&msg) m.textContent=msg; }
+
+/* ---------- validation ---------- */
+function age(dob){ const b=new Date(dob+'T12:00:00'); if(isNaN(b)) return -1; const n=new Date(); let a=n.getFullYear()-b.getFullYear(); const mm=n.getMonth()-b.getMonth(); if(mm<0||(mm===0&&n.getDate()<b.getDate())) a--; return a; }
+function validate(){
+  const st=STEPS[step], errs=[];
+  const need=(k,msg)=>{ const v=D[k]; if(v==null||v===''||(Array.isArray(v)&&!v.length)) errs.push([k,msg||'This field is required.']); };
+  if(st.id==='plan'){ if(!PLANS[D.plan]) errs.push(['plan','Choose a plan to continue.']); }
+  else if(st.fields){
+    flatFields(st).forEach(f=>{ if(f.show&&!f.show(D)) return; if(f.req) need(f.k); });
+    if(st.id==='about'){
+      if(D.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(D.email)) errs.push(['email','Enter a valid email address.']);
+      if(D.phone&&D.phone.replace(/\D/g,'').length<10) errs.push(['phone','Enter a valid phone number.']);
+      if(D.dob){ const a=age(D.dob); if(a<0||a>110) errs.push(['dob','Enter a valid date.']); else if(a<18) errs.push(['dob','You must be 18 or older to enroll in coaching.']); }
+    }
+    if(st.id==='body'){ ['weight','goalWeight'].forEach(k=>{ if(D[k]&&(isNaN(+D[k])||+D[k]<60||+D[k]>700)) errs.push([k,'Enter a weight in pounds.']); }); }
+  }
+  else if(st.id==='health'){
+    PARQ.forEach(([k])=>{ if(!D[k]) errs.push([k,'']); });
+    if(anyYes()) need('healthDetail','Please give a few details.');
+    if(redFlags()&&!D.clearance) errs.push(['clearance','']);
+    need('injuries','Write "None" if there are none.'); need('ecName'); need('ecRel'); need('ecPhone');
+    if(D.ecPhone&&D.ecPhone.replace(/\D/g,'').length<10) errs.push(['ecPhone','Enter a valid phone number.']);
+  }
+  else if(st.id==='agree'){
+    ['aTerms','aRefund','aRenew','aHealth','aRisk','aEsign'].forEach(k=>{ if(!D[k]) errs.push([k,'']); });
+    const full=((D.first||'')+' '+(D.last||'')).toLowerCase().replace(/\s+/g,' ').trim();
+    const sig=(D.sig||'').toLowerCase().replace(/\s+/g,' ').trim();
+    if(!sig) errs.push(['sig','Type your full name to sign.']);
+    else if(full&&!(sig.includes((D.first||'').toLowerCase().trim())&&sig.includes((D.last||'').toLowerCase().trim()))) errs.push(['sig',`Your signature should match the name you entered (${D.first} ${D.last}).`]);
+  }
+  wrap.querySelectorAll('.err').forEach(x=>x.classList.remove('err'));
+  errs.forEach(([k,m])=>{ const el=wrap.querySelector(`[data-f="${k}"]`); if(el){ el.classList.add('err'); const em=el.querySelector('.emsg'); if(em&&m) em.textContent=m; } });
+  if(errs.length){
+    const first=wrap.querySelector('.err'); if(first) first.scrollIntoView({behavior:'smooth',block:'center'});
+    const fe=$('#formErr'); fe.textContent= st.id==='agree'&&errs.some(e=>e[0].startsWith('a')) ? 'Please check each box to continue.' : `Please complete the ${errs.length===1?'highlighted field':errs.length+' highlighted fields'}.`; fe.className='formerr show';
+  }
+  return !errs.length;
+}
+
+/* ---------- submit ---------- */
+function makeRef(){ const d=new Date(), p=n=>String(n).padStart(2,'0'); const r=Math.random().toString(36).slice(2,6).toUpperCase(); return `APX-${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${r}`; }
+function v(x){ return Array.isArray(x)?x.join(', '):(x==null||x===''?'—':String(x)); }
+function buildPayload(ref, signedAt){
+  const P=PLANS[D.plan], o={};
+  o._subject=`New Enrollment: ${D.first} ${D.last} · ${P.name}${redFlags()?' · CLEARANCE NEEDED':''}`;
+  o._template='table'; o._captcha='false';
+  const add=(k,val)=>{ o[k]=v(val); };
+  add('00 Reference',ref); add('00 Submitted',signedAt);
+  add('01 Plan',`${P.name} (${P.price}${P.per})`);
+  add('02 Payment',isSet(CONFIG.stripe[D.plan])?'Sent to Stripe checkout':'SEND PAYMENT LINK MANUALLY');
+  add('03 Health flag',redFlags()?'DOCTOR CLEARANCE REQUIRED before training':(anyYes()?'Has health notes — review':'None'));
+  STEPS.forEach((st,si)=>{ if(!st.fields) return; flatFields(st).forEach(f=>{ if(f.show&&!f.show(D)) return; add(`${si+1}·${st.name} — ${f.label}`, D[f.k]); }); });
+  PARQ.forEach(([k,q])=>add(`6·Screening — ${q}`, D[k]));
+  add('6·Screening — Details', D.healthDetail); if(redFlags()) add('6·Screening — Agreed to get clearance', D.clearance?'Yes':'No');
+  add('6·Injuries / limitations', D.injuries); add('6·Medications affecting exercise', D.meds);
+  add('6·Emergency contact', `${D.ecName} (${D.ecRel}) ${D.ecPhone}`);
+  add('7·Agreement version', CONFIG.agreementVersion);
+  add('7·Accepted', 'Terms of Service; Coaching Agreement, Informed Consent & Release; refund policy; '+(P.monthly?'monthly auto-renew authorization':'one-time charge authorization')+'; health accuracy; assumption of risk; e-signature consent');
+  add('7·Signature (typed)', D.sig); add('7·Signed at', signedAt);
+  add('7·Device', navigator.userAgent.slice(0,180));
+  o.email=D.email; o._replyto=D.email;
+  return o;
+}
+function downloadCopy(ref, signedAt, payload){
+  const rows=Object.entries(payload).filter(([k])=>!k.startsWith('_')&&k!=='email').map(([k,val])=>`<tr><th>${esc(k.replace(/^\d+·?\s?/,''))}</th><td>${esc(val)}</td></tr>`).join('');
+  const html=`<!doctype html><meta charset="utf-8"><title>Apex Division Enrollment ${ref}</title><style>body{font-family:Helvetica,Arial,sans-serif;max-width:820px;margin:30px auto;padding:0 20px;color:#111}h1{font-size:22px}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border:1px solid #ccc;padding:7px 9px;text-align:left;vertical-align:top}th{width:38%;background:#f6f3ea}</style><h1>Apex Division LLC — Enrollment Record</h1><p>Reference <b>${ref}</b> · Signed ${esc(signedAt)} · Agreement version ${CONFIG.agreementVersion}</p><p>Full agreement: <a href="${location.origin+location.pathname.replace(/enroll\.html.*/,'agreement.html')}">Coaching Agreement, Informed Consent &amp; Release</a> · <a href="${location.origin+location.pathname.replace(/enroll\.html.*/,'terms.html')}">Terms of Service</a></p><table>${rows}</table>`;
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download=`Apex-Enrollment-${ref}.html`; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);
+}
+async function submit(){
+  if($('#honey').value) return;
+  const btn=$('#nextBtn'); btn.disabled=true; btn.textContent='Submitting…';
+  const ref=makeRef(), signedAt=new Date().toLocaleString('en-US',{timeZoneName:'short'});
+  const payload=buildPayload(ref, signedAt);
+  let ok=false, msg='';
+  try{
+    const r=await fetch(CONFIG.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+    const j=await r.json().catch(()=>({}));
+    ok = r.ok && !(j.success===false||j.success==='false'||j.ok===false);
+    if(!ok) msg=j.message||j.error||'';
+  }catch(e){ msg=''; }
+  if(!ok){
+    btn.disabled=false; btn.textContent='Try Again →';
+    const fe=$('#formErr'); fe.innerHTML=`We couldn't submit your enrollment${msg?` (${esc(msg)})`:''}. Please try again in a moment, or email <a href="mailto:${CONFIG.email}?subject=${encodeURIComponent('Enrollment help')}">${CONFIG.email}</a> and we'll get you set up.`; fe.className='formerr show';
+    return;
+  }
+  submitted=true;
+  const P=PLANS[D.plan], link=CONFIG.stripe[D.plan];
+  const done={ref,signedAt,payload,first:D.first,plan:D.plan,email:D.email};
+  try{ localStorage.removeItem(DRAFT_KEY); }catch(e){}
+  if(isSet(link)){
+    const u=new URL(link); u.searchParams.set('prefilled_email',D.email); u.searchParams.set('client_reference_id',ref);
+    showDone(done, u.toString());
+    setTimeout(()=>{ location.href=u.toString(); },2200);
+  } else showDone(done, null);
+}
+function showDone(x, payUrl){
+  const P=PLANS[x.plan];
+  $('#navBtns').style.display='none'; $('#prog').style.display='none';
+  wrap.innerHTML=`<div class="done">
+    <div class="ring">✓</div>
+    <div class="eyebrow">Enrollment received</div>
+    <h1>Welcome to <span>Apex</span>, ${esc(x.first)}.</h1>
+    <p class="lead">${payUrl?`Taking you to secure checkout for <b>${P.name}</b>…`:`Your intake and signed agreement are in. Your coach will review everything and email your <b>secure payment link</b> for ${P.name} to <b>${esc(x.email)}</b> within 24 hours.`}</p>
+    <p style="font-size:14px;color:var(--gray)">Reference: <span class="ref">${x.ref}</span></p>
+    <div class="acts">
+      ${payUrl?`<a class="btn btn-gold" href="${esc(payUrl)}">Continue to Payment →</a>`:''}
+      <button type="button" class="btn btn-line" id="dlCopy">Download My Signed Copy</button>
+      <a class="btn btn-ghost" href="index.html">Back to site</a>
+    </div>
+  </div>`;
+  $('#dlCopy').onclick=()=>downloadCopy(x.ref,x.signedAt,x.payload);
+  scrollTo(0,0);
+}
+
+/* ---------- nav ---------- */
+$('#nextBtn').onclick=()=>{
+  if(!validate()) return;
+  if(step===STEPS.length-1){ submit(); return; }
+  step++; save(); render(); scrollTo(0,0);
+};
+$('#backBtn').onclick=()=>{ if(step>0){ step--; save(); render(); scrollTo(0,0); } };
+$('#enroll').addEventListener('submit',e=>e.preventDefault());
+if(step>0 && !PLANS[D.plan]) step=0;
+render();
+</script>
+</body>
+</html>

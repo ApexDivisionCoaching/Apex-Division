@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coaching Agreement | Apex Division</title>
+<meta name="description" content="Apex Division LLC 1-on-1 Coaching Agreement, Informed Consent, Assumption of Risk and Release.">
+<link rel="icon" href="logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#080808;--card:#141414;--border:#232323;
+  --gold:#C9A84C;--gold-light:#E8C97A;--gold-dim:#8a6f2e;
+  --white:#f2efe8;--text:#c9c5bc;--gray:#8d8a83;
+  --grad-gold:linear-gradient(135deg,#C9A84C 0%,#E8C97A 55%,#C9A84C 100%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:'Barlow',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-light)}
+nav{position:sticky;top:0;z-index:10;background:rgba(8,8,8,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-in{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-in img{height:34px;width:auto;display:block}
+.back{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gray);white-space:nowrap}
+.back:hover{color:var(--gold)}
+header{position:relative;text-align:center;padding:72px 20px 48px;border-bottom:1px solid var(--border);overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 0%,rgba(201,168,76,.12),transparent 70%);pointer-events:none}
+.eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px;position:relative}
+h1{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(48px,9vw,88px);line-height:.92;letter-spacing:1px;color:var(--white);position:relative}
+h1 span{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.updated{margin-top:16px;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);position:relative}
+.wrap{max-width:1100px;margin:0 auto;padding:48px 20px 80px;display:grid;grid-template-columns:240px minmax(0,1fr);gap:56px}
+.toc{position:sticky;top:84px;align-self:start;max-height:calc(100vh - 100px);overflow:auto}
+.toc h5{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600}
+.toc ol{list-style:none;counter-reset:t}
+.toc li{counter-increment:t}
+.toc a{display:block;padding:5px 0;font-size:13.5px;color:var(--gray);border-left:1px solid var(--border);padding-left:12px}
+.toc a::before{content:counter(t,decimal-leading-zero) "  ";color:var(--gold-dim);font-family:'Barlow Condensed',sans-serif;font-weight:600}
+.toc a:hover{color:var(--white);border-left-color:var(--gold)}
+main{min-width:0}
+.summary{border:1px solid var(--border);border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(201,168,76,.08),rgba(201,168,76,.01));padding:24px 26px;margin-bottom:44px}
+.summary h2{margin:0 0 10px;font-size:26px}
+.summary ul{margin:0}
+section{padding-top:8px;margin-bottom:40px;scroll-margin-top:84px}
+h2{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(28px,4vw,36px);letter-spacing:1px;color:var(--white);margin-bottom:14px;line-height:1}
+h2 .n{color:var(--gold);margin-right:10px}
+h3{font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin:22px 0 8px}
+p{margin-bottom:14px;font-size:15.5px}
+ul{margin:0 0 14px 0;padding-left:20px}
+li{margin-bottom:8px;font-size:15.5px}
+li::marker{color:var(--gold)}
+strong{color:var(--white);font-weight:600}
+.caps{text-transform:none;font-weight:500;color:var(--white)}
+.refund-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0 20px}
+.rcard{background:var(--card);border:1px solid var(--border);padding:18px 20px}
+.rcard b{display:block;font-family:'Barlow Condensed',sans-serif;font-size:16px;letter-spacing:1px;text-transform:uppercase;color:var(--white);margin-bottom:6px}
+.rcard .tag{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;margin-bottom:10px;font-weight:700}
+.tag.no{background:rgba(201,168,76,.12);color:var(--gold-light);border:1px solid rgba(201,168,76,.35)}
+.tag.yes{background:var(--grad-gold);color:var(--black)}
+.rcard p{font-size:14.5px;margin:0}
+.warn{border:1px solid rgba(201,168,76,.35);background:rgba(201,168,76,.06);padding:20px 22px;margin:16px 0 18px}
+.warn p:last-child{margin-bottom:0}
+footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gray)}
+footer a{color:var(--gray);margin:0 10px}
+footer a:hover{color:var(--gold)}
+@media (max-width:860px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:28px;padding-top:32px}
+  .toc{position:static;max-height:none;border:1px solid var(--border);padding:18px}
+  .refund-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media print{nav,.toc{display:none}.wrap{display:block}body{background:#fff;color:#111}h1,h2,strong{color:#111}}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-in">
+  <a href="index.html"><img src="logo-wide.png" alt="Apex Division"></a>
+  <a class="back" href="index.html">← Back to site</a>
+</div></nav>
+
+<header>
+  <div class="eyebrow">Apex Division LLC · 1-on-1 Coaching</div>
+  <h1>Coaching <span>Agreement</span></h1>
+  <div class="updated">Informed Consent, Assumption of Risk &amp; Release · Version 2026-10-10</div>
+</header>
+
+<div class="wrap">
+<aside class="toc">
+  <h5>Contents</h5>
+  <ol>
+    <li><a href="#parties">Parties &amp; Scope</a></li>
+    <li><a href="#services">Coaching Services</a></li>
+    <li><a href="#medical">Not Medical Care</a></li>
+    <li><a href="#screening">Screening &amp; Clearance</a></li>
+    <li><a href="#consent">Informed Consent</a></li>
+    <li><a href="#risk">Assumption of Risk</a></li>
+    <li><a href="#duties">Your Responsibilities</a></li>
+    <li><a href="#release">Release</a></li>
+    <li><a href="#indemnity">Indemnification</a></li>
+    <li><a href="#results">No Guarantee</a></li>
+    <li><a href="#fees">Fees &amp; Billing</a></li>
+    <li><a href="#refunds">Refunds</a></li>
+    <li><a href="#term">Term &amp; Termination</a></li>
+    <li><a href="#comms">Communication</a></li>
+    <li><a href="#privacy">Your Data &amp; Photos</a></li>
+    <li><a href="#ip">Program Materials</a></li>
+    <li><a href="#coach">Coach Assignment</a></li>
+    <li><a href="#esign">Electronic Signature</a></li>
+    <li><a href="#general">General</a></li>
+  </ol>
+</aside>
+
+<main>
+
+<div class="summary">
+  <h2>Before You Sign</h2>
+  <ul>
+    <li>We're coaches, not doctors. Get your physician's OK before starting, and stop and seek help if anything feels wrong.</li>
+    <li>Training carries real risk. You choose to take part, and you're responsible for your form, your load, and listening to your body.</li>
+    <li>If your screening says you need a doctor's clearance, training doesn't start until we have it. If your doctor doesn't clear you before training begins, you get a full refund.</li>
+    <li><strong>Monthly plans:</strong> your first month is non-refundable, and any later monthly payment can be submitted for a refund within 7 days of the charge. <strong>12 Week Transformation:</strong> fully refundable until onboarding begins.</li>
+    <li>Your photos, measurements, and health information stay private and are used only to coach you.</li>
+  </ul>
+  <p style="margin:12px 0 0;font-size:14px;color:var(--gray)">You accept this agreement during online enrollment by checking the boxes and typing your full name. This page is the full text you're agreeing to.</p>
+</div>
+
+<section id="parties">
+  <h2><span class="n">01</span>Parties &amp; Scope</h2>
+  <p>This Coaching Agreement, Informed Consent, Assumption of Risk &amp; Release ("Agreement") is between <strong>Apex Division LLC</strong>, a Louisiana limited liability company ("Apex Division," "we," "us"), and the individual who enrolls and signs electronically ("you," "Client"). It applies to the 1-on-1 coaching plan you select at enrollment (Starter, Standard, Elite, or the 12 Week Transformation) and to any add-on services you buy (together, "Coaching").</p>
+  <p>This Agreement works alongside our <a href="terms.html">Terms of Service</a>, which you also accept. If the two ever conflict about your Coaching, this Agreement controls.</p>
+</section>
+
+<section id="services">
+  <h2><span class="n">02</span>Coaching Services</h2>
+  <p>Coaching includes the features listed for your plan on our website at the time you enroll. Depending on the plan, these include individualized training programming, nutrition and macro guidance, scheduled check-ins, form video reviews, messaging access, and video calls. Response times and call frequency follow your plan's description. Coaching is delivered online. Unless separately agreed in writing, it does not include in-person supervision.</p>
+  <p>Your coach builds and adjusts your plan based on the information you provide. Your initial program and nutrition targets are usually delivered within 3–5 business days after we receive your payment, your completed intake, and any required medical clearance.</p>
+</section>
+
+<section id="medical">
+  <h2><span class="n">03</span>Not Medical Care</h2>
+  <div class="warn"><p><strong>Apex Division coaches are fitness and nutrition coaches. They are not physicians, registered dietitians, physical therapists, mental health professionals, or other licensed healthcare providers.</strong> Coaching is not medical advice, diagnosis, or treatment and does not replace care from a qualified professional. Nutrition guidance is general and is not medical nutrition therapy. Any mention of supplements is informational only.</p></div>
+  <p>Talk to your physician before starting any exercise, nutrition, or supplement program, and before making changes if you have a medical condition, take medication, or are pregnant or postpartum. If your coach's guidance ever conflicts with your healthcare provider's advice, follow your healthcare provider and tell your coach.</p>
+</section>
+
+<section id="screening">
+  <h2><span class="n">04</span>Health Screening &amp; Medical Clearance</h2>
+  <ul>
+    <li><strong>Accurate information.</strong> You confirm that your answers to the enrollment health screening, including the physical activity readiness questions, injuries, medications, and emergency contact, are true and complete. You'll tell your coach promptly about any new or changed injury, symptom, medication, pregnancy, or medical condition.</li>
+    <li><strong>Clearance when required.</strong> If your screening indicates a heart condition, high blood pressure, chest pain, dizziness or loss of consciousness, medically supervised activity, pregnancy or recent childbirth, a history of disordered eating, or any other condition where we ask for clearance, you agree to get written clearance from your physician before you begin training. Your coach may also request clearance at any time.</li>
+    <li><strong>Clearance refund.</strong> If your physician does not clear you for exercise before training begins, you can cancel and receive a <strong>full refund</strong> of what you've paid, even within your first month.</li>
+    <li><strong>We may pause.</strong> We may pause or modify your training, without penalty to either party, if we reasonably believe continuing would be unsafe until you get appropriate medical guidance.</li>
+  </ul>
+</section>
+
+<section id="consent">
+  <h2><span class="n">05</span>Informed Consent</h2>
+  <p>You understand that Coaching may involve resistance training with free weights, machines, and bodyweight; cardiovascular conditioning; mobility and stretching work; changes to calorie and macronutrient intake; body-weight and body-measurement tracking; and, for competitors, peaking, weight-cut, and stage-preparation strategies. You've had the chance to ask questions about the program, and you can ask your coach about any exercise, target, or protocol at any time. You may decline or modify any recommendation.</p>
+</section>
+
+<section id="risk">
+  <h2><span class="n">06</span>Assumption of Risk</h2>
+  <p>Physical training and dietary change carry inherent risks that can't be fully eliminated, even with careful programming. These include, but are not limited to:</p>
+  <ul>
+    <li>muscle soreness, strains, sprains, tears, and joint, ligament, tendon, or back injuries;</li>
+    <li>injuries from dropped weights, equipment failure, falls, or training without a spotter;</li>
+    <li>dizziness, fainting, abnormal blood pressure or heart rhythm, and, in rare cases, heart attack, stroke, or death;</li>
+    <li>fatigue, hunger, low energy, digestive changes, and other effects of calorie or diet changes;</li>
+    <li>aggravation of pre-existing conditions, whether known or unknown.</li>
+  </ul>
+  <p>Because Coaching is delivered online, your coach can't physically see, spot, or correct you in real time, and can't inspect your equipment or training environment. You understand these risks and <strong>knowingly and voluntarily choose to participate, assuming the risks of your participation</strong>.</p>
+</section>
+
+<section id="duties">
+  <h2><span class="n">07</span>Your Responsibilities</h2>
+  <ul>
+    <li>Warm up properly, use good form and loads within your ability, and use spotters, safety pins, or safety arms where appropriate.</li>
+    <li>Train in a safe space with equipment that's in good condition.</li>
+    <li>Stop immediately if you feel pain, chest discomfort, shortness of breath beyond normal exertion, dizziness, or anything unusual, and seek medical attention when needed.</li>
+    <li>Submit check-ins honestly and on time. Missed check-ins don't extend your plan or create a refund.</li>
+    <li>Follow your physician's guidance, and tell your coach about changes to your health.</li>
+    <li>Keep your program, materials, and Form Library access code to yourself.</li>
+  </ul>
+</section>
+
+<section id="release">
+  <h2><span class="n">08</span>Release</h2>
+  <p>To the fullest extent permitted by applicable law, you release and agree not to sue Apex Division LLC and its members, coaches, employees, and contractors (the "Released Parties") for claims arising from the inherent risks of training and dietary change described in this Agreement, and for claims arising from your failure to follow this Agreement, your physician's guidance, or your coach's instructions, or from inaccurate or incomplete information you provided.</p>
+  <p>This release does not apply to any liability that cannot legally be limited or waived. That includes liability for intentional or gross fault and, as provided in Louisiana Civil Code article 2004, liability for physical injury where the law prohibits advance limitation. In those cases, the rest of this Agreement, including your assumption of risk and your responsibilities, still applies.</p>
+</section>
+
+<section id="indemnity">
+  <h2><span class="n">09</span>Indemnification</h2>
+  <p>To the extent permitted by law, you agree to indemnify and hold harmless the Released Parties from third-party claims, losses, and reasonable attorneys' fees arising from your breach of this Agreement, your misrepresentation or omission of health information, or your misuse or sharing of program materials.</p>
+</section>
+
+<section id="results">
+  <h2><span class="n">10</span>No Guarantee of Results</h2>
+  <p>Results depend on consistency, effort, sleep, stress, genetics, health, and other factors outside our control. We don't guarantee any specific amount of fat loss, muscle gain, strength gain, competition placing, or timeline. Examples of other clients' results are individual experiences, not promises.</p>
+</section>
+
+<section id="fees">
+  <h2><span class="n">11</span>Fees &amp; Billing</h2>
+  <ul>
+    <li><strong>Monthly plans</strong> (Starter $149, Standard $199, Elite $249) are billed in advance on the same date each month and <strong>renew automatically</strong> until you cancel. By enrolling, you authorize Apex Division and our payment processor (Stripe) to charge your payment method each month.</li>
+    <li><strong>12 Week Transformation</strong> ($599) is a single payment covering twelve weeks of coaching from your start date.</li>
+    <li><strong>Add-ons</strong> are charged when purchased.</li>
+    <li><strong>Cancel</strong> anytime by emailing <a href="mailto:contact@apexdivisioncoaching.com">contact@apexdivisioncoaching.com</a> at least <strong>48 hours before</strong> your next billing date. Your Coaching continues through the end of the paid period.</li>
+    <li><strong>Price changes</strong> to an active plan require at least 14 days' notice and never apply to a payment already made.</li>
+    <li><strong>Failed payments</strong> may pause your Coaching until they're resolved.</li>
+  </ul>
+</section>
+
+<section id="refunds">
+  <h2><span class="n">12</span>Refunds</h2>
+  <ul>
+    <li><strong>Monthly plans, first month:</strong> non-refundable once paid, because that month covers your assessment, onboarding, and the build of your custom plan.</li>
+    <li><strong>Monthly plans, every later month:</strong> you may submit a refund request for that month's payment within <strong>7 days of the charge</strong>. Approved refunds end Coaching for that billing period and cancel your subscription unless you ask to keep it active.</li>
+    <li><strong>12 Week Transformation:</strong> fully refundable if you cancel before onboarding begins. Non-refundable once your custom plan has been delivered.</li>
+    <li><strong>Medical clearance exception:</strong> if your physician does not clear you for exercise before training begins, you receive a full refund.</li>
+    <li><strong>Our errors:</strong> duplicate charges and billing errors are always refunded.</li>
+  </ul>
+  <p>To request a refund, email <a href="mailto:contact@apexdivisioncoaching.com?subject=Refund%20Request">contact@apexdivisioncoaching.com</a> with the subject "Refund Request." Please contact us before filing a dispute with your bank. The full refund policy is in our <a href="terms.html#refunds">Terms of Service</a>.</p>
+</section>
+
+<section id="term">
+  <h2><span class="n">13</span>Term &amp; Termination</h2>
+  <p>This Agreement starts when you sign and continues while you have an active plan. You may end it by cancelling as described above. We may end your Coaching if you breach this Agreement, give false health information, share program materials, are abusive toward a coach or member, don't pay, or if we reasonably believe continuing is unsafe for you. If we end your Coaching for a reason that isn't your fault, we'll refund the unused, prepaid portion. Sections 3–10, 15, 16, and 19 survive termination.</p>
+</section>
+
+<section id="comms">
+  <h2><span class="n">14</span>Communication</h2>
+  <p>Coaches respond within the time frame listed for your plan, during reasonable hours. Communication may happen by email, text, video call, or a coaching app or messaging platform. <strong>Coaching channels are not monitored for emergencies. In an emergency, call 911.</strong></p>
+</section>
+
+<section id="privacy">
+  <h2><span class="n">15</span>Your Data, Photos &amp; Confidentiality</h2>
+  <ul>
+    <li>Your intake, health information, progress photos, measurements, and check-ins are confidential. Only Apex Division coaches and the service providers we use to run Coaching (such as form, payment, and messaging tools) can see them, and they're used only to deliver your Coaching.</li>
+    <li>We will <strong>never</strong> post or share your photos, name, story, or results publicly <strong>without your separate written permission</strong>. You can revoke that permission later for future use.</li>
+    <li>You may ask us to delete your progress photos and health information after your Coaching ends. We may keep billing records and this signed Agreement as required for legal, tax, and dispute purposes.</li>
+    <li>Apex Division is not a healthcare provider, and HIPAA does not apply to Coaching. We still treat your information with care. See our Privacy Policy for more detail.</li>
+  </ul>
+</section>
+
+<section id="ip">
+  <h2><span class="n">16</span>Program Materials</h2>
+  <p>Your programs, nutrition plans, check-in forms, videos, documents, and Form Library access belong to Apex Division. You get a personal, non-transferable license to use them for your own training during and after your Coaching. You may not share, resell, post, or reuse them to coach others. You keep ownership of the photos, videos, and information you send us.</p>
+</section>
+
+<section id="coach">
+  <h2><span class="n">17</span>Coach Assignment</h2>
+  <p>Apex Division assigns your coach based on your goals and availability. We may reassign or add a coach to your account, for example for scheduling, specialty, or continuity, and we'll let you know when we do. Both Apex Division coaches may review your information to coordinate your plan.</p>
+</section>
+
+<section id="esign">
+  <h2><span class="n">18</span>Electronic Signature &amp; Records</h2>
+  <p>You agree that checking the acceptance boxes and typing your full name during enrollment is your electronic signature. It has the same effect as a handwritten signature under the federal E-SIGN Act and the Louisiana Uniform Electronic Transactions Act (La. R.S. 9:2601 et seq.). We record your typed name, the date and time, the agreement version, and your answers. You can download a copy at the end of enrollment or request one at any time by email.</p>
+</section>
+
+<section id="general">
+  <h2><span class="n">19</span>General</h2>
+  <ul>
+    <li><strong>Governing law.</strong> This Agreement is governed by the laws of the State of Louisiana. Disputes will first go through 30 days of good-faith informal resolution, then to the state or federal courts located in Louisiana, except that either party may use small claims court.</li>
+    <li><strong>Entire agreement.</strong> This Agreement, the Terms of Service, the Privacy Policy, and your plan's description at enrollment are the complete agreement about your Coaching.</li>
+    <li><strong>Severability.</strong> If any part of this Agreement is unenforceable, it will be enforced to the maximum extent allowed and the rest stays in effect.</li>
+    <li><strong>Changes.</strong> Updated versions apply only to future enrollments or renewals after notice. The version you signed is shown in your enrollment record.</li>
+    <li><strong>Age.</strong> You confirm you are at least 18 years old.</li>
+  </ul>
+  <p style="margin-top:22px"><strong>Apex Division LLC</strong> · Louisiana · <a href="mailto:contact@apexdivisioncoaching.com">contact@apexdivisioncoaching.com</a></p>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <div style="margin-bottom:10px"><a href="index.html">Home</a><a href="index.html#coaching">Coaching</a><a href="terms.html">Terms</a><a href="form-library.html">Form Library</a><a href="#" id="privacyFoot">Privacy Policy</a></div>
+  © 2026 Apex Division LLC · Louisiana
+</footer>
+
+<script>
+/* Set this once your Privacy Policy is live (e.g. your Termly link). */
+var PRIVACY_URL = "";
+(function(){
+  var ids=['privacyLink','privacyFoot'];
+  ids.forEach(function(id){
+    var a=document.getElementById(id); if(!a) return;
+    if(PRIVACY_URL){ a.href=PRIVACY_URL; a.target='_blank'; a.rel='noopener'; }
+    else { a.href='mailto:contact@apexdivisioncoaching.com?subject=Privacy%20Policy%20Request'; }
+  });
+})();
+</script>
+</body>
+</html>
