@@ -135,6 +135,8 @@ section{padding:clamp(72px,10vw,110px) var(--pad)}
 .why li::before{content:'✦';color:var(--gold);font-size:10px;margin-top:5px}
 .res-actions{display:grid;gap:10px}
 .res-fine{font-size:12px;color:var(--gray);text-align:center;margin-top:4px}
+.enroll-now{display:block;margin-top:12px;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600}
+.enroll-now:hover{color:var(--gold-light)}
 .alt{margin-top:26px;padding:18px;border:1px dashed #333;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
 .alt p{font-size:13px;color:var(--gray)}
 .alt b{display:block;font-family:'Barlow Condensed',sans-serif;font-size:16px;letter-spacing:1px;text-transform:uppercase;color:var(--white);font-weight:700}
@@ -482,7 +484,8 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
         <div class="t-price">$149<small>/mo</small></div>
         <div class="t-for">For self-starters who want a real plan and accountability.</div>
         <ul><li>Custom monthly training program</li><li>Macro targets + nutrition framework</li><li>Bi-weekly check-ins with coach feedback</li><li>Monthly program adjustments</li><li>Email support — 48hr response</li></ul>
-        <a href="#" class="btn btn-line btn-block" data-link="calendly" data-tier="Starter">Apply — Starter</a>
+        <a href="#" class="btn btn-line btn-block" data-link="calendly" data-tier="Starter">Book Free Call — Starter</a>
+        <a href="enroll.html?plan=starter" class="enroll-now">Ready now? Enroll directly →</a>
       </div>
       <div class="tier feat">
         <span class="feat-label">Most Popular</span>
@@ -490,14 +493,16 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
         <div class="t-price">$199<small>/mo</small></div>
         <div class="t-for">The full coaching experience — a coach who adjusts every week.</div>
         <ul><li>Weekly programming updated in real time</li><li>Weekly macro adjustments</li><li>Weekly check-in with written feedback</li><li>2 form video reviews per month</li><li>DM access — 24hr response</li><li>Monthly Zoom call</li><li>Progress tracking — strength, weight, measurements</li></ul>
-        <a href="#" class="btn btn-gold btn-block" data-link="calendly" data-tier="Standard">Apply — Standard</a>
+        <a href="#" class="btn btn-gold btn-block" data-link="calendly" data-tier="Standard">Book Free Call — Standard</a>
+        <a href="enroll.html?plan=standard" class="enroll-now">Ready now? Enroll directly →</a>
       </div>
       <div class="tier">
         <div class="t-num">Tier 03</div><h3>Elite</h3>
         <div class="t-price">$249<small>/mo</small></div>
         <div class="t-for">For competitors and anyone who wants their coach fully dialed in.</div>
         <ul><li>Daily programming with real-time changes</li><li>Daily nutrition adjustments</li><li>Two Zoom calls per week</li><li>Unlimited form video reviews</li><li>Priority DM access — same-day response</li><li>Meet and show prep included</li><li>Monthly progress report</li></ul>
-        <a href="#" class="btn btn-line btn-block" data-link="calendly" data-tier="Elite">Apply — Elite</a>
+        <a href="#" class="btn btn-line btn-block" data-link="calendly" data-tier="Elite">Book Free Call — Elite</a>
+        <a href="enroll.html?plan=elite" class="enroll-now">Ready now? Enroll directly →</a>
       </div>
     </div>
 
@@ -509,6 +514,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
         <div class="big-price">$599</div>
         <div style="font-size:12px;color:var(--gray);margin:2px 0 24px">One payment · Everything included</div>
         <a href="#" class="btn btn-gold" data-link="calendly" data-tier="12 Week Transformation">Apply For Transformation</a>
+        <a href="enroll.html?plan=transform" class="enroll-now" style="text-align:left">Ready now? Enroll directly →</a>
       </div>
       <div>
         <ul>
@@ -608,7 +614,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
   <div class="f-top">
     <div class="f-brand"><img src="logo-wide.png" alt="Apex Division"><p>Online coaching for fat loss, muscle, and strength. Every level welcome.</p></div>
     <div class="f-col"><h5>Programs</h5><a href="#" data-link="cut">Cut Blueprint — $27</a><a href="#" data-link="physique">Apex Physique — $37</a><a href="#" data-link="iron">Iron Foundations — $37</a><a href="#" data-link="collective">Apex Collective — $49/mo</a></div>
-    <div class="f-col"><h5>Coaching</h5><a href="#coaching">Starter — $149/mo</a><a href="#coaching">Standard — $199/mo</a><a href="#coaching">Elite — $249/mo</a><a href="#transformation">Transformation — $599</a></div>
+    <div class="f-col"><h5>Coaching</h5><a href="#coaching">Starter — $149/mo</a><a href="#coaching">Standard — $199/mo</a><a href="#coaching">Elite — $249/mo</a><a href="#transformation">Transformation — $599</a><a href="enroll.html">Enroll Online</a></div>
     <div class="f-col"><h5>Company</h5><a href="#quiz">Find Your Plan</a><a href="form-library.html">Form Library</a><a href="#faq">FAQ</a><a href="#" data-link="terms">Terms of Service</a><a href="#" data-link="privacy">Privacy Policy</a><a href="#" data-link="email" id="emailLink">Email Us</a></div>
   </div>
   <div class="f-bot">
@@ -770,6 +776,7 @@ function render(){
     <div class="res-actions">
       <a class="btn btn-gold btn-block" href="${mainHref}" ${mainHref.startsWith('http')?'target="_blank" rel="noopener"':''}>${P.cta} →</a>
       <div class="res-fine">${P.kind==='call' ? 'Free 30-minute call · We confirm the fit before you pay anything' : 'Instant download · Free Recovery System included'}</div>
+      ${P.kind==='call' ? `<a class="enroll-now" href="enroll.html?plan=${main}" style="margin-top:2px">Already sure? Skip the call and enroll →</a>` : ''}
     </div>
     <div class="alt">
       <p><b>${Al.name} · ${Al.price}${Al.per==='/mo'?'/mo':''}</b>${Al.kind==='call'?'Want more coaching?':'Prefer another option?'} ${Al.tag}</p>
