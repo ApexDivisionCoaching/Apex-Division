@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome | Apex Division</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#080808">
+<link rel="icon" href="logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#080808;--card:#121212;--border:#262626;--border-2:#333;
+  --gold:#C9A84C;--gold-light:#E8C97A;--gold-dim:#8a6f2e;
+  --white:#f2efe8;--text:#cfcbc2;--gray:#8d8a83;
+  --grad-gold:linear-gradient(135deg,#C9A84C 0%,#E8C97A 55%,#C9A84C 100%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--black);color:var(--text);font-family:'Barlow',sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-light)}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+nav{border-bottom:1px solid var(--border)}
+.nav-in{max-width:820px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.nav-in img{height:32px;display:block}
+.nav-in a.h{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray)}
+header{position:relative;text-align:center;padding:64px 20px 44px;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 75% at 50% 0%,rgba(201,168,76,.14),transparent 70%);pointer-events:none}
+.ring{width:76px;height:76px;margin:0 auto 22px;border:1px solid var(--gold);display:grid;place-items:center;font-size:30px;color:var(--gold);box-shadow:0 0 40px rgba(201,168,76,.2);position:relative}
+.eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px;position:relative}
+h1{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(46px,9vw,80px);line-height:.92;letter-spacing:1px;color:var(--white);position:relative}
+h1 span{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{max-width:560px;margin:16px auto 0;font-size:17px;position:relative}
+.sub b{color:var(--white);font-weight:500}
+main{max-width:820px;margin:0 auto;padding:0 20px 80px}
+.card{background:var(--card);border:1px solid var(--border);padding:28px 28px 26px;margin-bottom:18px}
+.card h2{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:32px;letter-spacing:1px;color:var(--white);line-height:1;margin-bottom:6px}
+.card h2 .n{color:var(--gold);margin-right:8px}
+.card p.d{font-size:15.5px;margin-bottom:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;padding:15px 28px;transition:opacity .2s,border-color .2s,color .2s;white-space:nowrap}
+.btn-gold{background:var(--grad-gold);color:var(--black)}
+.btn-gold:hover{opacity:.9;color:var(--black)}
+.btn-line{border:1px solid var(--border-2);color:var(--text)}
+.btn-line:hover{border-color:var(--gold-dim);color:var(--gold)}
+.dl{display:grid;gap:12px}
+.dl a{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px 18px;border:1px solid var(--border-2);background:#0e0e0e;color:var(--text);transition:border-color .2s}
+.dl a:hover{border-color:var(--gold)}
+.dl .ic{width:44px;height:44px;border:1px solid var(--gold-dim);display:grid;place-items:center;color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1px}
+.dl b{display:block;color:var(--white);font-weight:500;font-size:16px}
+.dl small{font-size:13px;color:var(--gray)}
+.dl .go{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700}
+.code{display:flex;gap:12px;align-items:stretch;flex-wrap:wrap;margin:6px 0 16px}
+.code output{flex:1;min-width:220px;font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:5px;color:var(--gold-light);border:1px dashed var(--gold-dim);padding:10px 18px;text-align:center;background:#0e0c08}
+.note{font-size:13.5px;color:var(--gray)}
+ol.steps{list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 16px 44px;font-size:15.5px}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:-1px;width:30px;height:30px;border:1px solid var(--gold-dim);display:grid;place-items:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--gold)}
+ol.steps li b{color:var(--white);font-weight:500}
+.up{border-color:rgba(201,168,76,.4);background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(201,168,76,.01))}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+footer{border-top:1px solid var(--border);padding:26px 20px;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gray)}
+footer a{color:var(--gray);margin:0 8px}
+@media (max-width:600px){
+  .card{padding:22px 18px}
+  .dl a{grid-template-columns:40px minmax(0,1fr);}
+  .dl .go{display:none}
+  .code output{font-size:26px;letter-spacing:3px;padding:12px 10px;min-width:0}
+  .btn{width:100%}
+}
+</style>
+</head>
+<body>
+<nav><div class="nav-in"><a href="index.html"><img src="logo-wide.png" alt="Apex Division"></a><a class="h" href="index.html">Home</a></div></nav>
+
+<header>
+  <div class="ring">✓</div>
+  <div class="eyebrow" id="eyebrow">Payment confirmed</div>
+  <h1 id="title">You're <span>In.</span></h1>
+  <p class="sub" id="sub">Welcome to Apex Division. Everything you need to get started is below.</p>
+</header>
+
+<main id="main"></main>
+
+<footer>
+  <div style="margin-bottom:8px"><a href="index.html">Home</a><a href="form-library.html">Form Library</a><a href="terms.html">Terms</a><a href="mailto:contact@apexdivisioncoaching.com">Contact</a></div>
+  © 2026 Apex Division LLC · Louisiana
+</footer>
+
+<script>
+/* =========================================================
+   WELCOME PAGE SETTINGS
+   Stripe "after payment" redirect for each product:
+   https://apexdivisioncoaching.com/welcome-8q3k7v.html?p=KEY
+   KEY = cut | physique | iron | collective | starter | standard | elite | transform
+   ========================================================= */
+const SET = {
+  formCode: "APEX-RISE-4817",
+  email: "contact@apexdivisioncoaching.com",
+  calendly: "https://calendly.com/zerx123/30min",
+  discord: "YOUR_DISCORD_INVITE",   // Collective invite link, once the server exists
+  files: {
+    cut:      ["Cut-Blueprint-8q3k7v.pdf",      "Apex-Cut-Blueprint.pdf"],
+    physique: ["Apex-Physique-8q3k7v.pdf",      "Apex-Physique.pdf"],
+    iron:     ["Iron-Foundations-8q3k7v.pdf",   "Apex-Iron-Foundations.pdf"],
+    recovery: ["Recovery-Blueprint-8q3k7v.pdf", "Apex-Recovery-Blueprint.pdf"]
+  }
+};
+/* ========================================================= */
+
+const P = {
+  cut:{kind:'program',name:'The Cut Blueprint',len:'8-week fat-loss program',
+    start:['<b>Read the first section tonight.</b> It sets your calorie and protein targets.','<b>Pick your training days</b> and put them in your calendar for all 8 weeks.','<b>Weigh in every morning</b> and track the weekly average, not single days.','<b>Look up any exercise</b> in the Form Library before your first session.']},
+  physique:{kind:'program',name:'Apex Physique',len:'12-week muscle-building program',
+    start:['<b>Read the overview</b> so you know how the 3 phases build on each other.','<b>Log every set</b>: weight and reps. Beating last week is the whole game.','<b>Set your protein target</b> from the nutrition section before day 1.','<b>Check the Form Library</b> for cues on every exercise in your split.']},
+  iron:{kind:'program',name:'Iron Foundations',len:'10-week strength program',
+    start:['<b>Read how RPE works</b> in the first section; every set is built on it.','<b>Find your starting weights</b> with the week 1 guide. Start conservative.','<b>Film your top sets</b> from the side so you can check depth and bar path.','<b>Mark your mock meet date</b> at the end of week 10.']},
+  collective:{kind:'collective',name:'Apex Collective',len:'Group coaching membership'},
+  starter:{kind:'coaching',name:'Starter Coaching',len:'1-on-1 coaching · bi-weekly check-ins'},
+  standard:{kind:'coaching',name:'Standard Coaching',len:'1-on-1 coaching · weekly check-ins'},
+  elite:{kind:'coaching',name:'Elite Coaching',len:'1-on-1 coaching · daily programming'},
+  transform:{kind:'coaching',name:'12 Week Transformation',len:'12 weeks of Elite-level coaching'}
+};
+
+const key = new URLSearchParams(location.search).get('p');
+const X = P[key];
+const isSet = v => v && !String(v).startsWith('YOUR_');
+const $ = s => document.querySelector(s);
+
+// Unlock the Form Library on this device automatically (same key the library uses).
+try{ localStorage.setItem('apexFLcode', SET.formCode.toUpperCase().replace(/[^A-Z0-9]/g,'')); }catch(e){}
+
+function dlLink(fileKey, label, sub){
+  const [path, name] = SET.files[fileKey];
+  return `<a href="${path}" download="${name}"><span class="ic">PDF</span><span><b>${label}</b><small>${sub}</small></span><span class="go">Download ↓</span></a>`;
+}
+function libraryCard(n){
+  return `<section class="card">
+    <h2><span class="n">${n}</span>Your Form Library</h2>
+    <p class="d">870+ exercises with start-and-finish demos, plus our coaching cues for every lift in our programs. It's already unlocked on this device. On a new phone or computer, enter this code:</p>
+    <div class="code"><output id="code">${SET.formCode}</output><button class="btn btn-line" id="copy" type="button">Copy Code</button></div>
+    <a class="btn btn-gold" href="form-library.html">Open Form Library →</a>
+    <p class="note" style="margin-top:14px">This code is for you only. Please don't share it.</p>
+  </section>`;
+}
+function supportLine(){
+  return `<p class="note" style="text-align:center;margin-top:26px">Your receipt is on its way from Stripe. Questions? Email <a href="mailto:${SET.email}">${SET.email}</a>, and save that address so our emails don't land in spam.</p>`;
+}
+
+let html = '';
+if(!X){
+  $('#sub').innerHTML = 'Your payment went through. Check your email for your receipt and next steps.';
+  html = libraryCard(1) + `<section class="card"><h2>Something missing?</h2><p class="d">If you don't see what you bought, email <a href="mailto:${SET.email}?subject=${encodeURIComponent('My purchase')}">${SET.email}</a> with your name and receipt, and we'll get it to you the same day.</p></section>`;
+}
+else if(X.kind==='program'){
+  $('#title').innerHTML = `You're <span>In.</span>`;
+  $('#sub').innerHTML = `<b>${X.name}</b> is yours: ${X.len}, plus the Recovery Blueprint and the Form Library.`;
+  html += `<section class="card"><h2><span class="n">1</span>Download your program</h2>
+    <p class="d">Save both files to your phone (Files or Books) so you have them at the gym.</p>
+    <div class="dl">${dlLink(key, X.name, X.len)}${dlLink('recovery','Recovery Blueprint','Free bonus · sleep, mobility, deloads, recovery score')}</div>
+  </section>`;
+  html += libraryCard(2);
+  html += `<section class="card"><h2><span class="n">3</span>Start this week</h2><ol class="steps">${X.start.map(s=>`<li>${s}</li>`).join('')}</ol></section>`;
+  html += `<section class="card up"><h2>Want it built just for you?</h2>
+    <p class="d">Your program is the plan. A coach adjusts it to you every week, with check-ins, form reviews and nutrition changes as you progress.</p>
+    <div class="acts"><a class="btn btn-gold" href="${SET.calendly}" target="_blank" rel="noopener">Book a Free Call</a><a class="btn btn-line" href="index.html#coaching">See Coaching</a></div></section>`;
+}
+else if(X.kind==='collective'){
+  $('#title').innerHTML = `Welcome to the <span>Collective.</span>`;
+  $('#sub').innerHTML = `Your <b>Apex Collective</b> membership is active. Here's how to plug in.`;
+  const join = isSet(SET.discord)
+    ? `<a class="btn btn-gold" href="${SET.discord}" target="_blank" rel="noopener">Join the Members Chat →</a><p class="note" style="margin-top:12px">Once you're in, post a quick intro and pick your track in the welcome channel.</p>`
+    : `<p class="d" style="margin:0">We'll email your private members-chat invite to the address you paid with within 24 hours.</p>`;
+  html += `<section class="card"><h2><span class="n">1</span>Join the members chat</h2><p class="d">This month's program, weekly form-check threads, and the live Q&amp;A schedule all live there.</p>${join}</section>`;
+  html += libraryCard(2);
+  html += `<section class="card"><h2><span class="n">3</span>Your first week</h2><ol class="steps">
+    <li><b>Pick your track:</b> fat loss, muscle, or strength.</li>
+    <li><b>Download this month's program</b> from the pinned post for your track.</li>
+    <li><b>Post a form check</b> in the weekly thread. Coaches review them every week.</li>
+    <li><b>Put the monthly live Q&amp;A in your calendar</b>; the date is pinned in the chat.</li></ol></section>`;
+  html += `<section class="card up"><h2>Need more one-on-one?</h2><p class="d">Members get a discount when they upgrade to 1-on-1 coaching.</p><a class="btn btn-line" href="${SET.calendly}" target="_blank" rel="noopener">Book a Free Call</a></section>`;
+}
+else {
+  $('#title').innerHTML = `Welcome to the <span>Team.</span>`;
+  $('#sub').innerHTML = `Your <b>${X.name}</b> is confirmed. Here's exactly what happens next.`;
+  html += `<section class="card"><h2>What happens next</h2><ol class="steps">
+    <li><b>Today:</b> your coach reviews your intake. If you joined after a call and haven't filled one out, it's coming to your email today.</li>
+    <li><b>Within 24 hours:</b> a welcome email from ${SET.email} with how to reach your coach and your check-in day.</li>
+    <li><b>Within 3–5 days:</b> your custom training program and nutrition targets.${key==='transform'?' Your kickoff assessment is scheduled in that email.':''}</li>
+    <li><b>Every check-in:</b> send your weight, photos and training log; your coach sends back feedback and adjustments.</li>
+  </ol>
+  <p class="note">If your health screening said you need a doctor's clearance, please send it to ${SET.email} as soon as you have it. Training starts once we receive it.</p></section>`;
+  html += libraryCard(2);
+  html += `<section class="card"><h2>Before your program arrives</h2><ol class="steps">
+    <li><b>Take starting photos:</b> front, side and back, in good light, same spot you'll use every time.</li>
+    <li><b>Weigh in each morning</b> after the bathroom, before food, and note it.</li>
+    <li><b>Keep training as normal</b> and jot down what you lift, so your coach has a baseline.</li></ol></section>`;
+}
+html += supportLine();
+$('#main').innerHTML = html;
+const cb = document.getElementById('copy');
+if(cb) cb.onclick = async () => { try{ await navigator.clipboard.writeText(SET.formCode); cb.textContent='Copied ✓'; }catch(e){ cb.textContent='Select & copy'; } setTimeout(()=>cb.textContent='Copy Code',2000); };
+</script>
+</body>
+</html>
