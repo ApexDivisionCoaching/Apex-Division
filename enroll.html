@@ -501,7 +501,7 @@ async function submit(){
 }
 function showDone(x, payUrl){
   const P=PLANS[x.plan];
-  $('#navBtns').style.display='none'; $('#prog').style.display='none';
+  $('#navBtns').style.display='none'; $('#prog').style.display='none'; $('#formErr').className='formerr';
   wrap.innerHTML=`<div class="done">
     <div class="ring">✓</div>
     <div class="eyebrow">Enrollment received</div>
