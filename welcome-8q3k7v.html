@@ -93,7 +93,7 @@ footer a{color:var(--gray);margin:0 8px}
    WELCOME PAGE SETTINGS
    Stripe "after payment" redirect for each product:
    https://apexdivisioncoaching.com/welcome-8q3k7v.html?p=KEY
-   KEY = cut | physique | iron | collective | starter | standard | elite | transform
+   KEY = cut | physique | iron | collective | starter | standard | elite | transform | local4 | local8 | local12 | hybrid | single
    ========================================================= */
 const SET = {
   formCode: "APEX-RISE-4817",
@@ -120,7 +120,12 @@ const P = {
   starter:{kind:'coaching',name:'Starter Coaching',len:'1-on-1 coaching · bi-weekly check-ins'},
   standard:{kind:'coaching',name:'Standard Coaching',len:'1-on-1 coaching · weekly check-ins'},
   elite:{kind:'coaching',name:'Elite Coaching',len:'1-on-1 coaching · plan adjustments up to 3× a week'},
-  transform:{kind:'coaching',name:'12 Week Transformation',len:'12 weeks of Elite-level coaching'}
+  transform:{kind:'coaching',name:'12 Week Transformation',len:'12 weeks of Elite-level coaching'},
+  local4:{kind:'local',name:'Apex Local 4',len:'4 in-person sessions a month'},
+  local8:{kind:'local',name:'Apex Local 8',len:'8 in-person sessions a month'},
+  local12:{kind:'local',name:'Apex Local 12',len:'12 in-person sessions a month'},
+  hybrid:{kind:'local',name:'Apex Hybrid',len:'4 in-person sessions a month + Standard online coaching'},
+  single:{kind:'local',name:'Single Session',len:'one 60-minute in-person session'}
 };
 
 const key = new URLSearchParams(location.search).get('p');
@@ -180,6 +185,21 @@ else if(X.kind==='collective'){
     <li><b>Post a form check</b> in the weekly thread. Coaches review them every week.</li>
     <li><b>Put the monthly live Q&amp;A in your calendar</b>; the date is pinned in the chat.</li></ol></section>`;
   html += `<section class="card up"><h2>Need more one-on-one?</h2><p class="d">Members get a discount when they upgrade to 1-on-1 coaching.</p><a class="btn btn-line" href="${SET.calendly}" target="_blank" rel="noopener">Book a Free Call</a></section>`;
+}
+else if(X.kind==='local'){
+  $('#title').innerHTML = `See You <span>Soon.</span>`;
+  $('#sub').innerHTML = `Your <b>${X.name}</b> is confirmed: ${X.len}. Here's what happens next.`;
+  html += `<section class="card"><h2><span class="n">1</span>What happens next</h2><ol class="steps">
+    <li><b>Within 24 hours:</b> your coach texts you (at the number you gave at checkout) to set your session days, times and location.</li>
+    <li><b>Before your first session:</b> sign the <a href="agreement.html" style="color:var(--gold)">Coaching Agreement &amp; Waiver</a> and complete the quick health screening we send you. We can't train until both are done.</li>
+    <li><b>First session:</b> movement screen, goals and baseline numbers. Your coach brings the gear.</li>${key==='hybrid'?'\n    <li><b>Within 3–5 days:</b> your online program and macro targets, plus your weekly check-in day.</li>':''}
+  </ol>
+  <p class="note">Need to cancel? Give us 24 hours and we'll reschedule. Late cancellations and no-shows count as a used session.</p></section>`;
+  html += libraryCard(2);
+  html += `<section class="card"><h2><span class="n">3</span>Before day one</h2><ol class="steps">
+    <li><b>Wear</b> clothes you can move in and training shoes, and bring water.</li>
+    <li><b>Eat a light meal</b> 1–2 hours before, not right before.</li>
+    <li><b>Tell us</b> about any injury, pain or medical change before every session.</li></ol></section>`;
 }
 else {
   $('#title').innerHTML = `Welcome to the <span>Team.</span>`;

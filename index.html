@@ -272,6 +272,42 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
 .toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);opacity:0;background:#1a1710;border:1px solid var(--gold-dim);color:var(--white);padding:14px 20px;font-size:14px;z-index:300;transition:all .3s;max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%)}
 
+/* in-person */
+.local{background:var(--dark);border-top:1px solid var(--border)}
+.towns{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.towns span{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:7px 12px}
+.local .tier .t-price{font-size:50px}
+.tier .t-per{font-size:12px;color:var(--gold);letter-spacing:1px;margin-top:4px}
+.local-extras{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:1px}
+.local-extras > *{background:var(--card);padding:22px 20px;display:flex;justify-content:space-between;gap:14px;align-items:center}
+.local-extras b{font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:.5px;text-transform:uppercase;font-weight:700;display:block}
+.local-extras small{font-size:12px;color:var(--gray)}
+.local-extras .ap{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);white-space:nowrap}
+a.lx:hover{background:var(--card-2)}
+.local-note{font-size:13px;color:var(--gray);margin-top:16px;line-height:1.7}
+.local-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.local-steps > div{background:var(--card);padding:26px 22px}
+.local-steps .n{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--gold);line-height:1}
+.local-steps h4{font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin:8px 0 6px}
+.local-steps p{font-size:13px;color:var(--gray);line-height:1.6}
+.apply{display:grid;grid-template-columns:1fr 1.25fr;gap:40px;margin-top:64px;align-items:start}
+.apply h3{font-family:'Bebas Neue',sans-serif;font-size:44px;line-height:1;margin-bottom:12px}
+.apply h3 span{color:var(--gold)}
+.apply p{font-size:14px;color:var(--gray);line-height:1.8}
+.aform{background:var(--card);border:1px solid var(--border);padding:30px 28px;display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+.aform label{display:flex;flex-direction:column;gap:7px;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray);font-weight:600}
+.aform .full{grid-column:1/-1}
+.aform input,.aform select,.aform textarea{background:#0c0c0c;border:1px solid #2a2a2a;color:var(--white);font:inherit;font-size:15px;letter-spacing:0;text-transform:none;padding:13px 14px;outline:none;border-radius:0;transition:border-color .2s;width:100%}
+.aform textarea{min-height:92px;resize:vertical}
+.aform input:focus,.aform select:focus,.aform textarea:focus{border-color:var(--gold)}
+.aform .btn{grid-column:1/-1;margin-top:6px}
+.aform .fine{grid-column:1/-1;font-size:12px;color:var(--gray);line-height:1.6}
+.aform .ok{grid-column:1/-1;display:none;padding:16px;border:1px solid var(--gold-dim);background:#15130e;font-size:14px;line-height:1.6}
+.aform.sent .ok{display:block}
+.aform.sent > :not(.ok){display:none}
+@media (max-width:1000px){.local-steps{grid-template-columns:1fr 1fr}.apply{grid-template-columns:1fr}.local-extras{grid-template-columns:1fr}}
+@media (max-width:720px){.local-steps{grid-template-columns:1fr}.aform{grid-template-columns:1fr;padding:24px 18px}}
+
 /* responsive */
 @media (max-width:1000px){
   .who-grid{grid-template-columns:repeat(2,1fr)}
@@ -321,6 +357,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
     <li><a href="#quiz">Find Your Plan</a></li>
     <li><a href="#packages">Programs</a></li>
     <li><a href="#coaching">Coaching</a></li>
+    <li><a href="#local">In Person</a></li>
     <li><a href="#coaches">Coaches</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="form-library.html">Form Library</a></li>
@@ -556,6 +593,95 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
   </div>
 </section>
 
+<!-- IN-PERSON -->
+<section class="local" id="local">
+  <div class="wrap">
+    <div class="eyebrow rv">Apex Local · Northshore, Louisiana</div>
+    <h2 class="h2 rv">TRAIN IN PERSON. <span>WITH APEX.</span></h2>
+    <p class="lead rv">One-on-one training at your home, a park, or your gym, coached by Jaxon and Anthony. Same Apex programming and accountability, with a certified coach next to you for every rep.</p>
+    <div class="towns rv"><span>Mandeville</span><span>Covington</span><span>Madisonville</span><span>Lacombe</span><span>Abita Springs</span></div>
+
+    <div class="sub-head rv">Monthly Session Packs</div>
+    <div class="grid g4 rv">
+      <div class="tier">
+        <div class="t-num">1× a week</div><h3>Local 4</h3>
+        <div class="t-price">$260<small>/mo</small></div>
+        <div class="t-per">4 sessions · $65 each</div>
+        <div class="t-for">A steady weekly session with your plan for the rest of the week.</div>
+        <ul><li>4 one-on-one sessions a month</li><li>Program for your other training days</li><li>Text check-ins between sessions</li><li>Form Library access</li></ul>
+        <a href="#apply" class="btn btn-line btn-block" data-pack="Local 4">Apply — Local 4</a>
+        <a href="https://buy.stripe.com/cNidRabcv3616KX6pDawo0c" class="enroll-now">Already met with us? Enroll →</a>
+      </div>
+      <div class="tier feat">
+        <span class="feat-label">Most Popular</span>
+        <div class="t-num">2× a week</div><h3>Local 8</h3>
+        <div class="t-price">$480<small>/mo</small></div>
+        <div class="t-per">8 sessions · $60 each</div>
+        <div class="t-for">The sweet spot for real, visible progress.</div>
+        <ul><li>8 one-on-one sessions a month</li><li>Program + macro targets</li><li>Text check-ins between sessions</li><li>Monthly progress review</li></ul>
+        <a href="#apply" class="btn btn-gold btn-block" data-pack="Local 8">Apply — Local 8</a>
+        <a href="https://buy.stripe.com/4gM5kE80j4a5edp4hvawo0d" class="enroll-now">Already met with us? Enroll →</a>
+      </div>
+      <div class="tier">
+        <div class="t-num">3× a week</div><h3>Local 12</h3>
+        <div class="t-price">$660<small>/mo</small></div>
+        <div class="t-per">12 sessions · $55 each</div>
+        <div class="t-for">Our best rate, for clients who are all in.</div>
+        <ul><li>12 one-on-one sessions a month</li><li>Full program + nutrition coaching</li><li>Priority scheduling</li><li>Monthly progress review</li></ul>
+        <a href="#apply" class="btn btn-line btn-block" data-pack="Local 12">Apply — Local 12</a>
+        <a href="https://buy.stripe.com/aFa28s5SbcGB8T54hvawo0e" class="enroll-now">Already met with us? Enroll →</a>
+      </div>
+      <div class="tier">
+        <span class="feat-label">Best Value</span>
+        <div class="t-num">In person + online</div><h3>Apex Hybrid</h3>
+        <div class="t-price">$379<small>/mo</small></div>
+        <div class="t-per">4 sessions + Standard coaching</div>
+        <div class="t-for">A weekly session plus full online coaching every other day.</div>
+        <ul><li>1 in-person session a week</li><li>Weekly online check-ins and plan updates</li><li>Macro coaching and form reviews</li><li>Monthly Zoom + Apex Discord</li></ul>
+        <a href="#apply" class="btn btn-line btn-block" data-pack="Apex Hybrid">Apply — Hybrid</a>
+        <a href="https://buy.stripe.com/dRmeVeeoH9up0mzg0dawo0f" class="enroll-now">Already met with us? Enroll →</a>
+      </div>
+    </div>
+    <div class="local-extras rv">
+      <a class="lx" href="https://buy.stripe.com/fZudRa94n4a50mz5lzawo0g"><div><b>Single Session</b><small>Try us out or fill a gap. In-home $80.</small></div><div class="ap">$70</div></a>
+      <div><div><b>Bring A Partner</b><small>Per session for a second person training with you.</small></div><div class="ap">+$25</div></div>
+      <div><div><b>First Meeting</b><small>20-minute meet-and-greet and movement screen.</small></div><div class="ap">Free</div></div>
+    </div>
+    <p class="local-note rv">60-minute sessions at a park, your gym, or your home. In-home training adds $10 a session for travel, and you can add it at checkout. Every pack is billed monthly and includes your Apex plan for the days you train on your own. Fully insured. NASM-certified and CPR/AED-certified coaches.</p>
+
+    <div class="sub-head rv">How It Works</div>
+    <div class="local-steps rv">
+      <div><div class="n">01</div><h4>Apply</h4><p>Tell us your goal, your schedule and where you'd like to train.</p></div>
+      <div><div class="n">02</div><h4>Meet</h4><p>A free 20-minute meet-and-greet and movement screen.</p></div>
+      <div><div class="n">03</div><h4>Sign &amp; Pay</h4><p>Sign the agreement and waiver, pick your pack, and lock in your standing times.</p></div>
+      <div><div class="n">04</div><h4>Train</h4><p>Your coach shows up with the gear. You show up ready.</p></div>
+    </div>
+
+    <div class="apply" id="apply">
+      <div class="rv">
+        <div class="eyebrow">Limited Spots</div>
+        <h3>REQUEST <span>A SPOT.</span></h3>
+        <p>We keep our local roster small so every client gets our best. Send this over and we'll text you within 24 hours to set up your free meet-and-greet.</p>
+        <p style="margin-top:14px">Not local? <a href="#coaching" style="color:var(--gold);border-bottom:1px solid var(--gold-dim)">See online coaching.</a></p>
+      </div>
+      <form class="aform rv" id="localForm" novalidate>
+        <label>Name<input name="name" required autocomplete="name" placeholder="Full name"></label>
+        <label>Phone<input name="phone" required type="tel" autocomplete="tel" placeholder="(985) 555-0123"></label>
+        <label class="full">Email<input name="email" required type="email" autocomplete="email" placeholder="you@email.com"></label>
+        <label>Where to train<select name="where"><option>A park</option><option>My gym</option><option>My home (+$10/session)</option><option>Not sure yet</option></select></label>
+        <label>Town<input name="town" placeholder="Mandeville"></label>
+        <label>Pack<select name="pack" id="packSel"><option>Not sure yet</option><option>Local 4</option><option>Local 8</option><option>Local 12</option><option>Apex Hybrid</option><option>Single session</option></select></label>
+        <label>Best days &amp; times<input name="times" placeholder="Mon/Wed mornings"></label>
+        <label class="full">Goal &amp; anything we should know<textarea name="goal" placeholder="Lose 20 lbs, bad left knee…"></textarea></label>
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <button class="btn btn-gold" type="submit">Send Request</button>
+        <div class="fine">About 15 miles from Mandeville. Outside that, ask us. We'll only use your info to contact you about training.</div>
+        <div class="ok" role="status"><b style="color:var(--gold)">Got it.</b> We'll text you within 24 hours to set up your free meet-and-greet. Want to talk sooner? Email <a href="mailto:contact@apexdivisioncoaching.com" style="color:var(--gold)">contact@apexdivisioncoaching.com</a>.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- COACHES -->
 <section class="coaches" id="coaches">
   <div class="wrap">
@@ -564,7 +690,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
     <p class="lead rv">Whether you want to lose weight, build muscle, get stronger, or step on stage — we've lived it. Two certified coaches. Every goal. No judgment on where you're starting.</p>
     <div class="creds rv">
       <div class="cred"><b>NASM Certified</b><span>Both coaches hold the NASM Certified Personal Trainer credential, one of the most respected certifications in the industry.</span></div>
-      <div class="cred"><b>CPR / AED Certified</b><span>Trained and current in emergency response, so your safety is covered in person and on every program we write.</span></div>
+      <div class="cred"><b>CPR / AED Certified</b><span>Trained and current in emergency response. Apex Division is fully insured for in-person and online training.</span></div>
       <div class="cred"><b>2 Years Coaching</b><span>Two years of hands-on personal training with real clients, from first-day beginners to competitors.</span></div>
       <div class="cred"><b>Gym-Floor Proven</b><span>Experience coaching at Crunch Fitness and building our own private client rosters.</span></div>
     </div>
@@ -610,7 +736,10 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
     <h2 class="h2 rv">COMMON <span>QUESTIONS.</span></h2>
   </div>
   <div class="faq rv">
-    <div class="fq"><button>Are you certified?<span>+</span></button><div class="a">Yes. Both coaches are NASM Certified Personal Trainers and CPR/AED certified, with two years of experience training clients at Crunch Fitness and privately. Every program is built on proven, evidence-based training principles.</div></div>
+    <div class="fq"><button>Are you certified?<span>+</span></button><div class="a">Yes. Both coaches are NASM Certified Personal Trainers and CPR/AED certified, Apex Division is fully insured, and we have two years of experience training clients at Crunch Fitness and privately. Every program is built on proven, evidence-based training principles.</div></div>
+    <div class="fq"><button>Do you train in person?<span>+</span></button><div class="a">Yes, around the Northshore: Mandeville, Covington, Madisonville, Lacombe and Abita Springs. We train at your home, a park, or your gym. Packs start at $260 a month. <a href="#local" style="color:var(--gold)">See in-person training.</a></div></div>
+    <div class="fq"><button>What if I need to cancel an in-person session?<span>+</span></button><div class="a">Give us 24 hours and we'll reschedule. Late cancellations and no-shows count as a used session. Up to 2 unused sessions roll into next month if you stay subscribed.</div></div>
+    <div class="fq"><button>Do I need equipment for in-home training?<span>+</span></button><div class="a">No. Your coach brings a portable kit: bands, kettlebells, a suspension trainer, mats and more. If you have a home gym, even better.</div></div>
     <div class="fq"><button>I'm a complete beginner. Is this for me?<span>+</span></button><div class="a">Absolutely. A big part of who we coach is people just getting started. We'll teach you the movements, set realistic goals, and build your confidence in the gym from day one.</div></div>
     <div class="fq"><button>I just want to lose weight — not be a bodybuilder.<span>+</span></button><div class="a">Perfect. Most people want to lose fat and feel better, and that's exactly what we build for. No stage, no extreme diets — just training and eating that fits your life.</div></div>
     <div class="fq"><button>What equipment do I need?<span>+</span></button><div class="a">A commercial gym is ideal, but we can build around a home gym or limited equipment. Tell us what you have and we'll program around it.</div></div>
@@ -637,7 +766,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
   <div class="f-top">
     <div class="f-brand"><img src="logo-wide.png" alt="Apex Division"><p>Online coaching for fat loss, muscle, and strength. Every level welcome.</p></div>
     <div class="f-col"><h5>Programs</h5><a href="#" data-link="cut">Cut Blueprint — $27</a><a href="#" data-link="physique">Apex Physique — $37</a><a href="#" data-link="iron">Iron Foundations — $37</a><a href="#" data-link="collective">Apex Collective — $49/mo</a></div>
-    <div class="f-col"><h5>Coaching</h5><a href="#coaching">Starter — $149/mo</a><a href="#coaching">Standard — $199/mo</a><a href="#coaching">Elite — $249/mo</a><a href="#transformation">Transformation — $599</a><a href="enroll.html">Enroll Online</a></div>
+    <div class="f-col"><h5>Coaching</h5><a href="#coaching">Starter — $149/mo</a><a href="#coaching">Standard — $199/mo</a><a href="#coaching">Elite — $249/mo</a><a href="#transformation">Transformation — $599</a><a href="#local">In-Person Training</a><a href="enroll.html">Enroll Online</a></div>
     <div class="f-col"><h5>Company</h5><a href="#quiz">Find Your Plan</a><a href="form-library.html">Form Library</a><a href="#faq">FAQ</a><a href="#" data-link="terms">Terms of Service</a><a href="#" data-link="privacy">Privacy Policy</a><a href="#" data-link="email" id="emailLink">Email Us</a></div>
   </div>
   <div class="f-bot">
@@ -805,6 +934,7 @@ function render(){
       <p><b>${Al.name} · ${Al.price}${Al.per==='/mo'?'/mo':''}</b>${Al.kind==='call'?'Want more coaching?':'Prefer another option?'} ${Al.tag}</p>
       <a href="${altHref}" ${altHref.startsWith('http')?'target="_blank" rel="noopener"':''}>${Al.kind==='call'?'Book a call':'View'} →</a>
     </div>
+    <a class="enroll-now" href="#local" style="margin-top:14px">Live on the Northshore? Train with us in person →</a>
     <button class="retake" id="retake">↺ Retake the quiz</button>`;
   show('result');
   requestAnimationFrame(()=>setTimeout(()=>{document.getElementById('mb').style.width=score+'%'},60));
@@ -824,6 +954,21 @@ addEventListener('scroll',()=>{
   const r=quizEl.getBoundingClientRect(), inQuiz=r.top<innerHeight&&r.bottom>0;
   mcta.classList.toggle('show', scrollY>innerHeight*.8 && !inQuiz);
 },{passive:true});
+
+/* in-person apply */
+document.querySelectorAll('[data-pack]').forEach(a=>a.addEventListener('click',()=>{const s=document.getElementById('packSel');if(s)s.value=a.dataset.pack;}));
+(function(){const f=document.getElementById('localForm');if(!f)return;
+  f.addEventListener('submit',async e=>{e.preventDefault();
+    const d=Object.fromEntries(new FormData(f));
+    if(!d.name||!d.phone||!/\S+@\S+\.\S+/.test(d.email||'')){toastMsg('Please add your name, phone and email.');return}
+    const b=f.querySelector('button');b.disabled=true;b.textContent='Sending…';
+    try{const r=await fetch('https://formsubmit.co/ajax/contact@apexdivisioncoaching.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({_subject:'In-person request: '+d.name+' ('+d.pack+')',_template:'table',_replyto:d.email,...d})});
+      if(!r.ok)throw 0; f.classList.add('sent');
+    }catch(_){b.disabled=false;b.textContent='Send Request';toastMsg('That didn\'t send. Email contact@apexdivisioncoaching.com and we\'ll take care of you.')}
+  });
+})();
+function toastMsg(m){let t=document.querySelector('.toast');if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t)}t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),4200)}
 </script>
 </body>
 </html>
