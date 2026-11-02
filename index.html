@@ -272,6 +272,18 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
 .toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);opacity:0;background:#1a1710;border:1px solid var(--gold-dim);color:var(--white);padding:14px 20px;font-size:14px;z-index:300;transition:all .3s;max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%)}
 
+/* quiz lead capture */
+.lead-cap{margin-top:22px;padding:18px;border:1px solid var(--border);background:#0e0e0e}
+.lead-cap p{font-size:13px;color:var(--gray);margin-bottom:10px;line-height:1.6}
+.lead-cap p b{color:var(--white)}
+.lc-row{display:flex;gap:8px}
+.lc-row input{flex:1;min-width:0;background:#0c0c0c;border:1px solid #2a2a2a;color:var(--white);font:inherit;font-size:15px;padding:12px 13px;outline:none;border-radius:0}
+.lc-row input:focus{border-color:var(--gold)}
+.lc-row .btn{padding:12px 18px}
+.lc-ok{display:none;font-size:13px;color:var(--gold);line-height:1.6}
+.lead-cap.sent .lc-row,.lead-cap.sent p{display:none}.lead-cap.sent .lc-ok{display:block}
+@media (max-width:720px){.lc-row{flex-direction:column}}
+
 /* in-person */
 .local{background:var(--dark);border-top:1px solid var(--border)}
 .towns{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
@@ -610,7 +622,7 @@ a.lx:hover{background:var(--card-2)}
         <div class="t-for">A steady weekly session with your plan for the rest of the week.</div>
         <ul><li>4 one-on-one sessions a month</li><li>Program for your other training days</li><li>Text check-ins between sessions</li><li>Form Library access</li></ul>
         <a href="#apply" class="btn btn-line btn-block" data-pack="Local 4">Apply — Local 4</a>
-        <a href="https://buy.stripe.com/cNidRabcv3616KX6pDawo0c" class="enroll-now">Already met with us? Enroll →</a>
+        <a href="enroll.html?plan=local4" class="enroll-now">Already met with us? Enroll →</a>
       </div>
       <div class="tier feat">
         <span class="feat-label">Most Popular</span>
@@ -620,7 +632,7 @@ a.lx:hover{background:var(--card-2)}
         <div class="t-for">The sweet spot for real, visible progress.</div>
         <ul><li>8 one-on-one sessions a month</li><li>Program + macro targets</li><li>Text check-ins between sessions</li><li>Monthly progress review</li></ul>
         <a href="#apply" class="btn btn-gold btn-block" data-pack="Local 8">Apply — Local 8</a>
-        <a href="https://buy.stripe.com/4gM5kE80j4a5edp4hvawo0d" class="enroll-now">Already met with us? Enroll →</a>
+        <a href="enroll.html?plan=local8" class="enroll-now">Already met with us? Enroll →</a>
       </div>
       <div class="tier">
         <div class="t-num">3× a week</div><h3>Local 12</h3>
@@ -629,7 +641,7 @@ a.lx:hover{background:var(--card-2)}
         <div class="t-for">Our best rate, for clients who are all in.</div>
         <ul><li>12 one-on-one sessions a month</li><li>Full program + nutrition coaching</li><li>Priority scheduling</li><li>Monthly progress review</li></ul>
         <a href="#apply" class="btn btn-line btn-block" data-pack="Local 12">Apply — Local 12</a>
-        <a href="https://buy.stripe.com/aFa28s5SbcGB8T54hvawo0e" class="enroll-now">Already met with us? Enroll →</a>
+        <a href="enroll.html?plan=local12" class="enroll-now">Already met with us? Enroll →</a>
       </div>
       <div class="tier">
         <span class="feat-label">Best Value</span>
@@ -639,11 +651,11 @@ a.lx:hover{background:var(--card-2)}
         <div class="t-for">A weekly session plus full online coaching every other day.</div>
         <ul><li>1 in-person session a week</li><li>Weekly online check-ins and plan updates</li><li>Macro coaching and form reviews</li><li>Monthly Zoom + Apex Discord</li></ul>
         <a href="#apply" class="btn btn-line btn-block" data-pack="Apex Hybrid">Apply — Hybrid</a>
-        <a href="https://buy.stripe.com/dRmeVeeoH9up0mzg0dawo0f" class="enroll-now">Already met with us? Enroll →</a>
+        <a href="enroll.html?plan=hybrid" class="enroll-now">Already met with us? Enroll →</a>
       </div>
     </div>
     <div class="local-extras rv">
-      <a class="lx" href="https://buy.stripe.com/fZudRa94n4a50mz5lzawo0g"><div><b>Single Session</b><small>Try us out or fill a gap. In-home $80.</small></div><div class="ap">$70</div></a>
+      <a class="lx" href="enroll.html?plan=single"><div><b>Single Session</b><small>Try us out or fill a gap. In-home $80.</small></div><div class="ap">$70</div></a>
       <div><div><b>Bring A Partner</b><small>Per session for a second person training with you.</small></div><div class="ap">+$25</div></div>
       <a class="lx" href="https://calendly.com/zerx123/in-person-meet-greet" target="_blank" rel="noopener"><div><b>First Meeting</b><small>20-minute meet-and-greet and movement screen.</small></div><div class="ap">Free</div></a>
     </div>
@@ -930,6 +942,11 @@ function render(){
       <div class="res-fine">${P.kind==='call' ? 'Free 30-minute call · We confirm the fit before you pay anything' : 'Instant download · Free Recovery System included'}</div>
       ${P.kind==='call' ? `<a class="enroll-now" href="enroll.html?plan=${main}" style="margin-top:2px">Already sure? Skip the call and enroll →</a>` : ''}
     </div>
+    <form class="lead-cap" id="leadCap" novalidate>
+      <p><b>Want this sent to you?</b> We'll email your match and a quick plan to get started. No spam.</p>
+      <div class="lc-row"><input name="email" type="email" autocomplete="email" placeholder="Email"><input name="phone" type="tel" autocomplete="tel" placeholder="Phone (optional)"><button class="btn btn-line" type="submit">Send It</button></div>
+      <div class="lc-ok">Got it. Your match is on its way to your inbox, and a coach will follow up within 24 hours.</div>
+    </form>
     <div class="alt">
       <p><b>${Al.name} · ${Al.price}${Al.per==='/mo'?'/mo':''}</b>${Al.kind==='call'?'Want more coaching?':'Prefer another option?'} ${Al.tag}</p>
       <a href="${altHref}" ${altHref.startsWith('http')?'target="_blank" rel="noopener"':''}>${Al.kind==='call'?'Book a call':'View'} →</a>
@@ -937,6 +954,15 @@ function render(){
     <a class="enroll-now" href="#local" style="margin-top:14px">Live on the Northshore? Train with us in person →</a>
     <button class="retake" id="retake">↺ Retake the quiz</button>`;
   show('result');
+  const lc=document.getElementById('leadCap');
+  lc.onsubmit=async e=>{e.preventDefault();const f=Object.fromEntries(new FormData(lc));
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email||'')){toastMsg('Add a valid email so we can send it.');return}
+    const b=lc.querySelector('button');b.disabled=true;b.textContent='Sending…';
+    try{const r=await fetch('https://formsubmit.co/ajax/contact@apexdivisioncoaching.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({_subject:'Quiz lead: '+(nm||f.email)+' → '+P.name,_template:'table',_replyto:f.email,_autoresponse:'Thanks'+(nm?' '+nm:'')+'! Your Apex match is '+P.name+' ('+P.price+(P.per||'')+'). A coach will follow up within 24 hours with how to get started. Want to talk it through now? Book a free call: https://calendly.com/zerx123/30min  -  Jaxon & Anthony, Apex Division',Name:nm||'—',email:f.email,Phone:f.phone||'—',Match:P.name+' '+P.price+(P.per||''),Goal:GOAL_TXT[A.goal],Experience:A.exp,'Days/week':A.days,Support:A.support,Budget:A.budget,'Next step':'Email their match within 24 hrs; offer a free call'})});
+      if(!r.ok)throw 0;lc.classList.add('sent');
+    }catch(_){b.disabled=false;b.textContent='Send It';toastMsg("That didn't send. Try again in a moment.")}
+  };
   requestAnimationFrame(()=>setTimeout(()=>{document.getElementById('mb').style.width=score+'%'},60));
   document.getElementById('retake').onclick=()=>{ Object.keys(A).forEach(k=>delete A[k]); document.querySelectorAll('.opt.sel').forEach(o=>o.classList.remove('sel')); document.getElementById('nameIn').value=''; go(0); };
   try{ localStorage.setItem('apexMatch', JSON.stringify({main, at:Date.now()})); }catch(e){}

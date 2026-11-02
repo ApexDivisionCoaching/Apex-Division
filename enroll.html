@@ -189,7 +189,12 @@ const CONFIG = {
     starter:   "https://buy.stripe.com/9B600k6Wf8ql5GT01fawo00",    // $149/mo subscription
     standard:  "https://buy.stripe.com/9B6dRa2FZ7mhb1d6pDawo01",   // $199/mo subscription
     elite:     "https://buy.stripe.com/3cIaEY0xR3618T5cO1awo02",      // $249/mo subscription
-    transform: "https://buy.stripe.com/4gMfZigwP9up1qD01fawo03"   // $599 one-time
+    transform: "https://buy.stripe.com/4gMfZigwP9up1qD01fawo03",  // $599 one-time
+    local4:    "https://buy.stripe.com/cNidRabcv3616KX6pDawo0c",   // $260/mo in-person
+    local8:    "https://buy.stripe.com/4gM5kE80j4a5edp4hvawo0d",   // $480/mo in-person
+    local12:   "https://buy.stripe.com/aFa28s5SbcGB8T54hvawo0e",   // $660/mo in-person
+    hybrid:    "https://buy.stripe.com/dRmeVeeoH9up0mzg0dawo0f",   // $379/mo hybrid
+    single:    "https://buy.stripe.com/fZudRa94n4a50mz5lzawo0g"    // $70 single session
   },
   calendly: "https://calendly.com/zerx123/30min",
   email: "contact@apexdivisioncoaching.com",
@@ -201,8 +206,14 @@ const PLANS = {
   starter:  {name:'Starter Coaching', price:'$149', per:'/mo', monthly:true, desc:'Custom monthly program, macro targets, bi-weekly check-ins with coach feedback.'},
   standard: {name:'Standard Coaching', price:'$199', per:'/mo', monthly:true, badge:'Most Popular', desc:'Weekly programming and macro adjustments, weekly check-ins, form reviews, monthly Zoom.'},
   elite:    {name:'Elite Coaching', price:'$249', per:'/mo', monthly:true, desc:'Plan adjustments up to 3× a week, two Zoom calls a week, unlimited form reviews, meet & show prep.'},
-  transform:{name:'12 Week Transformation', price:'$599', per:' one time', monthly:false, desc:'Twelve weeks of Elite-level coaching with a kickoff assessment and final review.'}
+  transform:{name:'12 Week Transformation', price:'$599', per:' one time', monthly:false, desc:'Twelve weeks of Elite-level coaching with a kickoff assessment and final review.'},
+  local4:   {local:true, name:'Apex Local 4', price:'$260', per:'/mo', monthly:true, desc:'4 in-person sessions a month (1 a week) + your program for the other days.'},
+  local8:   {local:true, name:'Apex Local 8', price:'$480', per:'/mo', monthly:true, badge:'Most Popular', desc:'8 in-person sessions a month (2 a week) + program and macro targets.'},
+  local12:  {local:true, name:'Apex Local 12', price:'$660', per:'/mo', monthly:true, desc:'12 in-person sessions a month (3 a week) + full program and nutrition coaching.'},
+  hybrid:   {local:true, name:'Apex Hybrid', price:'$379', per:'/mo', monthly:true, badge:'Best Value', desc:'4 in-person sessions a month + Standard online coaching.'},
+  single:   {local:true, name:'Single Session', price:'$70', per:' one time', monthly:false, desc:'One 60-minute in-person session. In-home adds $10 at checkout.'}
 };
+const isLocal=d=>!!(PLANS[d.plan]&&PLANS[d.plan].local);
 
 const TZ = ['Central (CT)','Eastern (ET)','Mountain (MT)','Pacific (PT)','Alaska (AKT)','Hawaii (HT)','Outside the US'];
 const PARQ = [
@@ -226,6 +237,8 @@ const STEPS = [
     {row:[{k:'email',label:'Email',type:'email',req:1,ac:'email'},{k:'phone',label:'Phone',type:'tel',req:1,ac:'tel',ph:'(504) 555-0123'}]},
     {row:[{k:'dob',label:'Date of birth',type:'date',req:1,ac:'bday',help:'You must be 18 or older to enroll.'},{k:'location',label:'City & state',type:'text',req:1,ph:'Mandeville, LA'}]},
     {row:[{k:'tz',label:'Time zone',type:'select',req:1,opts:TZ},{k:'contact',label:'Best way to reach you',type:'select',req:1,opts:['Text','Email','Phone call','Instagram DM']}]},
+    {row:[{k:'trainAt',label:'Where we\'ll train',type:'select',req:1,opts:['A park','My gym','My home (+$10/session)','Mix / not sure yet'],show:isLocal},{k:'trainAddr',label:'Address or gym name',type:'text',req:1,ph:'Street address, park, or gym',show:isLocal}]},
+    {row:[{k:'trainTimes',label:'Best days & times',type:'text',req:1,ph:'Mon/Wed 6am, Sat mornings…',show:isLocal},{k:'partner',label:'Training with a partner?',type:'select',opts:['No','Yes (+$25/session)'],show:isLocal}]},
     {row:[{k:'ig',label:'Instagram handle',type:'text',ph:'@yourhandle (optional)'},{k:'source',label:'How did you find us?',type:'select',opts:['Instagram','TikTok','YouTube','Friend / referral','Google','Other']}]}
   ]},
   {id:'goals', name:'Goals', title:'Your <span>Goals</span>', lead:'Be specific. The clearer the target, the better we can build toward it.', fields:[
@@ -308,6 +321,7 @@ function healthHTML(){
 
 /* ---------- agreement step ---------- */
 function refundLine(p){
+  if(p==='single') return `<b>Fully refundable if you cancel at least 24 hours before your session.</b> Late cancellations and no-shows are non-refundable.`;
   return PLANS[p]&&PLANS[p].monthly
     ? `<b>Your first month is non-refundable.</b> Any later monthly payment can be submitted for a refund within 7 days of the charge.`
     : `<b>Fully refundable until your onboarding begins.</b> Non-refundable once your custom plan has been delivered.`;
@@ -318,9 +332,10 @@ function agreeHTML(){
     ['aTerms',`I have read and agree to the <a href="terms.html" target="_blank" rel="noopener">Terms of Service</a> and the <a href="agreement.html" target="_blank" rel="noopener">Coaching Agreement, Informed Consent &amp; Release</a>.`],
     ['aRefund',`I understand the refund policy for ${esc(P.name)}: ${refundLine(D.plan)} If my doctor doesn't clear me before training begins, I receive a full refund.`],
     m?['aRenew',`I authorize Apex Division to charge my payment method <b>${P.price} every month</b> until I cancel, and I understand I must cancel at least 48 hours before my next billing date to avoid the next charge.`]
-     :['aRenew',`I authorize a one-time charge of <b>${P.price}</b> for the 12 Week Transformation.`],
+     :['aRenew',`I authorize a one-time charge of <b>${P.price}</b> for ${esc(P.name)}.`],
+    ...(P.local?[['aLocal',`I agree to the <a href="agreement.html#inperson" target="_blank" rel="noopener">In-Person Training terms</a>: <b>24 hours' notice to reschedule</b> (late cancellations and no-shows count as a used session), up to 2 unused sessions roll over while I stay subscribed, I have permission to train at my chosen location and will keep the area safe, and in-home sessions add $10 each.`]]:[]),
     ['aHealth',`My health screening answers are <b>true and complete</b>. I'll tell my coach right away about any new injury, symptom, medication, or condition.`],
-    ['aRisk',`I'm 18 or older. I understand Apex Division coaches are not medical providers, that exercise and diet changes carry risk of injury, and that I <b>voluntarily assume those risks</b>. Results are not guaranteed.`],
+    ['aRisk',`I'm 18 or older. I understand Apex Division coaches are not medical providers, that exercise and diet changes carry risk of injury${P.local?', including the added risks of training outdoors, at home, or at a third-party gym':''}, and that I <b>voluntarily assume those risks</b>. Results are not guaranteed.`],
     ['aEsign',`I agree to sign electronically. My typed name below is my legal signature, and I agree to receive this agreement and related notices electronically.`]
   ];
   return `<div class="callout"><p><b>The short version</b></p>
@@ -328,6 +343,7 @@ function agreeHTML(){
     • You're responsible for your form, your load, and listening to your body. Your coach guides you, but you're the one under the bar.<br>
     • Your photos, measurements, and health info stay private and are used only to coach you. They're never posted without your separate written OK.<br>
     • Programs and materials are for your personal use only. No sharing.<br>
+    ${isLocal(D)?'• In person: give us 24 hours to reschedule. Late cancels and no-shows count as a used session. Partners sign their own waiver.<br>':''}
     • ${refundLine(D.plan)}</p></div>
   <div class="checks">${items.map(([k,t])=>`<label class="chk" data-f="${k}"><input type="checkbox" data-c="${k}" ${D[k]?'checked':''}><span>${t}</span></label>`).join('')}</div>
   <h3 class="sec">Signature</h3>
@@ -347,6 +363,7 @@ function reviewHTML(){
     ['Plan',`${P.name} · ${P.price}${P.per}`,0],
     ['Name',`${D.first} ${D.last}`,1],['Email',D.email,1],['Phone',D.phone,1],
     ['Goal',`${D.goal}: ${D.goalDetail}`,2],
+    ...(isLocal(D)?[['Training at',`${D.trainAt} · ${D.trainAddr} · ${D.trainTimes}${D.partner&&D.partner.startsWith('Yes')?' · with a partner':''}`,1]]:[]),
     ['Starting point',`${D.heightFt}'${D.heightIn}" · ${D.weight} lbs · ${D.exp} · ${D.availDays} days/week`,3],
     ['Health',flags.length?flags.join(' · '):'No flags',5],
     ['Emergency contact',`${D.ecName} (${D.ecRel}) · ${D.ecPhone}`,5],
@@ -357,8 +374,9 @@ function reviewHTML(){
   <h3 class="sec">What happens next</h3>
   <ol class="next-steps">
     ${pay?`<li>You'll go to our secure checkout (Stripe) to pay <b>${P.price}${P.per}</b>.</li>`:`<li>Your coach reviews your intake and emails your <b>secure payment link</b> within 24 hours.</li>`}
-    <li>We email your welcome pack, your Form Library access code, and your onboarding check-in.</li>
-    <li>Your coach builds your custom program and nutrition targets, usually within 3–5 days.${redFlags()?' Training starts once we receive your doctor\'s clearance.':''}</li>
+    ${isLocal(D)?`<li>Your coach texts you within 24 hours to lock in your session days, times and location. You can also book on our <a href="https://calendly.com/zerx123/apex-local-training-session" target="_blank" rel="noopener">training calendar</a>.</li>
+    <li>Session one: movement screen, goals and baseline numbers. Your coach brings the gear.${redFlags()?' Training starts once we receive your doctor\'s clearance.':''}</li>`:`<li>We email your welcome pack, your Form Library access code, and your onboarding check-in.</li>
+    <li>Your coach builds your custom program and nutrition targets, usually within 3–5 days.${redFlags()?' Training starts once we receive your doctor\'s clearance.':''}</li>`}
   </ol>`;
 }
 
@@ -367,9 +385,11 @@ function render(){
   const st=STEPS[step];
   let body=`<div class="eyebrow">Step ${step+1} of ${STEPS.length} · Enrollment</div><h1>${st.title}</h1><p class="lead">${st.lead}</p>`;
   if(st.id==='plan'){
-    body+=`<div class="plans" data-f="plan">${Object.entries(PLANS).map(([k,p])=>`<button type="button" class="plan${D.plan===k?' on':''}" data-plan="${k}">${p.badge?`<span class="badge">${p.badge}</span>`:''}<span class="tick">✓</span><span class="pn">${p.name}</span><span class="pp">${p.price}<small>${p.per}</small></span><span class="pd">${p.desc}</span></button>`).join('')}</div>
+    const grp=isLocal(D)||new URLSearchParams(location.search).get('type')==='local';
+    if(grp) body=body.replace(st.lead,'Already met with us? Pick your in-person pack. The next steps cover your intake, health screening and waiver so your coach is ready for session one. It takes about <b>8–10 minutes</b>.');
+    body+=`<div class="plans" data-f="plan">${Object.entries(PLANS).filter(([k,p])=>!!p.local===grp).map(([k,p])=>`<button type="button" class="plan${D.plan===k?' on':''}" data-plan="${k}">${p.badge?`<span class="badge">${p.badge}</span>`:''}<span class="tick">✓</span><span class="pn">${p.name}</span><span class="pp">${p.price}<small>${p.per}</small></span><span class="pd">${p.desc}</span></button>`).join('')}</div>
     <div class="f" data-f="plan"><div class="emsg">Choose a plan to continue.</div></div>
-    <p class="alt-call">Not sure which one fits? <a href="${CONFIG.calendly}" target="_blank" rel="noopener">Book a free 30-minute call</a> and we'll help you choose. Looking for a self-guided program instead? <a href="index.html#programs">See programs</a>.</p>`;
+    <p class="alt-call">${grp?`Looking for online coaching instead? <a href="enroll.html" data-switch="online">Switch to online plans</a>.`:`Training in person on the Northshore? <a href="enroll.html?type=local" data-switch="local">See in-person packs</a>.`}<br>Not sure which one fits? <a href="${CONFIG.calendly}" target="_blank" rel="noopener">Book a free 30-minute call</a> and we'll help you choose. Looking for a self-guided program instead? <a href="index.html#programs">See programs</a>.</p>`;
   } else if(st.id==='health') body+=healthHTML();
   else if(st.id==='agree') body+=agreeHTML();
   else if(st.id==='review') body+=reviewHTML();
@@ -400,6 +420,7 @@ function bind(){
   }));
   wrap.querySelectorAll('[data-c]').forEach(c=>c.onchange=()=>{ D[c.dataset.c]=c.checked; c.closest('.chk').classList.remove('err'); save(); });
   wrap.querySelectorAll('[data-plan]').forEach(b=>b.onclick=()=>{ D.plan=b.dataset.plan; save(); wrap.querySelectorAll('[data-plan]').forEach(x=>x.classList.toggle('on',x===b)); clearErr('plan'); });
+  wrap.querySelectorAll('[data-switch]').forEach(a=>a.onclick=e=>{ e.preventDefault(); const want=a.dataset.switch==='local'; if(isLocal(D)!==want){ delete D.plan; } history.replaceState(null,'',want?'enroll.html?type=local':'enroll.html'); save(); render(); });
   wrap.querySelectorAll('[data-goto]').forEach(a=>a.onclick=e=>{ e.preventDefault(); step=+a.dataset.goto; save(); render(); scrollTo(0,0); });
 }
 function clearErr(k){ wrap.querySelectorAll(`[data-f="${k}"]`).forEach(x=>x.classList.remove('err')); }
@@ -428,7 +449,7 @@ function validate(){
     if(D.ecPhone&&D.ecPhone.replace(/\D/g,'').length<10) errs.push(['ecPhone','Enter a valid phone number.']);
   }
   else if(st.id==='agree'){
-    ['aTerms','aRefund','aRenew','aHealth','aRisk','aEsign'].forEach(k=>{ if(!D[k]) errs.push([k,'']); });
+    ['aTerms','aRefund','aRenew','aHealth','aRisk','aEsign'].concat(isLocal(D)?['aLocal']:[]).forEach(k=>{ if(!D[k]) errs.push([k,'']); });
     const full=((D.first||'')+' '+(D.last||'')).toLowerCase().replace(/\s+/g,' ').trim();
     const sig=(D.sig||'').toLowerCase().replace(/\s+/g,' ').trim();
     if(!sig) errs.push(['sig','Type your full name to sign.']);
@@ -448,7 +469,7 @@ function makeRef(){ const d=new Date(), p=n=>String(n).padStart(2,'0'); const r=
 function v(x){ return Array.isArray(x)?x.join(', '):(x==null||x===''?'—':String(x)); }
 function buildPayload(ref, signedAt){
   const P=PLANS[D.plan], o={};
-  o._subject=`New Enrollment: ${D.first} ${D.last} · ${P.name}${redFlags()?' · CLEARANCE NEEDED':''}`;
+  o._subject=`New ${P.local?'IN-PERSON ':''}Enrollment: ${D.first} ${D.last} · ${P.name}${redFlags()?' · CLEARANCE NEEDED':''}`;
   o._template='table'; o._captcha='false';
   const add=(k,val)=>{ o[k]=v(val); };
   add('00 Reference',ref); add('00 Submitted',signedAt);
@@ -461,7 +482,7 @@ function buildPayload(ref, signedAt){
   add('6·Injuries / limitations', D.injuries); add('6·Medications affecting exercise', D.meds);
   add('6·Emergency contact', `${D.ecName} (${D.ecRel}) ${D.ecPhone}`);
   add('7·Agreement version', CONFIG.agreementVersion);
-  add('7·Accepted', 'Terms of Service; Coaching Agreement, Informed Consent & Release; refund policy; '+(P.monthly?'monthly auto-renew authorization':'one-time charge authorization')+'; health accuracy; assumption of risk; e-signature consent');
+  add('7·Accepted', 'Terms of Service; Coaching Agreement, Informed Consent & Release; refund policy; '+(P.monthly?'monthly auto-renew authorization':'one-time charge authorization')+(P.local?'; In-Person Training terms (24-hr cancellation, rollover, location, in-home fee)':'')+'; health accuracy; assumption of risk; e-signature consent');
   add('7·Signature (typed)', D.sig); add('7·Signed at', signedAt);
   add('7·Device', navigator.userAgent.slice(0,180));
   o.email=D.email; o._replyto=D.email;

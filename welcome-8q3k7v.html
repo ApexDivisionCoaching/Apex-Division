@@ -191,7 +191,7 @@ else if(X.kind==='local'){
   $('#sub').innerHTML = `Your <b>${X.name}</b> is confirmed: ${X.len}. Here's what happens next.`;
   html += `<section class="card"><h2><span class="n">1</span>What happens next</h2><ol class="steps">
     <li><b>Book your sessions:</b> pick your times on our <a href="https://calendly.com/zerx123/apex-local-training-session" target="_blank" rel="noopener" style="color:var(--gold)">training calendar</a>. Your coach will also text you within 24 hours to lock in your standing days and location.</li>
-    <li><b>Before your first session:</b> sign the <a href="agreement.html" style="color:var(--gold)">Coaching Agreement &amp; Waiver</a> and complete the quick health screening we send you. We can't train until both are done.</li>
+    <li><b>Signed your waiver at enrollment?</b> You're set. If you paid without enrolling first, <a href="enroll.html?plan=${key}" style="color:var(--gold)">complete your intake, health screening and waiver here</a> before your first session. We can't train until it's done.</li>
     <li><b>First session:</b> movement screen, goals and baseline numbers. Your coach brings the gear.</li>${key==='hybrid'?'\n    <li><b>Within 3–5 days:</b> your online program and macro targets, plus your weekly check-in day.</li>':''}
   </ol>
   <p class="note">Need to cancel? Give us 24 hours and we'll reschedule. Late cancellations and no-shows count as a used session.</p></section>`;
