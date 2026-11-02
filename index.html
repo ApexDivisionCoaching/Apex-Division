@@ -272,6 +272,15 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:48px va
 .toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);opacity:0;background:#1a1710;border:1px solid var(--gold-dim);color:var(--white);padding:14px 20px;font-size:14px;z-index:300;transition:all .3s;max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%)}
 
+/* programs value stack */
+.progs{border-top:1px solid var(--border)}
+.vstack{list-style:none;margin:0 0 22px;border-top:1px solid var(--border)}
+.vstack li{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--border)}
+.vstack li b{font-weight:600;color:var(--white);white-space:nowrap}
+.vstack s{color:var(--gray);font-weight:400;margin-right:4px}
+.vstack li.vt{border-bottom:none;padding-top:10px}
+.vstack li.vt b{color:var(--gold);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:14px}
+
 /* quiz lead capture */
 .lead-cap{margin-top:22px;padding:18px;border:1px solid var(--border);background:#0e0e0e}
 .lead-cap p{font-size:13px;color:var(--gray);margin-bottom:10px;line-height:1.6}
@@ -367,8 +376,7 @@ a.lx:hover{background:var(--card-2)}
   <a href="#top" class="nav-logo"><img src="logo-wide.png" alt="Apex Division"></a>
   <ul class="nav-links">
     <li><a href="#quiz">Find Your Plan</a></li>
-    <li><a href="#packages">Programs</a></li>
-    <li><a href="#coaching">Coaching</a></li>
+    <li><a href="#packages">Coaching</a></li>
     <li><a href="#local">In Person</a></li>
     <li><a href="#coaches">Coaches</a></li>
     <li><a href="#faq">FAQ</a></li>
@@ -467,7 +475,7 @@ a.lx:hover{background:var(--card-2)}
         <div class="q-sub">This is the biggest factor in what fits you.</div>
         <div class="opts">
           <button class="opt" data-v="plan"><span class="ic">A</span><span><strong>Just The Plan</strong><small>Give me a proven program — I'll run it</small></span></button>
-          <button class="opt" data-v="community"><span class="ic">B</span><span><strong>A Team</strong><small>Structure plus a group to keep me going</small></span></button>
+          <button class="opt" data-v="community"><span class="ic">B</span><span><strong>Accountability</strong><small>Someone checking in to keep me on track</small></span></button>
           <button class="opt" data-v="weekly"><span class="ic">C</span><span><strong>Weekly Coaching</strong><small>A coach who checks in and adjusts my plan</small></span></button>
           <button class="opt" data-v="pocket"><span class="ic">D</span><span><strong>Coach In My Pocket</strong><small>Daily access, calls, form checks — all in</small></span></button>
         </div>
@@ -507,40 +515,9 @@ a.lx:hover{background:var(--card-2)}
 <!-- PACKAGES -->
 <section id="packages" style="background:var(--dark);border-top:1px solid var(--border)">
   <div class="wrap">
-    <div class="eyebrow rv">Programs &amp; Coaching</div>
-    <h2 class="h2 rv">EVERY BUDGET. <span>EVERY GOAL.</span></h2>
-    <p class="lead rv">Start with a self-guided program, join the team, or work 1-on-1 with a coach. Not sure? <a href="#quiz" style="color:var(--gold);border-bottom:1px solid var(--gold-dim)">Take the quiz.</a></p>
-
-    <div class="sub-head rv">Digital Programs · One-Time</div>
-    <div class="grid g4 rv">
-      <div class="pcard"><span class="badge">Fat Loss</span><h4>The Cut Blueprint</h4><div class="price">$27 — One Time</div><p>8-week fat loss system. Flexible calorie strategy, simple cardio, and training that keeps your muscle while the fat comes off.</p><a href="#" class="plink" data-link="cut">Get The Program →</a></div>
-      <div class="pcard"><span class="badge">Muscle</span><h4>Apex Physique</h4><div class="price">$37 — One Time</div><p>12-week muscle-building program in three phases. Great for beginners through intermediates who want size and shape.</p><a href="#" class="plink" data-link="physique">Get The Program →</a></div>
-      <div class="pcard"><span class="badge">Strength</span><h4>Iron Foundations</h4><div class="price">$37 — One Time</div><p>10-week RPE-based strength program for squat, bench, and deadlift. Ends with a mock meet to test your new numbers.</p><a href="#" class="plink" data-link="iron">Get The Program →</a></div>
-      <div class="pcard cover"><img src="cover-recovery.jpg" alt="Apex Recovery System guide cover" loading="lazy"><div class="in"><span class="badge">Free Bonus</span><h4>Recovery System</h4><div class="price">Included With Every Program</div><p style="margin-bottom:0">Sleep, hydration, mobility, deloads, and a daily recovery score.</p></div></div>
-    </div>
-
-    <div class="sub-head rv">Group Coaching</div>
-    <div class="grid rv" style="grid-template-columns:1fr">
-      <div class="tier coll" id="collective">
-        <div>
-          <div class="t-num">Community</div>
-          <h3>Apex Collective</h3>
-          <div class="t-price">$49<small>/mo</small></div>
-          <div class="t-for" style="border:none">Cancel anytime · Capped at 30 members</div>
-          <p style="font-size:14px;color:var(--gray);font-style:italic;margin-bottom:22px">Real coaching structure and a team behind you — without the 1-on-1 price.</p>
-          <a href="#" class="btn btn-gold" data-link="collective">Join The Collective</a>
-        </div>
-        <ul style="margin:0">
-          <li>New monthly program — Fat Loss, Muscle, or Strength track</li>
-          <li>Private members-only group chat</li>
-          <li>Monthly live Zoom Q&amp;A with both coaches</li>
-          <li>Group form-check submissions every week</li>
-          <li>Nutrition guidelines and macro targets</li>
-          <li>Full digital program library included</li>
-          <li>Member discount on 1-on-1 upgrades</li>
-        </ul>
-      </div>
-    </div>
+    <div class="eyebrow rv">1-on-1 Coaching</div>
+    <h2 class="h2 rv">A COACH IN <span>YOUR CORNER.</span></h2>
+    <p class="lead rv">A custom plan built for you, real check-ins, and a coach who adjusts every step of the way. Not sure which tier fits? <a href="#quiz" style="color:var(--gold);border-bottom:1px solid var(--gold-dim)">Take the quiz</a> or book a free call.</p>
 
     <div class="sub-head rv" id="coaching">1-on-1 Coaching · Monthly</div>
     <div class="grid g3 rv">
@@ -741,6 +718,27 @@ a.lx:hover{background:var(--card-2)}
   </div>
 </section>
 
+<!-- SELF-GUIDED PROGRAMS -->
+<section id="programs" class="progs">
+  <div class="wrap">
+    <div class="eyebrow rv">Self-Guided Programs</div>
+    <h2 class="h2 rv">RATHER TRAIN <span>ON YOUR OWN?</span></h2>
+    <p class="lead rv">Not ready for a coach yet? Our programs give you the exact plan we use with clients, phase by phase, and you run it yourself. One payment, yours to keep.</p>
+    <div class="grid g3 rv" style="margin-top:36px">
+      <div class="pcard"><span class="badge">Fat Loss</span><h4>The Cut Blueprint</h4><div class="price">$47 — One Time</div><p>8-week fat loss system. Flexible calorie strategy, simple cardio, and training that keeps your muscle while the fat comes off.</p>
+        <ul class="vstack"><li><span>The Cut Blueprint</span><b>$47</b></li><li><span>Recovery Blueprint</span><b><s>$25</s> Free</b></li><li><span>Apex Form Library access</span><b><s>$47</s> Free</b></li><li class="vt"><span>Total value <s>$119</s></span><b>You pay $47</b></li></ul>
+        <a href="#" class="plink" data-link="cut">Get The Program →</a></div>
+      <div class="pcard"><span class="badge">Muscle</span><h4>Apex Physique</h4><div class="price">$57 — One Time</div><p>12-week muscle-building program in three phases. Great for beginners through intermediates who want size and shape.</p>
+        <ul class="vstack"><li><span>Apex Physique</span><b>$57</b></li><li><span>Recovery Blueprint</span><b><s>$25</s> Free</b></li><li><span>Apex Form Library access</span><b><s>$47</s> Free</b></li><li class="vt"><span>Total value <s>$129</s></span><b>You pay $57</b></li></ul>
+        <a href="#" class="plink" data-link="physique">Get The Program →</a></div>
+      <div class="pcard"><span class="badge">Strength</span><h4>Iron Foundations</h4><div class="price">$57 — One Time</div><p>10-week RPE-based strength program for squat, bench, and deadlift. Ends with a mock meet to test your new numbers.</p>
+        <ul class="vstack"><li><span>Iron Foundations</span><b>$57</b></li><li><span>Recovery Blueprint</span><b><s>$25</s> Free</b></li><li><span>Apex Form Library access</span><b><s>$47</s> Free</b></li><li class="vt"><span>Total value <s>$129</s></span><b>You pay $57</b></li></ul>
+        <a href="#" class="plink" data-link="iron">Get The Program →</a></div>
+    </div>
+    <p class="local-note rv">Want it built around you instead? <a href="#" data-link="calendly" style="color:var(--gold)">Book a free call</a> and we'll show you what coaching would look like.</p>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section id="faq" style="background:var(--dark);border-top:1px solid var(--border)">
   <div class="wrap center">
@@ -757,7 +755,7 @@ a.lx:hover{background:var(--card-2)}
     <div class="fq"><button>What equipment do I need?<span>+</span></button><div class="a">A commercial gym is ideal, but we can build around a home gym or limited equipment. Tell us what you have and we'll program around it.</div></div>
     <div class="fq"><button>Why not just use AI or YouTube?<span>+</span></button><div class="a">They can give you a workout. They can't notice you went quiet for a week and check on you, watch your squat and fix your depth, or change your plan when recovery falls behind. That accountability is what gets results.</div></div>
     <div class="fq"><button>What if I have an injury or limitation?<span>+</span></button><div class="a">Tell us on the call and we build around it. Every coaching plan is customized to your history, mobility, and equipment.</div></div>
-    <div class="fq"><button>Can I cancel?<span>+</span></button><div class="a">Yes. Monthly coaching and the Collective can be cancelled anytime — no long-term contracts. The 12 Week Transformation is a one-time payment that runs its full length.</div></div>
+    <div class="fq"><button>Can I cancel?<span>+</span></button><div class="a">Yes. Monthly coaching and in-person packs can be cancelled anytime — no long-term contracts. The 12 Week Transformation is a one-time payment that runs its full length.</div></div>
     <div class="fq"><button>How fast will I see results?<span>+</span></button><div class="a">Strength usually improves within 2–4 weeks. Visible body changes typically show around weeks 6–8 with consistent training and nutrition.</div></div>
   </div>
 </section>
@@ -777,7 +775,7 @@ a.lx:hover{background:var(--card-2)}
 <footer>
   <div class="f-top">
     <div class="f-brand"><img src="logo-wide.png" alt="Apex Division"><p>Online coaching for fat loss, muscle, and strength. Every level welcome.</p></div>
-    <div class="f-col"><h5>Programs</h5><a href="#" data-link="cut">Cut Blueprint — $27</a><a href="#" data-link="physique">Apex Physique — $37</a><a href="#" data-link="iron">Iron Foundations — $37</a><a href="#" data-link="collective">Apex Collective — $49/mo</a></div>
+    <div class="f-col"><h5>Programs</h5><a href="#" data-link="cut">Cut Blueprint — $47</a><a href="#" data-link="physique">Apex Physique — $57</a><a href="#" data-link="iron">Iron Foundations — $57</a></div>
     <div class="f-col"><h5>Coaching</h5><a href="#coaching">Starter — $149/mo</a><a href="#coaching">Standard — $199/mo</a><a href="#coaching">Elite — $249/mo</a><a href="#transformation">Transformation — $599</a><a href="#local">In-Person Training</a><a href="enroll.html">Enroll Online</a></div>
     <div class="f-col"><h5>Company</h5><a href="#quiz">Find Your Plan</a><a href="form-library.html">Form Library</a><a href="#faq">FAQ</a><a href="#" data-link="terms">Terms of Service</a><a href="#" data-link="privacy">Privacy Policy</a><a href="#" data-link="email" id="emailLink">Email Us</a></div>
   </div>
@@ -798,10 +796,9 @@ a.lx:hover{background:var(--card-2)}
    ========================================================= */
 const LINKS = {
   calendly:   "https://calendly.com/zerx123/30min",
-  cut:        "https://buy.stripe.com/9B66oIdkDgWRb1d6pDawo05",  // $27
-  physique:   "https://buy.stripe.com/00wdRadkD0XT0mz3drawo06",  // $37
-  iron:       "https://buy.stripe.com/cNi6oIdkD8ql5GTg0dawo07", // $37
-  collective: "https://buy.stripe.com/00wcN6bcv8qledpcO1awo04",     // $49/mo
+  cut:        "https://buy.stripe.com/8x23cwcgzayt9X95lzawo0h",  // $47
+  physique:   "https://buy.stripe.com/3cIfZidkDgWRc5h7tHawo0i",  // $57
+  iron:       "https://buy.stripe.com/cNicN62FZ7mh3yLaFTawo0j",  // $57
   terms:      "terms.html",
   privacy:    "privacy.html",
   instagram:  "https://www.instagram.com/apexdivisioncoaching/",
@@ -813,7 +810,7 @@ const LINKS = {
 
 const isSet = k => LINKS[k] && !LINKS[k].startsWith('YOUR_');
 const mailto = subj => `mailto:${LINKS.email}?subject=${encodeURIComponent(subj)}`;
-const LABELS = {calendly:'Free discovery call',cut:'Cut Blueprint',physique:'Apex Physique',iron:'Iron Foundations',collective:'Apex Collective',terms:'Terms of Service',privacy:'Privacy Policy'};
+const LABELS = {calendly:'Free discovery call',cut:'Cut Blueprint',physique:'Apex Physique',iron:'Iron Foundations',terms:'Terms of Service',privacy:'Privacy Policy'};
 
 function hrefFor(key, extra){
   if(key==='email') return mailto('Apex Division inquiry');
@@ -863,10 +860,9 @@ document.getElementById('nameForm').onsubmit=e=>{ e.preventDefault(); A.name=doc
 document.getElementById('skipName').onclick=()=>{ A.name=''; finish(); };
 
 const PKG = {
-  cut:{name:'The Cut Blueprint',price:'$27',per:'one time',tag:'8 weeks to a leaner you — no crash diet required.',link:'cut',kind:'buy',cta:'Get The Cut Blueprint'},
-  physique:{name:'Apex Physique',price:'$37',per:'one time',tag:'12 weeks of structured muscle building, phase by phase.',link:'physique',kind:'buy',cta:'Get Apex Physique'},
-  iron:{name:'Iron Foundations',price:'$37',per:'one time',tag:'10 weeks of RPE strength work ending in a mock meet.',link:'iron',kind:'buy',cta:'Get Iron Foundations'},
-  collective:{name:'Apex Collective',price:'$49',per:'/mo',tag:'Monthly programming, a team, and live coach Q&As.',link:'collective',kind:'buy',cta:'Join The Collective'},
+  cut:{name:'The Cut Blueprint',price:'$47',per:'one time',tag:'8 weeks to a leaner you — no crash diet required.',link:'cut',kind:'buy',cta:'Get The Cut Blueprint'},
+  physique:{name:'Apex Physique',price:'$57',per:'one time',tag:'12 weeks of structured muscle building, phase by phase.',link:'physique',kind:'buy',cta:'Get Apex Physique'},
+  iron:{name:'Iron Foundations',price:'$57',per:'one time',tag:'10 weeks of RPE strength work ending in a mock meet.',link:'iron',kind:'buy',cta:'Get Iron Foundations'},
   starter:{name:'Starter Coaching',price:'$149',per:'/mo',tag:'Your own custom plan with a coach checking in every two weeks.',link:'calendly',kind:'call',cta:'Book My Free Call',tier:'Starter'},
   standard:{name:'Standard Coaching',price:'$199',per:'/mo',tag:'A coach who adjusts your plan every single week.',link:'calendly',kind:'call',cta:'Book My Free Call',tier:'Standard'},
   elite:{name:'Elite Coaching',price:'$249',per:'/mo',tag:'Plan adjustments up to 3× a week, twice-weekly calls, total access.',link:'calendly',kind:'call',cta:'Book My Free Call',tier:'Elite'},
@@ -876,28 +872,20 @@ const progFor = g => ({fat:'cut',muscle:'physique',strength:'iron',compete:'iron
 const GOAL_TXT = {fat:'lose fat',muscle:'build muscle',strength:'get stronger',start:'get started the right way',compete:'compete',recomp:'lose fat and build muscle'};
 
 function pick(){
+  // Coaching first, always. Programs are offered on the call as a budget downsell.
   const {goal,exp,support,budget} = A;
   let main, alt;
   if(goal==='compete' && (budget==='250'||budget==='max')) { main = budget==='max'?'transform':'elite'; alt='standard'; }
-  else if(budget==='50'){
-    main = (support==='plan') ? progFor(goal) : 'collective';
-    alt  = main==='collective' ? progFor(goal) : 'collective';
-  } else if(budget==='150'){
-    if(support==='plan'){ main=progFor(goal); alt='collective'; }
-    else if(support==='community'){ main='collective'; alt='starter'; }
-    else { main='starter'; alt='collective'; }
-  } else if(budget==='250'){
-    if(support==='plan'){ main='starter'; alt=progFor(goal); }
-    else if(support==='community'){ main='collective'; alt='standard'; }
-    else if(support==='weekly'){ main='standard'; alt='starter'; }
-    else { main='elite'; alt='standard'; }
+  else if(budget==='50'||budget==='150'){ main='starter'; alt='standard'; }
+  else if(budget==='250'){
+    if(support==='weekly'){ main='standard'; alt='starter'; }
+    else if(support==='pocket'){ main='elite'; alt='standard'; }
+    else { main='starter'; alt='standard'; }
   } else { // max
     if(support==='pocket') { main='transform'; alt='elite'; }
     else if(support==='weekly'){ main=(exp==='new'||exp==='some')?'transform':'standard'; alt= main==='transform'?'standard':'transform'; }
-    else if(support==='community'){ main='standard'; alt='collective'; }
-    else { main='standard'; alt=progFor(goal); }
+    else { main='standard'; alt='elite'; }
   }
-  if(main==='iron' && goal==='compete' && budget==='50') alt='collective';
   return {main, alt};
 }
 
@@ -909,7 +897,7 @@ function reasons(key){
   if(days==='2') r.push('Efficient sessions designed for a 2–3 day schedule.');
   else if(days==='home') r.push('Flexible scheduling and equipment swaps when life gets in the way.');
   else r.push(`Fits your ${days==='5'?'5+':'4'}-day training week.`);
-  if(support==='community') r.push('A team and group chat to keep you consistent.');
+  if(support==='community') r.push('Regular check-ins so you never lose momentum.');
   else if(support==='weekly'||support==='pocket') r.push(PKG[key].kind==='call' ? 'Real check-ins and a coach who adjusts your plan as you progress.' : 'Upgrade to 1-on-1 coaching anytime with a member discount.');
   else r.push('Includes the free Recovery System so you recover as hard as you train.');
   return r.slice(0,4);
