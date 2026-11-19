@@ -93,7 +93,7 @@ footer a{color:var(--gray);margin:0 8px}
    WELCOME PAGE SETTINGS
    Stripe "after payment" redirect for each product:
    https://apexdivisioncoaching.com/welcome-8q3k7v.html?p=KEY
-   KEY = cut | physique | iron | collective | starter | standard | elite | transform | local4 | local8 | local12 | hybrid | single
+   KEY = cut | physique | iron | custom | collective | starter | standard | elite | transform | local4 | local8 | local12 | hybrid | single
    ========================================================= */
 const SET = {
   formCode: "APEX-RISE-4817",
@@ -116,6 +116,7 @@ const P = {
     start:['<b>Read the overview</b> so you know how the 3 phases build on each other.','<b>Log every set</b>: weight and reps. Beating last week is the whole game.','<b>Set your protein target</b> from the nutrition section before day 1.','<b>Check the Form Library</b> for cues on every exercise in your split.']},
   iron:{kind:'program',name:'Iron Foundations',len:'10-week strength program',
     start:['<b>Read how RPE works</b> in the first section; every set is built on it.','<b>Find your starting weights</b> with the week 1 guide. Start conservative.','<b>Film your top sets</b> from the side so you can check depth and bar path.','<b>Mark your mock meet date</b> at the end of week 10.']},
+  custom:{kind:'custom',name:'Custom Program',len:'custom 4-week program'},
   collective:{kind:'collective',name:'Apex Collective',len:'Group coaching membership'},
   starter:{kind:'coaching',name:'Starter Coaching',len:'1-on-1 coaching · bi-weekly check-ins'},
   standard:{kind:'coaching',name:'Standard Coaching',len:'1-on-1 coaching · weekly check-ins'},
@@ -157,6 +158,17 @@ let html = '';
 if(!X){
   $('#sub').innerHTML = 'Your payment went through. Check your email for your receipt and next steps.';
   html = libraryCard(1) + `<section class="card"><h2>Something missing?</h2><p class="d">If you don't see what you bought, email <a href="mailto:${SET.email}?subject=${encodeURIComponent('My purchase')}">${SET.email}</a> with your name and receipt, and we'll get it to you the same day.</p></section>`;
+}
+else if(X.kind==='custom'){
+  $('#title').innerHTML = `We're On <span>It.</span>`;
+  $('#sub').innerHTML = `Your <b>${X.name}</b> is confirmed. Your coach is building your ${X.len} now.`;
+  html += `<section class="card"><h2><span class="n">1</span>What happens next</h2><ol class="steps">
+    <li><b>Within 24 hours:</b> your coach reaches out (text or email) with a few quick questions about your goal, experience and any injuries.</li>
+    <li><b>Within 3–5 days:</b> your custom 4-week plan arrives as a PDF: workouts, sets, reps, tempo and simple nutrition targets.</li>
+    <li><b>Start day one</b> and look up any exercise by name in the Form Library below.</li>
+  </ol></section>`;
+  html += `<section class="card"><h2><span class="n">2</span>Your free bonus</h2><div class="dl">${dlLink('recovery','Recovery Blueprint','Free bonus · sleep, mobility, deloads, recovery score')}</div></section>`;
+  html += libraryCard(3);
 }
 else if(X.kind==='program'){
   $('#title').innerHTML = `You're <span>In.</span>`;

@@ -193,7 +193,7 @@ section{padding:clamp(72px,10vw,110px) var(--pad)}
 .transform li{font-size:14px;color:var(--muted);padding:12px 0;border-bottom:1px solid var(--border);display:flex;gap:12px}
 .transform li::before{content:'✦';color:var(--gold-dim);font-size:9px;margin-top:5px}
 
-.addons{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.addons{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
 .addon{background:var(--card);padding:22px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
 .addon b{font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:.5px;text-transform:uppercase;font-weight:700;display:block}
 .addon small{font-size:12px;color:var(--gray)}
@@ -575,6 +575,7 @@ a.lx:hover{background:var(--card-2)}
     <div class="sub-head rv">Add-Ons</div>
     <div class="addons rv">
       <a class="addon" href="https://buy.stripe.com/9B63cw2FZ9up6KX01fawo08"><div><b>Extra Zoom Call</b><small>1-on-1, outside check-ins</small></div><div class="ap">$25</div></a>
+      <a class="addon" href="https://buy.stripe.com/aFadRa6Wf3617P14hvawo0l"><div><b>Bring A Partner</b><small>In-person sessions, per person</small></div><div class="ap">$25</div></a>
       <a class="addon" href="https://buy.stripe.com/6oU9AUa8r4a55GT01fawo0b"><div><b>Form Check</b><small>Video breakdown of any lift</small></div><div class="ap">$15</div></a>
     </div>
   </div>
@@ -631,7 +632,7 @@ a.lx:hover{background:var(--card-2)}
     </div>
     <div class="local-extras rv">
       <a class="lx" href="enroll.html?plan=single"><div><b>Single Session</b><small>Try us out or fill a gap. In-home $80.</small></div><div class="ap">$70</div></a>
-      <div><div><b>Bring A Partner</b><small>Per session for a second person training with you.</small></div><div class="ap">+$25</div></div>
+      <a class="lx" href="https://buy.stripe.com/aFadRa6Wf3617P14hvawo0l"><div><b>Bring A Partner</b><small>Per session for a second person training with you.</small></div><div class="ap">+$25</div></a>
       <a class="lx" href="https://calendly.com/zerx123/in-person-meet-greet" target="_blank" rel="noopener"><div><b>First Meeting</b><small>20-minute meet-and-greet and movement screen.</small></div><div class="ap">Free</div></a>
     </div>
     <p class="local-note rv">60-minute sessions at a park, your gym, or your home. In-home training adds $10 a session for travel, and you can add it at checkout. Every pack is billed monthly and includes your Apex plan for the days you train on your own. Fully insured. NASM-certified and CPR/AED-certified coaches.</p>
@@ -722,7 +723,7 @@ a.lx:hover{background:var(--card-2)}
     <div class="eyebrow rv">Self-Guided Programs</div>
     <h2 class="h2 rv">RATHER TRAIN <span>ON YOUR OWN?</span></h2>
     <p class="lead rv">Not ready for a coach yet? Our programs give you the exact plan we use with clients, phase by phase, and you run it yourself. One payment, yours to keep.</p>
-    <div class="grid g3 rv" style="margin-top:36px">
+    <div class="grid g4 rv" style="margin-top:36px">
       <div class="pcard"><span class="badge">Fat Loss</span><h4>The Cut Blueprint</h4><div class="price">$47 — One Time</div><p>8-week fat loss system. Flexible calorie strategy, simple cardio, and training that keeps your muscle while the fat comes off.</p>
         <ul class="vstack"><li><span>The Cut Blueprint</span><b>$47</b></li><li><span>Recovery Blueprint</span><b>Free <em>$25 value</em></b></li><li><span>Apex Form Library access</span><b>Free <em>$47 value</em></b></li><li class="vt"><span>Total value $119</span><b>You pay $47</b></li></ul>
         <a href="#" class="plink" data-link="cut">Get The Program →</a></div>
@@ -732,6 +733,9 @@ a.lx:hover{background:var(--card-2)}
       <div class="pcard"><span class="badge">Strength</span><h4>Iron Foundations</h4><div class="price">$57 — One Time</div><p>10-week RPE-based strength program for squat, bench, and deadlift. Ends with a mock meet to test your new numbers.</p>
         <ul class="vstack"><li><span>Iron Foundations</span><b>$57</b></li><li><span>Recovery Blueprint</span><b>Free <em>$25 value</em></b></li><li><span>Apex Form Library access</span><b>Free <em>$47 value</em></b></li><li class="vt"><span>Total value $129</span><b>You pay $57</b></li></ul>
         <a href="#" class="plink" data-link="iron">Get The Program →</a></div>
+      <div class="pcard"><span class="badge">Built For You</span><h4>Custom Program</h4><div class="price">$65 — One Time</div><p>A 4-week plan a coach builds around your specific goal, schedule and equipment, using the same system we use with coaching clients. Delivered in 3–5 days.</p>
+        <ul class="vstack"><li><span>Custom 4-week program</span><b>$65</b></li><li><span>Recovery Blueprint</span><b>Free <em>$25 value</em></b></li><li><span>Apex Form Library access</span><b>Free <em>$47 value</em></b></li><li class="vt"><span>Total value $137</span><b>You pay $65</b></li></ul>
+        <a href="#" class="plink" data-link="custom">Get My Custom Plan →</a></div>
     </div>
     <p class="local-note rv">Want it built around you instead? <a href="#" data-link="calendly" style="color:var(--gold)">Book a free call</a> and we'll show you what coaching would look like.</p>
   </div>
@@ -795,6 +799,8 @@ a.lx:hover{background:var(--card-2)}
 const LINKS = {
   calendly:   "https://calendly.com/zerx123/30min",
   cut:        "https://buy.stripe.com/8x23cwcgzayt9X95lzawo0h",  // $47
+  custom:     "https://buy.stripe.com/8x2cN65SbfSNedp01fawo0k",  // $65 custom program
+  partner:    "https://buy.stripe.com/aFadRa6Wf3617P14hvawo0l",  // $25 per partner session
   physique:   "https://buy.stripe.com/3cIfZidkDgWRc5h7tHawo0i",  // $57
   iron:       "https://buy.stripe.com/cNicN62FZ7mh3yLaFTawo0j",  // $57
   terms:      "terms.html",
