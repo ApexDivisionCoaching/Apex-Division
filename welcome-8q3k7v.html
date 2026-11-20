@@ -88,7 +88,6 @@ footer a{color:var(--gray);margin:0 8px}
   © 2026 Apex Division LLC · Louisiana
 </footer>
 
-<script src="promo.js"></script>
 <script>
 /* =========================================================
    WELCOME PAGE SETTINGS
@@ -178,7 +177,6 @@ else if(X.kind==='program'){
     <p class="d">Save both files to your phone (Files or Books) so you have them at the gym.</p>
     <div class="dl">${dlLink(key, X.name, X.len)}${dlLink('recovery','Recovery Blueprint','Free bonus · sleep, mobility, deloads, recovery score')}</div>
   </section>`;
-  html += '<!--BOGO-->';
   html += libraryCard(2);
   html += `<section class="card"><h2><span class="n">3</span>Start this week</h2><ol class="steps">${X.start.map(s=>`<li>${s}</li>`).join('')}</ol></section>`;
   html += `<section class="card up"><h2>Want it built just for you?</h2>
@@ -230,26 +228,6 @@ else {
     <li><b>Take starting photos:</b> front, side and back, in good light, same spot you'll use every time.</li>
     <li><b>Weigh in each morning</b> after the bathroom, before food, and note it.</li>
     <li><b>Keep training as normal</b> and jot down what you lift, so your coach has a baseline.</li></ol></section>`;
-}
-/* ---------- promo bonus + partner perks (config in promo.js) ---------- */
-const PR = window.apexPromo ? apexPromo() : null;
-if(X && PR){
-  if(X.kind==='program' && PR.id==='bf'){
-    const others = ['cut','physique','iron'].filter(k=>k!==key);
-    html = html.replace('<!--BOGO-->', `<section class="card up"><h2>${PR.tag}: <span style="color:var(--gold)">your free second program</span></h2>
-      <p class="d">Buy one, get one free. Download whichever one you want (or both, we won't tell).</p>
-      <div class="dl">${others.map(k=>dlLink(k, P[k].name, 'Free · '+P[k].len)).join('')}</div></section>`);
-  } else if((X.kind==='coaching' || (X.kind==='local' && key!=='single'))){
-    html += `<section class="card up"><h2>Your ${PR.tag} bonus</h2><p class="d">${PR.text}</p>
-      <p class="note">It's already noted on your account. ${PR.id==='bf'?'Text or email us your friend\'s name and number and we\'ll take it from there.':'Your coach will set it up with you.'}</p></section>`;
-  }
-}
-const PK = window.apexPerks ? apexPerks() : [];
-if(X && PK.length){
-  html += `<section class="card"><h2>Your member perks</h2>
-    ${PK.map(k=>`<p class="d" style="margin-bottom:6px"><b>${k.off} at ${k.name}</b> · ${k.what}</p>
-    <div class="code" style="margin-bottom:8px"><output>${k.code}</output><a class="btn btn-line" href="${k.url}" target="_blank" rel="noopener">Shop →</a></div>`).join('')}
-    <p class="note">Apex Division may earn a commission on partner orders. Supplements are optional and never required for your plan. Check with your doctor before starting any supplement.</p></section>`;
 }
 html += supportLine();
 $('#main').innerHTML = html;

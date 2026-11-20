@@ -176,9 +176,7 @@ input::placeholder,textarea::placeholder{color:#5f5c56}
 
 <noscript><p style="padding:40px 20px;text-align:center">Enrollment needs JavaScript. Please enable it, or email contact@apexdivisioncoaching.com.</p></noscript>
 
-<script src="promo.js"></script>
 <script>
-const PROMO=window.apexPromo?apexPromo():null;
 /* =========================================================
    ENROLLMENT SETTINGS — the only part you should need to edit
    ========================================================= */
@@ -239,9 +237,8 @@ const STEPS = [
     {row:[{k:'email',label:'Email',type:'email',req:1,ac:'email'},{k:'phone',label:'Phone',type:'tel',req:1,ac:'tel',ph:'(504) 555-0123'}]},
     {row:[{k:'dob',label:'Date of birth',type:'date',req:1,ac:'bday',help:'You must be 18 or older to enroll.'},{k:'location',label:'City & state',type:'text',req:1,ph:'Mandeville, LA'}]},
     {row:[{k:'tz',label:'Time zone',type:'select',req:1,opts:TZ},{k:'contact',label:'Best way to reach you',type:'select',req:1,opts:['Text','Email','Phone call','Instagram DM']}]},
-    {row:[{k:'trainAt',label:'Where we\'ll train',type:'select',req:1,opts:['Anytime Fitness Mandeville','A park','My gym','My home (+$10/session)','Mix / not sure yet'],show:isLocal},{k:'trainAddr',label:'Address or gym name',type:'text',ph:'Skip if Anytime Fitness · street address, park or gym',show:isLocal}]},
+    {row:[{k:'trainAt',label:'Where we\'ll train',type:'select',req:1,opts:['A park','My gym','My home (+$10/session)','Mix / not sure yet'],show:isLocal},{k:'trainAddr',label:'Address or gym name',type:'text',req:1,ph:'Street address, park, or gym',show:isLocal}]},
     {row:[{k:'trainTimes',label:'Best days & times',type:'text',req:1,ph:'Mon/Wed 6am, Sat mornings…',show:isLocal},{k:'partner',label:'Training with a partner?',type:'select',opts:['No','Yes (+$25/session)'],show:isLocal}]},
-    {k:'gift',label:'Black Friday gift: who gets your free Custom Program?',type:'text',ph:'Friend\'s name + phone (optional, you can tell us later)',show:()=>!!(PROMO&&PROMO.id==='bf')},
     {row:[{k:'ig',label:'Instagram handle',type:'text',ph:'@yourhandle (optional)'},{k:'source',label:'How did you find us?',type:'select',opts:['Instagram','TikTok','YouTube','Friend / referral','Google','Other']}]}
   ]},
   {id:'goals', name:'Goals', title:'Your <span>Goals</span>', lead:'Be specific. The clearer the target, the better we can build toward it.', fields:[
@@ -472,12 +469,11 @@ function makeRef(){ const d=new Date(), p=n=>String(n).padStart(2,'0'); const r=
 function v(x){ return Array.isArray(x)?x.join(', '):(x==null||x===''?'—':String(x)); }
 function buildPayload(ref, signedAt){
   const P=PLANS[D.plan], o={};
-  o._subject=`New ${P.local?'IN-PERSON ':''}Enrollment: ${D.first} ${D.last} · ${P.name}${PROMO&&D.plan!=='single'?' · '+PROMO.tag.toUpperCase():''}${redFlags()?' · CLEARANCE NEEDED':''}`;
+  o._subject=`New ${P.local?'IN-PERSON ':''}Enrollment: ${D.first} ${D.last} · ${P.name}${redFlags()?' · CLEARANCE NEEDED':''}`;
   o._template='table'; o._captcha='false';
   const add=(k,val)=>{ o[k]=v(val); };
   add('00 Reference',ref); add('00 Submitted',signedAt);
   add('01 Plan',`${P.name} (${P.price}${P.per})`);
-  if(PROMO&&D.plan!=='single') add('01b Promo', PROMO.bonus);
   add('02 Payment',isSet(CONFIG.stripe[D.plan])?'Sent to Stripe checkout':'SEND PAYMENT LINK MANUALLY');
   add('03 Health flag',redFlags()?'DOCTOR CLEARANCE REQUIRED before training':(anyYes()?'Has health notes — review':'None'));
   STEPS.forEach((st,si)=>{ if(!st.fields) return; flatFields(st).forEach(f=>{ if(f.show&&!f.show(D)) return; add(`${si+1}·${st.name} — ${f.label}`, D[f.k]); }); });
