@@ -368,10 +368,32 @@ a.lx:hover{background:var(--card-2)}
   .mcta .btn{width:100%}
   footer{padding-bottom:96px}
 }
+/* promo + perks */
+.promo-strip{position:fixed;left:0;right:0;top:0;z-index:101;display:block;text-align:center;padding:8px var(--pad);background:var(--grad-gold);color:#0b0b0b;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:1.5px;font-weight:700;text-transform:uppercase;line-height:1.3}
+.promo-strip u{text-decoration:none;border-bottom:1px solid #0b0b0b}
+@media (max-width:720px){.promo-strip .ps-mid{display:none}.promo-strip{font-size:12px;letter-spacing:1px}}
+body.has-strip .nav{top:var(--strip-h,34px)}
+body.has-strip .hero{padding-top:calc(110px + var(--strip-h,34px))}
+.promo{position:relative;margin-top:30px;width:100%;max-width:640px;border:1px solid var(--gold-dim);background:linear-gradient(180deg,rgba(201,168,76,.10),rgba(201,168,76,.02));padding:22px 24px;text-align:center}
+.promo .p-tag{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:700}
+.promo h3{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,4vw,34px);letter-spacing:1px;line-height:1.05;margin:6px 0 8px}
+.promo h3 span{color:var(--gold)}
+.promo p{font-size:14px;color:var(--muted);line-height:1.6}
+.promo .p-end{margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gray)}
+.promo .p-end b{color:var(--gold-light);font-weight:700}
+.promo-line{border-left:3px solid var(--gold);background:rgba(201,168,76,.07);padding:12px 16px;margin:18px 0 0;font-size:14px;color:var(--white)}
+.promo-line b{color:var(--gold);font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:12px;margin-right:6px}
+.perks{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:32px}
+.perk{background:var(--card);padding:26px 24px}
+.perk .off{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--gold)}
+.perk h4{font-family:'Barlow Condensed',sans-serif;font-size:20px;letter-spacing:1px;text-transform:uppercase;margin:2px 0 6px}
+.perk p{font-size:14px;color:var(--muted)}
+.perk .pcode{display:inline-block;margin-top:12px;border:1px dashed var(--gold-dim);padding:6px 12px;font-family:'Barlow Condensed',sans-serif;letter-spacing:3px;color:var(--gold-light)}
 </style>
 </head>
 <body>
 
+<a href="#packages" class="promo-strip" id="promoStrip" hidden></a>
 <nav class="nav" id="nav">
   <a href="#top" class="nav-logo"><img src="logo-wide.png" alt="Apex Division"></a>
   <ul class="nav-links">
@@ -395,6 +417,7 @@ a.lx:hover{background:var(--card-2)}
     <a href="#" class="btn btn-line" data-link="calendly">Book A Free Call</a>
   </div>
   <div class="hero-note">No pressure · No commitment · Free</div>
+  <div class="promo" id="promo" hidden></div>
   <div class="stat-bar">
     <div class="stat"><b>NASM</b><span>Certified Coaches</span></div>
     <div class="stat"><b>100%</b><span>Custom Plans</span></div>
@@ -518,6 +541,7 @@ a.lx:hover{background:var(--card-2)}
     <div class="eyebrow rv">1-on-1 Coaching</div>
     <h2 class="h2 rv">A COACH IN <span>YOUR CORNER.</span></h2>
     <p class="lead rv">A custom plan built for you, real check-ins, and a coach who adjusts every step of the way. Not sure which tier fits? <a href="#quiz" style="color:var(--gold);border-bottom:1px solid var(--gold-dim)">Take the quiz</a> or book a free call.</p>
+    <div class="promo-line" data-promo-line hidden></div>
 
     <div class="sub-head rv" id="coaching">1-on-1 Coaching · Monthly</div>
     <div class="grid g3 rv">
@@ -586,8 +610,9 @@ a.lx:hover{background:var(--card-2)}
   <div class="wrap">
     <div class="eyebrow rv">Apex Local · Northshore, Louisiana</div>
     <h2 class="h2 rv">TRAIN IN PERSON. <span>WITH APEX.</span></h2>
-    <p class="lead rv">One-on-one training at your home, a park, or your gym, coached by Jaxon and Anthony. Same Apex programming and accountability, with a certified coach next to you for every rep.</p>
+    <p class="lead rv">One-on-one training at Anytime Fitness in Mandeville, or at your home, a park, or your gym, coached by Jaxon and Anthony. Same Apex programming and accountability, with a certified coach next to you for every rep.</p>
     <div class="towns rv"><span>Mandeville</span><span>Covington</span><span>Madisonville</span><span>Lacombe</span><span>Abita Springs</span></div>
+    <div class="promo-line" data-promo-line hidden></div>
 
     <div class="sub-head rv">Monthly Session Packs</div>
     <div class="grid g4 rv">
@@ -635,7 +660,7 @@ a.lx:hover{background:var(--card-2)}
       <a class="lx" href="https://buy.stripe.com/aFadRa6Wf3617P14hvawo0l"><div><b>Bring A Partner</b><small>Per session for a second person training with you.</small></div><div class="ap">+$25</div></a>
       <a class="lx" href="https://calendly.com/zerx123/in-person-meet-greet" target="_blank" rel="noopener"><div><b>First Meeting</b><small>20-minute meet-and-greet and movement screen.</small></div><div class="ap">Free</div></a>
     </div>
-    <p class="local-note rv">60-minute sessions at a park, your gym, or your home. In-home training adds $10 a session for travel, and you can add it at checkout. Every pack is billed monthly and includes your Apex plan for the days you train on your own. Fully insured. NASM-certified and CPR/AED-certified coaches.</p>
+    <p class="local-note rv">60-minute sessions at Anytime Fitness Mandeville, a park, your gym, or your home. In-home training adds $10 a session for travel, and you can add it at checkout. Every pack is billed monthly and includes your Apex plan for the days you train on your own. Fully insured. NASM-certified and CPR/AED-certified coaches.</p>
 
     <div class="sub-head rv">How It Works</div>
     <div class="local-steps rv">
@@ -723,6 +748,7 @@ a.lx:hover{background:var(--card-2)}
     <div class="eyebrow rv">Self-Guided Programs</div>
     <h2 class="h2 rv">RATHER TRAIN <span>ON YOUR OWN?</span></h2>
     <p class="lead rv">Not ready for a coach yet? Our programs give you the exact plan we use with clients, phase by phase, and you run it yourself. One payment, yours to keep.</p>
+    <div class="promo-line" data-promo-prog hidden></div>
     <div class="grid g4 rv" style="margin-top:36px">
       <div class="pcard"><span class="badge">Fat Loss</span><h4>The Cut Blueprint</h4><div class="price">$47 — One Time</div><p>8-week fat loss system. Flexible calorie strategy, simple cardio, and training that keeps your muscle while the fat comes off.</p>
         <ul class="vstack"><li><span>The Cut Blueprint</span><b>$47</b></li><li><span>Recovery Blueprint</span><b>Free <em>$25 value</em></b></li><li><span>Apex Form Library access</span><b>Free <em>$47 value</em></b></li><li class="vt"><span>Total value $119</span><b>You pay $47</b></li></ul>
@@ -738,6 +764,17 @@ a.lx:hover{background:var(--card-2)}
         <a href="#" class="plink" data-link="custom">Get My Custom Plan →</a></div>
     </div>
     <p class="local-note rv">Want it built around you instead? <a href="#" data-link="calendly" style="color:var(--gold)">Book a free call</a> and we'll show you what coaching would look like.</p>
+  </div>
+</section>
+
+<!-- PARTNER PERKS (shows only when a perk has a code + link in promo.js) -->
+<section id="perks" hidden>
+  <div class="wrap">
+    <div class="eyebrow">Member Perks</div>
+    <h2 class="h2">PERKS FOR <span>APEX CLIENTS.</span></h2>
+    <p class="lead">Every Apex client gets member-only discounts from brands we trust. Your code is on your welcome page after checkout.</p>
+    <div class="perks" id="perkGrid"></div>
+    <p class="local-note">Disclosure: Apex Division may earn a commission when you buy through our partner codes. It doesn't change your price beyond the discount. Supplements are optional and never required to follow your plan. Talk to your doctor before starting any supplement.</p>
   </div>
 </section>
 
@@ -790,6 +827,7 @@ a.lx:hover{background:var(--card-2)}
 <div class="mcta" id="mcta"><a href="#quiz" class="btn btn-gold">Find My Plan — 60 Sec</a></div>
 <div class="toast" id="toast"></div>
 
+<script src="promo.js"></script>
 <script>
 /* =========================================================
    EDIT YOUR LINKS HERE — this is the only place to change them.
@@ -987,6 +1025,27 @@ document.querySelectorAll('[data-pack]').forEach(a=>a.addEventListener('click',(
   });
 })();
 function toastMsg(m){let t=document.querySelector('.toast');if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t)}t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),4200)}
+/* ---------- promo + perks (config in promo.js) ---------- */
+(function(){
+  var P=window.apexPromo&&apexPromo();
+  if(P){
+    var end=new Date(P.end).toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'America/Chicago'});
+    var b=document.getElementById('promo');
+    b.innerHTML='<div class="p-tag">'+P.tag+'</div><h3>'+P.title+'</h3><p>'+P.text+'</p><div class="p-end">Ends <b>'+end+'</b></div>';
+    b.hidden=false;
+    var st=document.getElementById('promoStrip');
+    st.innerHTML=P.tag+'<span class="ps-mid"> · '+(P.id==='founding'?'Lock your rate for good':P.id==='bf'?'Gift a friend a free Custom Program':'Join the 6-Week Challenge')+'</span> · Ends '+end+' <u>See plans →</u>';
+    st.hidden=false;document.body.classList.add('has-strip');
+    var fit=function(){document.body.style.setProperty('--strip-h',st.offsetHeight+'px');};fit();addEventListener('resize',fit);
+    document.querySelectorAll('[data-promo-line]').forEach(function(el){el.innerHTML='<b>'+P.tag+'</b>'+P.short;el.hidden=false;});
+    if(P.prog) document.querySelectorAll('[data-promo-prog]').forEach(function(el){el.innerHTML='<b>'+P.tag+'</b>'+P.prog;el.hidden=false;});
+  }
+  var K=window.apexPerks?apexPerks():[];
+  if(K.length){
+    document.getElementById('perkGrid').innerHTML=K.map(function(k){return '<div class="perk"><div class="off">'+k.off+'</div><h4>'+k.name+'</h4><p>'+k.what+'. Exclusive to Apex coaching, in-person and program clients.</p><span class="pcode">Code on your welcome page</span></div>';}).join('');
+    document.getElementById('perks').hidden=false;
+  }
+})();
 </script>
 </body>
 </html>
