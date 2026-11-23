@@ -176,7 +176,9 @@ input::placeholder,textarea::placeholder{color:#5f5c56}
 
 <noscript><p style="padding:40px 20px;text-align:center">Enrollment needs JavaScript. Please enable it, or email contact@apexdivisioncoaching.com.</p></noscript>
 
+<script src="promo.js"></script>
 <script>
+const PROMO=window.apexPromo?apexPromo():null;
 /* =========================================================
    ENROLLMENT SETTINGS — the only part you should need to edit
    ========================================================= */
@@ -469,11 +471,12 @@ function makeRef(){ const d=new Date(), p=n=>String(n).padStart(2,'0'); const r=
 function v(x){ return Array.isArray(x)?x.join(', '):(x==null||x===''?'—':String(x)); }
 function buildPayload(ref, signedAt){
   const P=PLANS[D.plan], o={};
-  o._subject=`New ${P.local?'IN-PERSON ':''}Enrollment: ${D.first} ${D.last} · ${P.name}${redFlags()?' · CLEARANCE NEEDED':''}`;
+  o._subject=`New ${P.local?'IN-PERSON ':''}Enrollment: ${D.first} ${D.last} · ${P.name}${PROMO&&!['single','transform'].includes(D.plan)?' · '+PROMO.tag.toUpperCase():''}${redFlags()?' · CLEARANCE NEEDED':''}`;
   o._template='table'; o._captcha='false';
   const add=(k,val)=>{ o[k]=v(val); };
   add('00 Reference',ref); add('00 Submitted',signedAt);
   add('01 Plan',`${P.name} (${P.price}${P.per})`);
+  if(PROMO&&!['single','transform'].includes(D.plan)) add('01b Promo', PROMO.bonus);
   add('02 Payment',isSet(CONFIG.stripe[D.plan])?'Sent to Stripe checkout':'SEND PAYMENT LINK MANUALLY');
   add('03 Health flag',redFlags()?'DOCTOR CLEARANCE REQUIRED before training':(anyYes()?'Has health notes — review':'None'));
   STEPS.forEach((st,si)=>{ if(!st.fields) return; flatFields(st).forEach(f=>{ if(f.show&&!f.show(D)) return; add(`${si+1}·${st.name} — ${f.label}`, D[f.k]); }); });
@@ -516,6 +519,7 @@ async function submit(){
   try{ localStorage.removeItem(DRAFT_KEY); }catch(e){}
   if(isSet(link)){
     const u=new URL(link); u.searchParams.set('prefilled_email',D.email); u.searchParams.set('client_reference_id',ref);
+    if(PROMO&&PROMO.codes&&['starter','standard','elite','local4','local8','local12','hybrid'].includes(D.plan)) u.searchParams.set('prefilled_promo_code',PROMO.codes.monthly);
     showDone(done, u.toString());
     setTimeout(()=>{ location.href=u.toString(); },2200);
   } else showDone(done, null);
